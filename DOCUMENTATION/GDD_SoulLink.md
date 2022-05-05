@@ -3,8 +3,12 @@
 ## _Game Design Document_
 
 ---
+![Tec Logo](Images/LogoTec.jpeg)
+![Logo Soul Link](Images/Logo.png)
 
-##### **Copyright notice / author information / boring legal stuff nobody likes**
+##### Gerardo Gutiérrez, A01029422
+##### Mateo Herrera, A01751912
+##### Ana Paula Katsuda, A01025303
 
 ##
 ## _Index_
@@ -16,21 +20,18 @@
     1. [Summary](#summary)
     2. [Gameplay](#gameplay)
     3. [Mindset](#mindset)
+    4. [Lore and Background](#lore--background)
 3. [Technical](#technical)
     1. [Screens](#screens)
     2. [Controls](#controls)
     3. [Mechanics](#mechanics)
+        1. [Game Builder](#game-builder)
+        2. [Game](#game)
 4. [Level Design](#level-design)
     1. [Themes](#themes)
-        1. Ambience
-        2. Objects
-            1. Ambient
-            2. Interactive
-        3. Challenges
     2. [Game Flow](#game-flow)
 5. [Development](#development)
-    1. [Abstract Classes](#abstract-classes--components)
-    2. [Derived Classes](#derived-classes--component-compositions)
+    1. [Classes](#classes)
 6. [Graphics](#graphics)
     1. [Style Attributes](#style-attributes)
     2. [Graphics Needed](#graphics-needed)
@@ -79,16 +80,22 @@ The light: finding the light is Bingu’s purpose, they fell into the cave follo
 ### **Screens**
 
 1. Title Screen (Home)
+    ![TitleSc](Images/TitleScreen.png)
 2. Play Game
     1. Choosing “Jugar”
+        ![Choose Level](Images/ChooseLevel.png)
     2. HUD
+        ![HUD](Images/HUD.png)
     3. Pause
+        ![Pause](Images/Pause.png)
 3. Level Creation 
     1. Map builder (Choosing “Crear Nivel”)
+        ![Map Builder](Images/MapBuilder.png)
     2. Room builder (Entering room with double click)
+        ![Room Builder](Images/RoomBuilder.png)
 4. End Screen & Stats
+    ![End Screen](Images/EndScreen.png)
 
-_(example)_
 
 ### **Controls**
 
@@ -204,7 +211,7 @@ On the other hand, controls for playing the game will include moving by using th
 
 ### **Classes**
 
-**Game Builder**
+#### **Game Builder**
 1. General
     1. GUI (Game User Interface)
     2. ElementPlacement
@@ -218,7 +225,7 @@ On the other hand, controls for playing the game will include moving by using th
 4. Room
     1. DoorCreation
 
-**Game**
+#### **Game**
 1. General
     1. GUI (Game User Interface)
     2. GamePause
@@ -353,7 +360,7 @@ On the other hand, controls for playing the game will include moving by using th
 
 The colors to be used in the scenes and the general aesthetic of the game are a palette of light to dark blues with gray and yellow (see the game logo as reference). Objects, the main character, and enemies might vary in colors, aiming to create contrast with the main scene and general style. Additionally, the graphic style to be used is cartoony, smooth curvatures, shaded/illuminated objects and black outlines only for elements (main character, enemies, objects). Elements that are repeated but have different characteristics, such as arrows, will change colors but will maintain their base style. 
 The general color palette looks as follows: 
-
+![Color Palette](Images/SoulLink%20Paleta%20General.png)
 
 Interactions with different elements will look as follows: 
 * Damage: when the player or an enemy gets damaged, they will flicker. 
@@ -374,7 +381,7 @@ Interactions with different elements will look as follows:
         5. rolling
         6. damage taken
         7. death
-        8. 
+        ![Main Character](Images/MainCharacter.png)
 
 2. Enemies
     1. Bat
@@ -382,51 +389,51 @@ Interactions with different elements will look as follows:
         2. flying
         3. damage
         4. death
-        5. 
+        ![Bat](Images/Bat.png)
 
     2. Ant
         1. idle
         2. crawling
         3. damage
         4. death
-        5. 
+        ![Ant](Images/Ant.png)
 
     3. Slime
         1. idle
         2. sliding
         3. damage
         4. death
-        5. 
+        ![Slime](Images/Slime.png)
 
     4. Ghost
         1. idle
         2. float
         3. damage
         4. death
-        5. 
+        ![Ghost](Images/Ghost.png)
 
     5. Spider
         1. idle
         2. crawling
         3. damage
         4. death
-        5. 
+        ![Spider](Images/Spider.png)
 
 3. Room
     1. Walls
     2. Door (matching Stone Bricks)
 4. Ambient
     1. Dirt surface
-        1. 
+        ![Dirt](Images/Dirt.png)
 
     2. Pointy rocks / spike
-        1. 
+        ![Spikes](Images/Spike.png)
 
     3. Rocks
-        1. 
+        ![Rocks](Images/Rock.png)
 
     4. Bright rocks
-        1. 
+        ![Bright Rock](Images/BrightRock.png)
 
 5. Other
     1. Arrow
@@ -434,7 +441,7 @@ Interactions with different elements will look as follows:
         2. recall
     2. Health
     3. PowerUps 
-    4. 
+    ![Arrow](Images/Arrow.png)
 
 
 
