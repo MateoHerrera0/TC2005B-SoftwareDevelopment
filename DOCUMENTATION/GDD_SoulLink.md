@@ -86,104 +86,184 @@ The light: finding the light is Bingu’s purpose, they fell into the cave follo
 3. Level Creation 
     1. Map builder (Choosing “Crear Nivel”)
     2. Room builder (Entering room with double click)
-5. End Credits
+4. End Screen & Stats
 
 _(example)_
 
 ### **Controls**
 
-How will the player interact with the game? Will they be able to choose the controls? What kind of in-game events are they going to be able to trigger, and how? (e.g. pressing buttons, opening doors, etc.)
+The controls for the game designer will be based on a drag and drop interaction. In this way, the user will be able to easily insert elements with different functionalities (either enemies, objects, rooms, etc) into the dungeon. This means that the mouse and mouse click are the controls that the designer will be able to use. To add an object, they will need to move the mouse into the object menu, click the object they want, move the mouse to the position in which they want to add the object, and click a second time to release the object. 
+
+On the other hand, controls for playing the game will include moving by using the WASD keys (right - D, left - A, up - W, down - S), dodging obstacles (rolling - spacebar), aim (mouse movement), shooting an arrow (mouse click - 1º time), retrieving the arrow (mouse click - 2º time). 
 
 ### **Mechanics**
 
-Are there any interesting mechanics? If so, how are you going to accomplish them? Physics, algorithms, etc.
+**Game Builder**
+
+1. General mechanics
+    - Elements menu: the elements menu will always appear on the screen while the user is in the game builder. It will include a section for obstacles, for   enemies, for the boss and for the rooms. Clicking to any of these sections will display a window with different options for the selected section.
+    - Play test: The user will have to play test their level and complete it before being able to upload the level.
+    - Game upload: Once completed, the player will be able to upload the level into the server by clicking the green checkmark.
+2. Rooms
+    - Room Selection: The user will be able to select a room using their mouse and drop it into a 3x3 grid to deploy it inside the dungeon. This room will be an empty canvas in which the designer will be able to drag and drop different enemies and obstacles of their choosing. To make an acceptable level, the designers will have to put one starting room and one final room. These rooms will be identifiable inside the game builder.
+    - Room Placement: When placing a room, the room will snap into the nearest available spot inside the grid when dropped.
+    - Re-place Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to move the room.
+    - Delete Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to delete the room.
+    - Starting Room: The starting room will be an empty room that will have the special characteristic of being the place where the player spawns.
+    - Final Room: The final room will be the room in which a boss will spawn. This room also signals the final area of the game, and reaching it plus beating the boss will serve as the main objective of the game.
+    - Entering individual rooms: the user will be able to double-click a specific room in order to access room editing. 
+    - Room Link: The user will have the option to link two adjacent rooms with a door while inside the room.
+3. Enemies/Obstacles
+    - Enemy/Obstacle Placement: The user will be able to select and place enemies and obstacles inside a normal room (excludes staring and final room). This will be achieved using a drag and drop mechanic, where the user can click an object/obstacle and place it inside the room by clicking inside it again. The object/obstacle will snap into the nearest available spot inside a grid.
+    - Enemy Customization: The user will be able to double click an already placed enemy and edit their hit points and abilities. The abilities include splitting into two after killing the enemy the first time, phasing through walls, increased velocity and shooting projectiles. The user will also be able to select what object drops from the enemy.
+    - Re-place Enemy/Obstacle: When already placed, clicking the enemy/obstacle will bring up a little menu menu where the user will be able to select an option to move the room. 
+    - Delete Enemy/Obstacle: When already placed, clicking the enemy/obstacle once will bring up a little menu where the user will be able to select an option to delete the room.
+4. Boss
+    - Boss Customization: The boss is a unique mob that can only be placed inside a final room. This enemy can be customized with multiple abilities.
+
+**Game**
+1. General Mechanics
+    - Completion: The level will be completed when the player reaches the final room and beats the boss inside it. Upon completion, an end screen will be displayed containing relevant player stats and the option to replay the level or quit to the main menu.
+    - Pause Game: While playing, the user will be able pause the game and have the option to return to the main menu or replay the level.
+2. Player 
+    - Movement: The player will be able to use the WASD keys to move in the four cardinal directions and diagonally.
+    - Dodging: The player will be able to perform a dodge mechanic when pressing the spacebar key. The dodge will align to movement direction.
+    - Pick Up Item: The player will be able to pick up hearts or power ups when walking over them.
+    - Arrow Aim: The player will be able to move the mouse to assign a direction to the arrow. It can be directed 360º in the 2D screen and it will be able to simulate a flying trajectory to the selected orientation. 
+    - Arrow shooting: Once the mouse is placed in the wanted direction, the player will only need to left-click in order to shoot it. Once the arrow touches an object, it will fall (it will not bounce).
+    - Arrow retrieval: If the player doesn’t have the arrow in the main character’s hand, they can left-click (anywhere in the screen except in the buttons), so it returns to the character. The arrow will be able to return in the middle of the trajectory, or after colliding with an object (or the walls). 
+    - Damage: When touched by enemies/projectile/trap, the player will lose a hit point. 
+    - Death: The main character has a total of 4 hit points and will die when losing the last one, meaning that the player has lost the game. 
+3. Rooms
+    - Room Lock: When entering a room the doors will lock, they will open until the enemies inside the room are defeated.
+4. Enemy/Boss
+    - Movement: The enemies will move according to the ability set by the game designer. Most of them will try to get close to the player, unless the shooting ability is selected, since those enemies will try to get away.
+    - Attack: The enemies will attack according to the ability set by the game designer. Most of them will try to get close to the player to hurt them, unless the shooting ability is selected, since those enemies will attack from a distance.
+    - Damage: The enemies will take damage when hit by the arrow, they will have a graphic response when hurt.
+    - Death: When damage depletes hitpoints, they will die and disappear.
+5. Obstacles
+    - Traps: The traps will damage the player when contact is made.
+    - Dirt: Dirt will slow down player speed when in contact.
+    - Rocks: the rocks will limit the player’s movement by interfering with it. They will act as a collider that doesn’t allow the player to go through them (they will have to surround them).
 
 ## _Level Design_
 
 ---
 
-_(Note : These sections can safely be skipped if they&#39;re not relevant, or you&#39;d rather go about it another way. For most games, at least one of them should be useful. But I&#39;ll understand if you don&#39;t want to use them. It&#39;ll only hurt my feelings a little bit.)_
-
 ### **Themes**
 
-1. Forest
+1. Cave
     1. Mood
         1. Dark, calm, foreboding
     2. Objects
-        1. _Ambient_
-            1. Fireflies
-            2. Beams of moonlight
-            3. Tall grass
-        2. _Interactive_
-            1. Wolves
-            2. Goblins
-            3. Rocks
-2. Castle
-    1. Mood
-        1. Dangerous, tense, active
-    2. Objects
-        1. _Ambient_
-            1. Rodents
-            2. Torches
-            3. Suits of armor
-        2. _Interactive_
-            1. Guards
-            2. Giant rats
-            3. Chests
-
-_(example)_
+        1. Ambient
+            1. Rocks
+            2. Bright rocks
+            3. Dirt 
+        2. Interactive
+            1. Bats
+            2. Ant
+            3. Dividing Slime
+            4. Ghost
+            5. Venom spitting spider
+            6. Boss
+            7. Rocks
+            8. Arrows
+            9. HealthBoost powerUp
+            10. Health heart
+            11. SpeedBoost powerUp
 
 ### **Game Flow**
 
-1. Player starts in forest
-2. Pond to the left, must move right
-3. To the right is a hill, player jumps to traverse it (&quot;jump&quot; taught)
-4. Player encounters castle - door&#39;s shut and locked
-5. There&#39;s a window within jump height, and a rock on the ground
-6. Player picks up rock and throws at glass (&quot;throw&quot; taught)
-7. … etc.
+**Game Builder**
+1. Player starts in main menu
+2. Player selects level builder option
+3. Player drags and drops rooms into maze grid 
+4. Player double clicks rooms
+5. Player drags and drops enemies/obstacles inside rooms
+6. Player double clicks enemies to assign abilities
+7. Player double clicks final room
+8. Player drags and drops boss
+9. Player double clicks boss
+10. Player assigns boss abilities
+11. Player play tests level
+12. Player publishes level to database
 
-_(example)_
+**Game**
+1. Player starts in Cave
+2. Player can’t go back, must move to another door placed in one of the walls of the room.
+3. Around the room are objects/obstacles that the player must avoid.
+4. Player encounters an enemy - the enemy may be defeated by throwing the player’s arrow and hitting the enemy with it.
+5. Once the objective of the current room is fulfilled/completed, the player can pass through the door onto the next stage area.
+6. Player may acquire different arrows that do more damage than the standard arrow, or that behave differently.
+7. Player may pick-up powerUps that change the Health status or the speed at which the player moves.
 
 ## _Development_
 
 ---
 
-### **Abstract Classes / Components**
+### **Classes**
 
-1. BasePhysics
-    1. BasePlayer
-    2. BaseEnemy
-    3. BaseObject
-2. BaseObstacle
-3. BaseInteractable
+**Game Builder**
+1. General
+    1. GUI (Game User Interface)
+    2. ElementPlacement
+    3. DeleteElement
+    4. CheckElementPosition
+    5. PlayTest
+2. Enemy
+    1. EnemyCustomization
+3. Boss
+    1. BossCustomization
+4. Room
+    1. DoorCreation
 
-_(example)_
-
-### **Derived Classes / Component Compositions**
-
-1. BasePlayer
-    1. PlayerMain
-    2. PlayerUnlockable
-2. BaseEnemy
-    1. EnemyWolf
-    2. EnemyGoblin
-    3. EnemyGuard (may drop key)
-    4. EnemyGiantRat
-    5. EnemyPrisoner
-3. BaseObject
-    1. ObjectRock (pick-up-able, throwable)
-    2. ObjectChest (pick-up-able, throwable, spits gold coins with key)
-    3. ObjectGoldCoin (cha-ching!)
-    4. ObjectKey (pick-up-able, throwable)
-4. BaseObstacle
-    1. ObstacleWindow (destroyed with rock)
-    2. ObstacleWall
-    3. ObstacleGate (watches to see if certain buttons are pressed)
-5. BaseInteractable
-    1. InteractableButton
-
-_(example)_
+**Game**
+1. General
+    1. GUI (Game User Interface)
+    2. GamePause
+    3. GameClear
+    4. GameStart
+    5. Time
+    6. Points
+2. Map
+    1. Player
+    2. PlayerMovement
+    3. PlayerShooting
+    4. PlayerLife
+    5. PlayerPowerUps
+    6. PlayerAnimation
+3. Enemy
+    1. EnemyFlying
+    2. EnemySplitting
+    3. EnemyPhasing
+    4. EnemyShooting
+    5. EnemyMovement
+    6. EnemyLife
+    7. EnemyDropItem
+    8. EnemyAnimation
+        1. Spider
+        2. Slime
+        3. Ghost
+        4. Ant
+4. Boss
+    1. BossMovement
+    2. BossAnimation
+    3. BossLife
+5. Room
+    1. RoomClose
+    2. RoomClearOpen
+6. Arrow
+    1. ArrowMechanics
+    2. ArrowPowerUp
+7. Pick Up Objects
+    1. HealPlayer
+    2. SpeedBoost
+    3. HealthBoost
+8. Obstacles
+    1. ObstacleRock 
+    2. ObstacleDirt
+    3. ObstacleSpikes
 
 ## _Graphics_
 
