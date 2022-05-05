@@ -1,4 +1,4 @@
-# **Game Name Here**
+# **Soul Link**
 
 ## _Game Design Document_
 
@@ -46,15 +46,31 @@
 
 ### **Summary**
 
-Sum up your game idea in 2 sentences. A kind of elevator pitch. Keep it simple!
+Given the difficulty in teaching video game design, Soul Link is an intuitive and simple dungeon crawler type game in which the user has the ability to create a dungeon and play in it. Said dungeon can have many “rooms”, enemies and traps chosen by the game master (user). The player will need to use only one arrow to traverse the deadly maze, shooting it and recalling it as they go. The target audience for this game is anyone who is interested in game design or simply likes dungeon crawler type games.
 
 ### **Gameplay**
 
-What should the gameplay be like? What is the goal of the game, and what kind of obstacles are in the way? What tactics should the player use to overcome them?
+Being a video game focused on design, the gameplay consists of the use of tools (obstacles and enemies) to create a level. The user is free to add the elements as they wish (considering limits such as not adding two elements in the same place) and, at the end, then test their level. Specifically, the user will be able to add rooms to the general map, and subsequently choose a room to edit and insert elements in it. 
+
+Regarding the built level itself, the gameplay is based around classic dungeon crawler mechanics. The character has the ability to shoot at enemies with an arrow that the player will need to recall before being able to shoot again. This shoot/recall action is the way in which the player will deal damage to enemies, and it is the main mechanic the game designers will have to keep in mind in order to create interesting levels. Furthermore, the player will also be able to explore the dungeon using the WASD keys, as well as dodge incoming damage with the spacebar key.
+
+The main goal of the game is to reach the final room inside the dungeon and beat the boss inside the room, which the game designer will have the opportunity to customize. To do this, the player will have to explore the rooms inside the dungeon and complete the objectives set in the individual rooms. Upon completion, the game will provide relevant statistics to the player, such as time taken for completion and points acquired during gameplay, as well as presenting them with the options to exit to the main menu or retry the level.
 
 ### **Mindset**
 
-What kind of mindset do you want to provoke in the player? Do you want them to feel powerful, or weak? Adventurous, or nervous? Hurried, or calm? How do you intend to provoke those emotions?
+Regarding the game design, we want the user to feel creative, comfortable and adventurous. This will be achieved by having enough customizable game options to explore their creativity and develop a sense of game design, as well as providing them with an intuitive platform that will motivate them to keep creating even when frustrating design choices may come up.
+
+As for the player experience, we intend to provoke excitement and, to a certain extent, uncertainty. This will happen organically, as the levels will vary in difficulty and complexity depending on the creations different game designers come up with. Furthermore, we plan to keep the players entertained by giving them responsive game mechanics and an ever decreasing health bar that will need to be replenished by killing enemies.
+
+### **Lore & Background**
+
+Bingu: they follow their instinct constantly, often distinguishing right from wrong. Bingu strives to be like their late deceased mother while behaving a bit recklessly like his father. Bingu has always been curious and adventurous, he does not scare easily.
+
+The night: The day that Bingu fell into the cave, they were returning home when suddenly, a light appeared in front of them. Bingu feels drawn to follow the light, and as the luminous body flys through the darkness of the night Bingu chases without a second thought. Bingu, distracted by the chase and their feelings, falls through a hole in the ground, finding themselves in a cave that has no apparent exit.
+
+The Arrow: after falling into the cave, an arrow of mysterious origin appears for Bingu to use fending off from the enemy’s that lurk in the dark. It’s powers and limits are unknown.
+
+The light: finding the light is Bingu’s purpose, they fell into the cave following it. The question of who the light is is persistent, as Bingu has the feeling that the light's presence is familiar, maybe a parental figure long lost to them.
 
 ## _Technical_
 
@@ -62,13 +78,15 @@ What kind of mindset do you want to provoke in the player? Do you want them to f
 
 ### **Screens**
 
-1. Title Screen
-    1. Options
-2. Level Select
-3. Game
-    1. Inventory
-    2. Assessment / Next Level
-4. End Credits
+1. Title Screen (Home)
+2. Play Game
+    1. Choosing “Jugar”
+    2. HUD
+    3. Pause
+3. Level Creation 
+    1. Map builder (Choosing “Crear Nivel”)
+    2. Room builder (Entering room with double click)
+5. End Credits
 
 _(example)_
 
