@@ -108,50 +108,50 @@ On the other hand, controls for playing the game will include moving by using th
 **Game Builder**
 
 1. General mechanics
-    - Elements menu: the elements menu will always appear on the screen while the user is in the game builder. It will include a section for obstacles, for   enemies, for the boss and for the rooms. Clicking to any of these sections will display a window with different options for the selected section.
-    - Play test: The user will have to play test their level and complete it before being able to upload the level.
-    - Game upload: Once completed, the player will be able to upload the level into the server by clicking the green checkmark.
+    * Elements menu: the elements menu will always appear on the screen while the user is in the game builder. It will include a section for obstacles, for   enemies, for the boss and for the rooms. Clicking to any of these sections will display a window with different options for the selected section.
+    * Play test: The user will have to play test their level and complete it before being able to upload the level.
+    * Game upload: Once completed, the player will be able to upload the level into the server by clicking the green checkmark.
 2. Rooms
-    - Room Selection: The user will be able to select a room using their mouse and drop it into a 3x3 grid to deploy it inside the dungeon. This room will be an empty canvas in which the designer will be able to drag and drop different enemies and obstacles of their choosing. To make an acceptable level, the designers will have to put one starting room and one final room. These rooms will be identifiable inside the game builder.
-    - Room Placement: When placing a room, the room will snap into the nearest available spot inside the grid when dropped.
-    - Re-place Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to move the room.
-    - Delete Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to delete the room.
-    - Starting Room: The starting room will be an empty room that will have the special characteristic of being the place where the player spawns.
-    - Final Room: The final room will be the room in which a boss will spawn. This room also signals the final area of the game, and reaching it plus beating the boss will serve as the main objective of the game.
-    - Entering individual rooms: the user will be able to double-click a specific room in order to access room editing. 
-    - Room Link: The user will have the option to link two adjacent rooms with a door while inside the room.
+    * Room Selection: The user will be able to select a room using their mouse and drop it into a 3x3 grid to deploy it inside the dungeon. This room will be an empty canvas in which the designer will be able to drag and drop different enemies and obstacles of their choosing. To make an acceptable level, the designers will have to put one starting room and one final room. These rooms will be identifiable inside the game builder.
+    * Room Placement: When placing a room, the room will snap into the nearest available spot inside the grid when dropped.
+    * Re-place Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to move the room.
+    * Delete Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to delete the room.
+    * Starting Room: The starting room will be an empty room that will have the special characteristic of being the place where the player spawns.
+    * Final Room: The final room will be the room in which a boss will spawn. This room also signals the final area of the game, and reaching it plus beating the boss will serve as the main objective of the game.
+    * Entering individual rooms: the user will be able to double-click a specific room in order to access room editing. 
+    * Room Link: The user will have the option to link two adjacent rooms with a door while inside the room.
 3. Enemies/Obstacles
-    - Enemy/Obstacle Placement: The user will be able to select and place enemies and obstacles inside a normal room (excludes staring and final room). This will be achieved using a drag and drop mechanic, where the user can click an object/obstacle and place it inside the room by clicking inside it again. The object/obstacle will snap into the nearest available spot inside a grid.
-    - Enemy Customization: The user will be able to double click an already placed enemy and edit their hit points and abilities. The abilities include splitting into two after killing the enemy the first time, phasing through walls, increased velocity and shooting projectiles. The user will also be able to select what object drops from the enemy.
-    - Re-place Enemy/Obstacle: When already placed, clicking the enemy/obstacle will bring up a little menu menu where the user will be able to select an option to move the room. 
-    - Delete Enemy/Obstacle: When already placed, clicking the enemy/obstacle once will bring up a little menu where the user will be able to select an option to delete the room.
+    * Enemy/Obstacle Placement: The user will be able to select and place enemies and obstacles inside a normal room (excludes staring and final room). This will be achieved using a drag and drop mechanic, where the user can click an object/obstacle and place it inside the room by clicking inside it again. The object/obstacle will snap into the nearest available spot inside a grid.
+    * Enemy Customization: The user will be able to double click an already placed enemy and edit their hit points and abilities. The abilities include splitting into two after killing the enemy the first time, phasing through walls, increased velocity and shooting projectiles. The user will also be able to select what object drops from the enemy.
+    * Re-place Enemy/Obstacle: When already placed, clicking the enemy/obstacle will bring up a little menu menu where the user will be able to select an option to move the room. 
+    * Delete Enemy/Obstacle: When already placed, clicking the enemy/obstacle once will bring up a little menu where the user will be able to select an option to delete the room.
 4. Boss
-    - Boss Customization: The boss is a unique mob that can only be placed inside a final room. This enemy can be customized with multiple abilities.
+    * Boss Customization: The boss is a unique mob that can only be placed inside a final room. This enemy can be customized with multiple abilities.
 
 **Game**
 1. General Mechanics
-    - Completion: The level will be completed when the player reaches the final room and beats the boss inside it. Upon completion, an end screen will be displayed containing relevant player stats and the option to replay the level or quit to the main menu.
-    - Pause Game: While playing, the user will be able pause the game and have the option to return to the main menu or replay the level.
+    * Completion: The level will be completed when the player reaches the final room and beats the boss inside it. Upon completion, an end screen will be displayed containing relevant player stats and the option to replay the level or quit to the main menu.
+    * Pause Game: While playing, the user will be able pause the game and have the option to return to the main menu or replay the level.
 2. Player 
-    - Movement: The player will be able to use the WASD keys to move in the four cardinal directions and diagonally.
-    - Dodging: The player will be able to perform a dodge mechanic when pressing the spacebar key. The dodge will align to movement direction.
-    - Pick Up Item: The player will be able to pick up hearts or power ups when walking over them.
-    - Arrow Aim: The player will be able to move the mouse to assign a direction to the arrow. It can be directed 360º in the 2D screen and it will be able to simulate a flying trajectory to the selected orientation. 
-    - Arrow shooting: Once the mouse is placed in the wanted direction, the player will only need to left-click in order to shoot it. Once the arrow touches an object, it will fall (it will not bounce).
-    - Arrow retrieval: If the player doesn’t have the arrow in the main character’s hand, they can left-click (anywhere in the screen except in the buttons), so it returns to the character. The arrow will be able to return in the middle of the trajectory, or after colliding with an object (or the walls). 
-    - Damage: When touched by enemies/projectile/trap, the player will lose a hit point. 
-    - Death: The main character has a total of 4 hit points and will die when losing the last one, meaning that the player has lost the game. 
+    * Movement: The player will be able to use the WASD keys to move in the four cardinal directions and diagonally.
+    * Dodging: The player will be able to perform a dodge mechanic when pressing the spacebar key. The dodge will align to movement direction.
+    * Pick Up Item: The player will be able to pick up hearts or power ups when walking over them.
+    * Arrow Aim: The player will be able to move the mouse to assign a direction to the arrow. It can be directed 360º in the 2D screen and it will be able to simulate a flying trajectory to the selected orientation. 
+    * Arrow shooting: Once the mouse is placed in the wanted direction, the player will only need to left-click in order to shoot it. Once the arrow touches an object, it will fall (it will not bounce).
+    * Arrow retrieval: If the player doesn’t have the arrow in the main character’s hand, they can left-click (anywhere in the screen except in the buttons), so it returns to the character. The arrow will be able to return in the middle of the trajectory, or after colliding with an object (or the walls). 
+    * Damage: When touched by enemies/projectile/trap, the player will lose a hit point. 
+    * Death: The main character has a total of 4 hit points and will die when losing the last one, meaning that the player has lost the game. 
 3. Rooms
-    - Room Lock: When entering a room the doors will lock, they will open until the enemies inside the room are defeated.
+    * Room Lock: When entering a room the doors will lock, they will open until the enemies inside the room are defeated.
 4. Enemy/Boss
-    - Movement: The enemies will move according to the ability set by the game designer. Most of them will try to get close to the player, unless the shooting ability is selected, since those enemies will try to get away.
-    - Attack: The enemies will attack according to the ability set by the game designer. Most of them will try to get close to the player to hurt them, unless the shooting ability is selected, since those enemies will attack from a distance.
-    - Damage: The enemies will take damage when hit by the arrow, they will have a graphic response when hurt.
-    - Death: When damage depletes hitpoints, they will die and disappear.
+    * Movement: The enemies will move according to the ability set by the game designer. Most of them will try to get close to the player, unless the shooting ability is selected, since those enemies will try to get away.
+    * Attack: The enemies will attack according to the ability set by the game designer. Most of them will try to get close to the player to hurt them, unless the shooting ability is selected, since those enemies will attack from a distance.
+    * Damage: The enemies will take damage when hit by the arrow, they will have a graphic response when hurt.
+    * Death: When damage depletes hitpoints, they will die and disappear.
 5. Obstacles
-    - Traps: The traps will damage the player when contact is made.
-    - Dirt: Dirt will slow down player speed when in contact.
-    - Rocks: the rocks will limit the player’s movement by interfering with it. They will act as a collider that doesn’t allow the player to go through them (they will have to surround them).
+    * Traps: The traps will damage the player when contact is made.
+    * Dirt: Dirt will slow down player speed when in contact.
+    * Rocks: the rocks will limit the player’s movement by interfering with it. They will act as a collider that doesn’t allow the player to go through them (they will have to surround them).
 
 ## _Level Design_
 
