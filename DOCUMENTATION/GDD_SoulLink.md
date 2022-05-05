@@ -185,50 +185,177 @@ _(example)_
 
 _(example)_
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## _Graphics_
 
 ---
 
 ### **Style Attributes**
 
-What kinds of colors will you be using? Do you have a limited palette to work with? A post-processed HSV map/image? Consistency is key for immersion.
+The colors to be used in the scenes and the general aesthetic of the game are a palette of light to dark blues with gray and yellow (see the game logo as reference). Objects, the main character, and enemies might vary in colors, aiming to create contrast with the main scene and general style. Additionally, the graphic style to be used is cartoony, smooth curvatures, shaded/illuminated objects and black outlines only for elements (main character, enemies, objects). Elements that are repeated but have different characteristics, such as arrows, will change colors but will maintain their base style. 
+The general color palette looks as follows: 
 
-What kind of graphic style are you going for? Cartoony? Pixel-y? Cute? How, specifically? Solid, thick outlines with flat hues? Non-black outlines with limited tints/shades? Emphasize smooth curvatures over sharp angles? Describe a set of general rules depicting your style here.
 
-Well-designed feedback, both good (e.g. leveling up) and bad (e.g. being hit), are great for teaching the player how to play through trial and error, instead of scripting a lengthy tutorial. What kind of visual feedback are you going to use to let the player know they&#39;re interacting with something? That they \*can\* interact with something?
+Interactions with different elements will look as follows: 
+* Damage: when the player or an enemy gets damaged, they will flicker. 
+* Door open: when a door gets opened, the screen will slightly shake. 
+* New arrow: when the player holds a new arrow, the arrow section on the screen will change to the respective arrow.
+* Change rooms: The player will be able to look at a map to see the current room and their position within it. This will appear on the top menu section. 
+* Heal: when the player gets the ability to heal (takes a heart), the main character will quickly shine.
+
 
 ### **Graphics Needed**
 
 1. Characters
-    1. Human-like
-        1. Goblin (idle, walking, throwing)
-        2. Guard (idle, walking, stabbing)
-        3. Prisoner (walking, running)
-    2. Other
-        1. Wolf (idle, walking, running)
-        2. Giant Rat (idle, scurrying)
-2. Blocks
-    1. Dirt
-    2. Dirt/Grass
-    3. Stone Block
-    4. Stone Bricks
-    5. Tiled Floor
-    6. Weathered Stone Block
-    7. Weathered Stone Bricks
-3. Ambient
-    1. Tall Grass
-    2. Rodent (idle, scurrying)
-    3. Torch
-    4. Armored Suit
-    5. Chains (matching Weathered Stone Bricks)
-    6. Blood stains (matching Weathered Stone Bricks)
-4. Other
-    1. Chest
-    2. Door (matching Stone Bricks)
-    3. Gate
-    4. Button (matching Weathered Stone Bricks)
+    1. Player
+        1. idle 
+        2. walking
+        3. shooting
+        4. recalling
+        5. rolling
+        6. damage taken
+        7. death
+        8. 
 
-_(example)_
+2. Enemies
+    1. Bat
+        1. idle
+        2. flying
+        3. damage
+        4. death
+        5. 
+
+    2. Ant
+        1. idle
+        2. crawling
+        3. damage
+        4. death
+        5. 
+
+    3. Slime
+        1. idle
+        2. sliding
+        3. damage
+        4. death
+        5. 
+
+    4. Ghost
+        1. idle
+        2. float
+        3. damage
+        4. death
+        5. 
+
+    5. Spider
+        1. idle
+        2. crawling
+        3. damage
+        4. death
+        5. 
+
+3. Room
+    1. Walls
+    2. Door (matching Stone Bricks)
+4. Ambient
+    1. Dirt surface
+        1. 
+
+    2. Pointy rocks / spike
+        1. 
+
+    3. Rocks
+        1. 
+
+    4. Bright rocks
+        1. 
+
+5. Other
+    1. Arrow
+        1. different colors
+        2. recall
+    2. Health
+    3. PowerUps 
+    4. 
+
 
 
 ## _Sounds/Music_
@@ -237,73 +364,66 @@ _(example)_
 
 ### **Style Attributes**
 
-Again, consistency is key. Define that consistency here. What kind of instruments do you want to use in your music? Any particular tempo, key? Influences, genre? Mood?
-
-Stylistically, what kind of sound effects are you looking for? Do you want to exaggerate actions with lengthy, cartoony sounds (e.g. mario&#39;s jump), or use just enough to let the player know something happened (e.g. mega man&#39;s landing)? Going for realism? You can use the music style as a bit of a reference too.
-
- Remember, auditory feedback should stand out from the music and other sound effects so the player hears it well. Volume, panning, and frequency/pitch are all important aspects to consider in both music _and_ sounds - so plan accordingly!
+Instrumental vibes, nothing too exciting. Slow to medium tempo on normal gameplay, up the beat when fighting a boss. Actions have sounds, however nothing stands out more than the other, except for the chimes when the arrow is thrown.
 
 ### **Sounds Needed**
 
 1. Effects
-    1. Soft Footsteps (dirt floor)
-    2. Sharper Footsteps (stone floor)
-    3. Soft Landing (low vertical velocity)
-    4. Hard Landing (high vertical velocity)
-    5. Glass Breaking
-    6. Chest Opening
-    7. Door Opening
+    1. Soft Footsteps (Payer movement on dirt floor)
+    2. Whistling arrow through the air
+    3. Flapping bat wings
+    4. Gooey sound (slime enemy movement)
+    5. Soft tickling (ant movement)
+    6. Pitched tickling (spider movement)
+    7. Thumping footsteps (boss movement)
 2. Feedback
-    1. Relieved &quot;Ahhhh!&quot; (health)
-    2. Shocked &quot;Ooomph!&quot; (attacked)
-    3. Happy chime (extra life)
-    4. Sad chime (died)
+    1. Heal up sound (health power up)
+    2. Heart pumping sound (heart health object)
+    3. Enemy shriek (when attacking)
+    4. Shocked "Huuuuhhh!" (attacked by enemy/boss)
+    5. Normal Chime (when normal arrow is thrown)
+    6. Hard-ice chime (when ice arrow is thrown)
+    7. Pitched chime (when speed arrow is thrown)
+    8. Grand chime (when ultimate arrow is thrown)
+    9. Sad chime (Player died)
+    10. Puff sound (Enemy died)
+    11. Victory sound (Boss died)
 
-_(example)_
 
 ### **Music Needed**
 
-1. Slow-paced, nerve-racking &quot;forest&quot; track
-2. Exciting &quot;castle&quot; track
-3. Creepy, slow &quot;dungeon&quot; track
-4. Happy ending credits track
-5. Rick Astley&#39;s hit #1 single &quot;Never Gonna Give You Up&quot;
-
-_(example)_
+1. Slow-paced, nerve-racking "cave" track
+2. Exciting somewhat upbeat “boss” track
+3. Happy ending credits track
 
 
 ## _Schedule_
 
 ---
 
-_(define the main activities and the expected dates when they should be finished. This is only a reference, and can change as the project is developed)_
+1. Game Beta -May 13th
+    1. Draft of functional game (not builder)
+2. Start software engineering process - May 13th 
+    1. Use cases and requirements
+3. User Backlog - May 20th 
+    1. Complete the definition of requirements
+4. Start Game Builder - May 20th 
+    1. Define base classes
+5. Define database structure - May 20th 
+    1. Normalization 
+6. UML documentation - May 27th 
+7. Frontend - May 27th 
+8. Backend - June 3rd
+    1. Create database script 
+    2. Connect APIs
+9. Finish Game Builder - June 10th 
+    1. Finish implementation
+    2. Revise with AMEXVID
+10. Finish Whole Game (Builder + Game) - June 10th 
+    1. Design sounds
+    2. Design music
+    3. Implement Animations
+    4. Fix Bugs
+11. Final Video  - June 17th 
+    1. Final presentation to AMEXVID
 
-1. develop base classes
-    1. base entity
-        1. base player
-        2. base enemy
-        3. base block
-  2. base app state
-        1. game world
-        2. menu world
-2. develop player and basic block classes
-    1. physics / collisions
-3. find some smooth controls/physics
-4. develop other derived classes
-    1. blocks
-        1. moving
-        2. falling
-        3. breaking
-        4. cloud
-    2. enemies
-        1. soldier
-        2. rat
-        3. etc.
-5. design levels
-    1. introduce motion/jumping
-    2. introduce throwing
-    3. mind the pacing, let the player play between lessons
-6. design sounds
-7. design music
-
-_(example)_
