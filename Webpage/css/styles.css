@@ -61,7 +61,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #162234; /*#fff; #162234 022752*/
 }
 
 *,
@@ -7287,6 +7287,7 @@ textarea.form-control-lg {
 .my-3 {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+  color: #ffff; 
 }
 
 .my-4 {
@@ -11311,6 +11312,7 @@ p {
   font-size: 2.5rem;
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #ffff;
 }
 .page-section h3.section-subheading, .page-section .section-subheading.h3 {
   font-size: 1rem;
@@ -11393,7 +11395,7 @@ p {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: #022752;/*#212529;*/
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -11625,6 +11627,11 @@ header.masthead .masthead-heading {
   margin-top: 0;
   color: inherit;
 }
+
+.timeline-heading1{
+  color: #ffff;
+}
+
 .timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
   text-transform: none;
 }
