@@ -36,6 +36,8 @@ public class GameBuilderController : MonoBehaviour
     int itemImageX;
     int itemImageY;
     public bool enemyPlaceState = false;
+    public string levelString;
+    public string enemyString;
 
     // Start is called before the first frame update
     void Awake() {
@@ -119,13 +121,15 @@ public class GameBuilderController : MonoBehaviour
             {
                 ToggleEnemyPlaceState(0, 0);
             }
-            CreateTxtFile();
+            CreateInfoStrings();
             roomButtons.SetActive(false);
             emptyParent.SetActive(false);
             SceneManager.LoadScene("BasementMain");
         } 
         else
         {
+            levelString = "";
+            enemyString = "";
             roomButtons.SetActive(true);
             emptyParent.SetActive(true);
             SceneManager.LoadScene("GameBuiler");
@@ -162,26 +166,18 @@ public class GameBuilderController : MonoBehaviour
         return newPosition;
     }
 
-    void CreateTxtFile(){
-        string path = Application.dataPath + "/Level.txt";
-        string levelInfo = "";
+    void CreateInfoStrings(){
         foreach (RoomToBePlaced room in roomsToBePlaced)
         {
-            levelInfo += room.name + "," + room.X + "," + room.Y + "\n";
+            levelString+= room.name + "," + room.X + "," + room.Y + "_";
 
         }
-        File.WriteAllText(path, levelInfo);
-
-        path = Application.dataPath + "/Enemy.txt";
-        string enemyInfo = "";
 
         foreach (EnemyToBePlaced enemy in enemiesToBePlaced)
         {
-            enemyInfo += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "\n";
+            enemyString += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "_";
 
         }
-        File.WriteAllText(path, enemyInfo);
-
     }
 
     public bool DoesRoomExist(int x, int y){

@@ -5,9 +5,9 @@ using System.IO;
 
 public class GameTestController : MonoBehaviour
 {
-    string pathLevel;
-    string pathEnemy;
-    string[] allInfo;
+    string allLevel;
+    string allEnemy;
+    GameBuilderController editor;
     public GameObject[] enemyList;
     List<string> names = new List<string>();
     List<int> ids = new List<int>();
@@ -18,13 +18,16 @@ public class GameTestController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pathLevel = Application.dataPath + "/Level.txt";
+        editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
+        allLevel = editor.levelString;
+        allEnemy = editor.enemyString;
+        Debug.Log(allEnemy);
+        string[] level = allLevel.Split('_');
+        string[] enemy = allEnemy.Split('_');
 
-        allInfo = File.ReadAllLines(pathLevel);
-
-        foreach (string level in allInfo)
+        for (int i = 0; i < level.Length-1; i++)
         {
-            string[] splitArray = level.Split(',');
+            string[] splitArray = level[i].Split(',');
             names.Add(splitArray[0]);
             x.Add(int.Parse(splitArray[1]));
             y.Add(int.Parse(splitArray[2]));
@@ -38,12 +41,9 @@ public class GameTestController : MonoBehaviour
         x.Clear();
         y.Clear();
 
-        pathEnemy = Application.dataPath + "/Enemy.txt";
-        allInfo = File.ReadAllLines(pathEnemy);
-
-        foreach (string enemy in allInfo)
+        for (int i = 0; i < enemy.Length-1; i++)
         {
-            string[] splitArray = enemy.Split(',');
+            string[] splitArray = enemy[i].Split(',');
             ids.Add(int.Parse(splitArray[0]));
             x.Add(int.Parse(splitArray[1]));
             y.Add(int.Parse(splitArray[2]));
