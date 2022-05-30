@@ -23,6 +23,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    public void SwitchToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     private void Start() {
         leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);

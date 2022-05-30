@@ -73,19 +73,31 @@ public class Room : MonoBehaviour
             {
                 case Door.DoorType.right:
                     if(GetRight() == null)
+                    {
+                        door.doorCollider.SetActive(true);
                         door.gameObject.SetActive(false);
+                    }
                 break;
                 case Door.DoorType.left:
                     if(GetLeft() == null)
+                    {
+                        door.doorCollider.SetActive(true);
                         door.gameObject.SetActive(false);
+                    }
                 break;
                 case Door.DoorType.top:
                     if(GetTop() == null)
+                    {
+                        door.doorCollider.SetActive(true);
                         door.gameObject.SetActive(false);
+                    }
                 break;
                 case Door.DoorType.bottom:
                     if(GetBottom() == null)
+                    {
+                        door.doorCollider.SetActive(true);
                         door.gameObject.SetActive(false);
+                    }
                 break;
             }
         }
@@ -147,6 +159,10 @@ public class Room : MonoBehaviour
         if(other.tag == "Player")
         {
             RoomController.instance.OnPlayerEnterRoom(this);
+            if (this.name.Contains("End"))
+            {
+                GameController.instance.endRoomReached = true;
+            }
         }
     }
 }
