@@ -46,6 +46,7 @@ public class GameBuilderController : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
+
     void Start()
     {
         roomButtons = GameObject.FindGameObjectWithTag("RoomButtons");
@@ -74,6 +75,12 @@ public class GameBuilderController : MonoBehaviour
             {
                 if (DoesRoomExist(roomPosX, roomPosY) == false)
                 {
+                    if (currentButtonPressedName == "End" && DoesEndRoomExist())
+                    {
+                        Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
+                        return;
+                    }
+
                     RoomToBePlaced room = new RoomToBePlaced();
                     room.name = currentButtonPressedName;
                     room.X = roomPosX;
@@ -81,7 +88,8 @@ public class GameBuilderController : MonoBehaviour
                     
                     roomsToBePlaced.Add(room);
     
-                    GameObject newRoom = Instantiate(itemList[currentButtonPressed], new Vector3(currentPosOnGrid.x, currentPosOnGrid.y, 0), Quaternion.identity);
+                    GameObject newRoom = Instantiate(itemList[currentButtonPressed],
+                    new Vector3(currentPosOnGrid.x, currentPosOnGrid.y, 0), Quaternion.identity);
                     newRoom.transform.parent = emptyParent.transform;
                 }
             } else
@@ -102,11 +110,6 @@ public class GameBuilderController : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
 
         }
-
-        if (Input.GetButtonDown("Cancel"))
-        {
-            ToggleEnemyPlaceState(0, 0);
-        }
     }
 
     public void ToggleGameBuilder()
@@ -117,7 +120,7 @@ public class GameBuilderController : MonoBehaviour
         {
             if (enemyPlaceState)
             {
-                ToggleEnemyPlaceState(0, 0);
+                Return();
             }
             CreateTxtFile();
             roomButtons.SetActive(false);
@@ -167,6 +170,7 @@ public class GameBuilderController : MonoBehaviour
         string levelInfo = "";
         foreach (RoomToBePlaced room in roomsToBePlaced)
         {
+<<<<<<< Updated upstream
             levelInfo += room.name + "," + room.X + "," + room.Y + "\n";
 
         }
@@ -179,6 +183,16 @@ public class GameBuilderController : MonoBehaviour
         {
             enemyInfo += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "\n";
 
+=======
+            levelString+= room.name + "," + room.X + "," + room.Y + "_";
+            LevelInformation.levelRooms = levelString;
+        }
+        
+        foreach (EnemyToBePlaced enemy in enemiesToBePlaced)
+        {
+            enemyString += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "_";
+            LevelInformation.levelEnemies = enemyString;
+>>>>>>> Stashed changes
         }
         File.WriteAllText(path, enemyInfo);
 
@@ -188,7 +202,12 @@ public class GameBuilderController : MonoBehaviour
         return roomsToBePlaced.Find(item => item.X == x && item.Y == y) != null;
     }
 
-    public RoomToBePlaced FindRoom( int x, int y)
+    bool DoesEndRoomExist()
+    {
+        return roomsToBePlaced.Find(item => item.name == "End") != null;
+    }
+
+    public RoomToBePlaced FindRoom(int x, int y)
     {
         return roomsToBePlaced.Find( item => item.X == x && item.Y == y);
     }
@@ -196,5 +215,16 @@ public class GameBuilderController : MonoBehaviour
     public EnemyToBePlaced FindEnemy( float x, float y)
     {
         return enemiesToBePlaced.Find( item => item.X == x && item.Y == y);
+    }
+
+    public void Return()
+    {
+        ToggleEnemyPlaceState(0, 0);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Destroy(this.gameObject);
     }
 }
