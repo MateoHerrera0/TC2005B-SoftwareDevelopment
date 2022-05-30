@@ -170,20 +170,6 @@ public class GameBuilderController : MonoBehaviour
         string levelInfo = "";
         foreach (RoomToBePlaced room in roomsToBePlaced)
         {
-<<<<<<< Updated upstream
-            levelInfo += room.name + "," + room.X + "," + room.Y + "\n";
-
-        }
-        File.WriteAllText(path, levelInfo);
-
-        path = Application.dataPath + "/Enemy.txt";
-        string enemyInfo = "";
-
-        foreach (EnemyToBePlaced enemy in enemiesToBePlaced)
-        {
-            enemyInfo += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "\n";
-
-=======
             levelString+= room.name + "," + room.X + "," + room.Y + "_";
             LevelInformation.levelRooms = levelString;
         }
@@ -192,7 +178,6 @@ public class GameBuilderController : MonoBehaviour
         {
             enemyString += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "_";
             LevelInformation.levelEnemies = enemyString;
->>>>>>> Stashed changes
         }
         File.WriteAllText(path, enemyInfo);
 
