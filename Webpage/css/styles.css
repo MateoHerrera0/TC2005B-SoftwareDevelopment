@@ -379,12 +379,12 @@ button,
 [type=submit] {
   -webkit-appearance: button;
 }
-button:not(:disabled),
+/* button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled) {
   cursor: pointer;
-}
+} */
 
 ::-moz-focus-inner {
   padding: 0;
