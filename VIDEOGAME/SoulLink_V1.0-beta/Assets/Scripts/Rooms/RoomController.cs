@@ -33,13 +33,6 @@ public class RoomController : MonoBehaviour
         {
             instance = this;
         }
-
-        // GameObject[] objs = GameObject.FindGameObjectsWithTag("RoomController");
-        // if (objs.Length > 1)
-        // {
-        //     Destroy(this.gameObject);
-        // }
-        // DontDestroyOnLoad(this.gameObject);
     }
 
     void Start() {

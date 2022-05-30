@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d93b328889aa41848b1fb968a47f4229
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Dungeon/BasementStart.unity
     guid: dc4bd2a3e09234348bc40eb93dd37dba
@@ -26,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameBuiler.unity
     guid: f0d51c59627bb5440bd449401711c723
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 1f19dd327eb47924d9170eaedb63f3d7
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 3d97b70291175244aa396e4b7fee6286
   m_configObjects: {}

@@ -21,7 +21,6 @@ public class ItemDeleteController : MonoBehaviour
                     
                         Destroy(this.gameObject);
                         editor.enemiesToBePlaced.Remove(editor.FindEnemy(this.transform.position.x, this.transform.position.y));
-                
                 }
         }
 
