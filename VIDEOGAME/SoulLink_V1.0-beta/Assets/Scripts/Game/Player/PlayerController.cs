@@ -37,8 +37,17 @@ public class PlayerController : MonoBehaviour
             rendr.flipX = false;
         }
         
-
-        rb2d.velocity = new Vector3(horizontal*speed, vertical*speed, 0);
-
+        // Condition to allow dodge: if space clicked
+        if(Input.GetKeyDown("space"))
+        {
+            // increase velocity by adding 50 to speed
+            rb2d.velocity = new Vector3(horizontal*(speed+50), vertical*(speed+50), 0);
+        }
+        // if space not clicked
+        else
+        {
+            // Continue with normal velocity
+            rb2d.velocity = new Vector3(horizontal*speed, vertical*speed, 0);
+        }
     }
 }
