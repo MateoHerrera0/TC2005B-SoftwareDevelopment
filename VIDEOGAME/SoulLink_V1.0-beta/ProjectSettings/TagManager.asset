@@ -14,6 +14,8 @@ TagManager:
   - BuilderButtons
   - EnemyButtons
   - EndRoom
+  - Arrow
+  - Main Character
   layers:
   - Default
   - TransparentFX

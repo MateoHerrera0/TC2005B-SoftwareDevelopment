@@ -7,13 +7,14 @@ public class GameTestController : MonoBehaviour
 {
     string allLevel;
     string allEnemy;
-    public GameObject[] enemyList;
+    string allObstacle;
+    public GameObject[] objectList;
     List<string> names = new List<string>();
     List<int> ids = new List<int>();
     List<int> x = new List<int>();
     List<int> y = new List<int>();
-    List<float> enemyX = new List<float>();
-    List<float> enemyY = new List<float>();
+    List<float> objectX = new List<float>();
+    List<float> objectY = new List<float>();
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +52,28 @@ public class GameTestController : MonoBehaviour
                 ids.Add(int.Parse(splitArray[0]));
                 x.Add(int.Parse(splitArray[1]));
                 y.Add(int.Parse(splitArray[2]));
-                enemyX.Add(float.Parse(splitArray[3]));
-                enemyY.Add(float.Parse(splitArray[4]));
+                objectX.Add(float.Parse(splitArray[3]));
+                objectY.Add(float.Parse(splitArray[4]));
             }
+            StartCoroutine(WaitTillRoomsAreLoaded());
+       }
+
+        allObstacle = LevelInformation.levelObstacle;
+
+       if (allObstacle != null)
+       {
+            string[] obstacle = allObstacle.Split('_');
     
+            for (int i = 0; i < obstacle.Length-1; i++)
+            {
+                string[] splitArray = obstacle[i].Split(',');
+                ids.Add(int.Parse(splitArray[0]));
+                x.Add(int.Parse(splitArray[1]));
+                y.Add(int.Parse(splitArray[2]));
+                objectX.Add(float.Parse(splitArray[3]));
+                objectY.Add(float.Parse(splitArray[4]));
+            }
+
             StartCoroutine(WaitTillRoomsAreLoaded());
        }
     }
@@ -64,9 +83,14 @@ public class GameTestController : MonoBehaviour
         yield return new WaitUntil(() => RoomController.instance.loadedRooms.Count == names.Count);
         for (int i = 0; i < x.Count; i++)
         {
-            GameObject enemy = Instantiate(enemyList[ids[i]], new Vector3(enemyX[i], enemyY[i], 0), Quaternion.identity);
+            GameObject newObject = Instantiate(objectList[ids[i]], new Vector3(objectX[i], objectY[i], 0), Quaternion.identity);
             Room room = RoomController.instance.FindRoom(x[i], y[i]);
-            enemy.transform.parent = room.transform;
+            newObject.transform.parent = room.transform;
         }
+        ids.Clear();
+        x.Clear();
+        y.Clear();
+        objectX.Clear();
+        objectY.Clear();
     }
 }
