@@ -52,12 +52,9 @@ public class GameBuilderController : MonoBehaviour
     int itemImageX;
     int itemImageY;
     public bool enemyPlaceState = false;
-<<<<<<< Updated upstream
-=======
     public string levelString;
     public string enemyString;
     public string obstacleString;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Awake() {
@@ -158,19 +155,16 @@ public class GameBuilderController : MonoBehaviour
             {
                 Return();
             }
-            CreateTxtFile();
+            CreateInfoStrings();
             roomButtons.SetActive(false);
             emptyParent.SetActive(false);
             SceneManager.LoadScene("Main");
         } 
         else
         {
-<<<<<<< Updated upstream
-=======
             levelString = "";
             enemyString = "";
             obstacleString = "";
->>>>>>> Stashed changes
             roomButtons.SetActive(true);
             emptyParent.SetActive(true);
             SceneManager.LoadScene("GameBuiler");
@@ -207,9 +201,7 @@ public class GameBuilderController : MonoBehaviour
         return newPosition;
     }
 
-    void CreateTxtFile(){
-        string path = Application.dataPath + "/Level.txt";
-        string levelInfo = "";
+    void CreateInfoStrings(){
         foreach (RoomToBePlaced room in roomsToBePlaced)
         {
             levelString+= room.name + "," + room.X + "," + room.Y + "_";
@@ -221,17 +213,12 @@ public class GameBuilderController : MonoBehaviour
             enemyString += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "_";
             LevelInformation.levelEnemies = enemyString;
         }
-<<<<<<< Updated upstream
-        File.WriteAllText(path, enemyInfo);
-
-=======
 
         foreach (ObstacleToBePlaced obstacle in obstaclesToBePlaced)
         {
             obstacleString += obstacle.name + "," + obstacle.roomX + "," + obstacle.roomY + "," + obstacle.X + "," + obstacle.Y + "_";
             LevelInformation.levelObstacle = obstacleString;
         }
->>>>>>> Stashed changes
     }
 
     public bool DoesRoomExist(int x, int y){
