@@ -8,6 +8,7 @@ public class ItemController : MonoBehaviour
     public string objectName;
     public bool clicked = false;
     public bool returnGame = false;
+    public string type;
     private GameBuilderController editor;
     
     // Start is called before the first frame update
@@ -28,5 +29,6 @@ public class ItemController : MonoBehaviour
         
         editor.currentButtonPressed = id;
         editor.currentButtonPressedName = objectName;
+        editor.currentButtonPressedType = type;
     }
 }

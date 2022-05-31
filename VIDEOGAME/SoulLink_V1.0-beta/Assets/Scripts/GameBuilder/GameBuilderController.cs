@@ -19,6 +19,16 @@ public class EnemyToBePlaced
     public float X;
     public float Y;
 }
+
+public class ObstacleToBePlaced
+{
+    public string name;
+    public int roomX;
+    public int roomY;
+    public float X;
+    public float Y;
+}
+
 public class GameBuilderController : MonoBehaviour
 {
     public ItemController[] itemButtons;
@@ -27,15 +37,27 @@ public class GameBuilderController : MonoBehaviour
     public GameObject emptyParent;
     public List<RoomToBePlaced> roomsToBePlaced = new List<RoomToBePlaced>();
     public List<EnemyToBePlaced> enemiesToBePlaced = new List<EnemyToBePlaced>();
+    public List<ObstacleToBePlaced> obstaclesToBePlaced = new List<ObstacleToBePlaced>();
     private FollowMouseBuilder mouse;
     public int currentButtonPressed;
     public string currentButtonPressedName;
+    public string currentButtonPressedType;
     public Vector2 gridSize;
     GameObject roomButtons;
     public GameObject enemyButtons;
+    public GameObject enemyDropdown;
+    public GameObject obstacleDropdown;
+    bool enemyDropdownPressed = false;
+    bool obstacleDropdownPressed = false;
     int itemImageX;
     int itemImageY;
     public bool enemyPlaceState = false;
+<<<<<<< Updated upstream
+=======
+    public string levelString;
+    public string enemyString;
+    public string obstacleString;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Awake() {
@@ -92,6 +114,20 @@ public class GameBuilderController : MonoBehaviour
                     new Vector3(currentPosOnGrid.x, currentPosOnGrid.y, 0), Quaternion.identity);
                     newRoom.transform.parent = emptyParent.transform;
                 }
+            } else if (currentButtonPressedType == "obstacle")
+            {
+                ObstacleToBePlaced obstacle = new ObstacleToBePlaced();
+                obstacle.name = currentButtonPressedName;
+                obstacle.roomX = roomPosX;
+                obstacle.roomY = roomPosY;
+                obstacle.X = worldPos.x;
+                obstacle.Y = worldPos.y;
+
+                obstaclesToBePlaced.Add(obstacle);
+
+                GameObject newObstacle = Instantiate(itemList[currentButtonPressed], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
+                newObstacle.transform.parent = emptyParent.transform;
+
             } else
             {
                 EnemyToBePlaced enemy = new EnemyToBePlaced();
@@ -125,10 +161,16 @@ public class GameBuilderController : MonoBehaviour
             CreateTxtFile();
             roomButtons.SetActive(false);
             emptyParent.SetActive(false);
-            SceneManager.LoadScene("BasementMain");
+            SceneManager.LoadScene("Main");
         } 
         else
         {
+<<<<<<< Updated upstream
+=======
+            levelString = "";
+            enemyString = "";
+            obstacleString = "";
+>>>>>>> Stashed changes
             roomButtons.SetActive(true);
             emptyParent.SetActive(true);
             SceneManager.LoadScene("GameBuiler");
@@ -179,8 +221,17 @@ public class GameBuilderController : MonoBehaviour
             enemyString += enemy.name + "," + enemy.roomX + "," + enemy.roomY + "," + enemy.X + "," + enemy.Y + "_";
             LevelInformation.levelEnemies = enemyString;
         }
+<<<<<<< Updated upstream
         File.WriteAllText(path, enemyInfo);
 
+=======
+
+        foreach (ObstacleToBePlaced obstacle in obstaclesToBePlaced)
+        {
+            obstacleString += obstacle.name + "," + obstacle.roomX + "," + obstacle.roomY + "," + obstacle.X + "," + obstacle.Y + "_";
+            LevelInformation.levelObstacle = obstacleString;
+        }
+>>>>>>> Stashed changes
     }
 
     public bool DoesRoomExist(int x, int y){
@@ -200,6 +251,35 @@ public class GameBuilderController : MonoBehaviour
     public EnemyToBePlaced FindEnemy( float x, float y)
     {
         return enemiesToBePlaced.Find( item => item.X == x && item.Y == y);
+    }
+
+    public ObstacleToBePlaced FindObstacle( float x, float y)
+    {
+        return obstaclesToBePlaced.Find( item => item.X == x && item.Y == y);
+    }
+
+    public void ToggleEnemyDropdown()
+    {
+        if (enemyDropdownPressed)
+        {
+            enemyDropdown.SetActive(false);
+            enemyDropdownPressed = false;
+            return;
+        }
+        enemyDropdown.SetActive(true);
+        enemyDropdownPressed = true;
+    }
+
+    public void ToggleObstacleDropdown()
+    {
+        if (obstacleDropdownPressed)
+        {
+            obstacleDropdown.SetActive(false);
+            obstacleDropdownPressed = false;
+            return;
+        }
+        obstacleDropdown.SetActive(true);
+        obstacleDropdownPressed = true;
     }
 
     public void Return()
