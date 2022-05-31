@@ -162,7 +162,6 @@ public class GameBuilderController : MonoBehaviour
         } 
         else
         {
-
             levelString = "";
             enemyString = "";
             obstacleString = "";
