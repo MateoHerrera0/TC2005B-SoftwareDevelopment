@@ -2,9 +2,10 @@
 SET NAMES utf8mb4;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
--- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS alley_cat_db;
+-- DROP only available from user with privilege 
+#DROP SCHEMA IF EXISTS alley_cat_db;
 CREATE SCHEMA alley_cat_db;
 USE alley_cat_db;
 
@@ -13,7 +14,7 @@ USE alley_cat_db;
 --
 
 CREATE TABLE users (
-	usernameID SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	usernameID INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(45) NOT NULL,
     pwd VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
@@ -33,9 +34,9 @@ CREATE TABLE users (
 CREATE TABLE levels (
 	levelID INT NOT NULL AUTO_INCREMENT,
     roomLayout TEXT,
-    EnemyLayout TEXT,
-    ObjectLayout TEXT,
-    Levelname TEXT,
+    enemyLayout TEXT,
+    objectLayout TEXT,
+    levelName TEXT,
     usernameID INT NOT NULL,
     PRIMARY KEY (levelID),
 	KEY idx_fk_usernameID (usernameID),
@@ -51,7 +52,7 @@ CREATE TABLE gameStatistics (
     averageTime FLOAT,
     averagePoints FLOAT,
     gamesPlayed INT,
-    totalTimeplayed FLOAT,
+    totalTimePlayed FLOAT,
     totalPoints INT,
     highScore INT,
     PRIMARY KEY (gameStatisticsID)
@@ -76,8 +77,7 @@ CREATE TABLE builderStatistics (
 CREATE TABLE playerStatistics (
 	usernameID INT NOT NULL,
 	activity BOOLEAN,
-	lastActive DATETIME,
+	lastActive TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	KEY idx_fk_usernameID (usernameID),
 	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
