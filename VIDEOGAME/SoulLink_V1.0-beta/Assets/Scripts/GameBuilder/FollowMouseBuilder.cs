@@ -1,3 +1,8 @@
+/*
+Code used to make tinted objects follow mouse during game builder.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

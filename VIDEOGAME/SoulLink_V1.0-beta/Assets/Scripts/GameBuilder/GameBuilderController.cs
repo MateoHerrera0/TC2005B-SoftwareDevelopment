@@ -1,3 +1,10 @@
+/*
+Code that controls all aspects of the game builder. This includes object
+instantiation depending on button pressed, creation of strings where
+level data will be stored and more. 
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,6 +1,8 @@
-// Script that will contain and updpate general game stats that will be used elsewhere;
-// Mateo Herrera Lavalle
-// 7-04-2022
+/*
+Code used to control general aspects of the game, like if it has ended or not.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 
 using System.Collections;
 using System.Collections.Generic;

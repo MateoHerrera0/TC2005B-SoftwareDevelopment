@@ -1,3 +1,9 @@
+/*
+Code that deciphers string level data, and uses it to create the level.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/*
+Code that instantiates uploaded levels so they can be accesed in game. It does
+so by using the scrolldown TMPro menu.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;

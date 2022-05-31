@@ -1,3 +1,9 @@
+/*
+Code that handles which button generates which object of the builder.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,9 @@
+/*
+Code that is used as reference for all doors.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

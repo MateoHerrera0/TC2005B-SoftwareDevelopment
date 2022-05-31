@@ -1,3 +1,9 @@
+/*
+Code used to control object deletion in builder.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

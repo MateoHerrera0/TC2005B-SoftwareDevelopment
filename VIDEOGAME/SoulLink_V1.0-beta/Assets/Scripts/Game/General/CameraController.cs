@@ -1,3 +1,10 @@
+/*
+Code used to control how the camera moves. It follows the player from room
+to room.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

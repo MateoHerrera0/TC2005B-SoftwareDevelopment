@@ -1,6 +1,10 @@
-// Enemy movement script
-// Mateo Herrera Lavalle
-// 8-04-2022
+/*
+Code that cotrols room generation. It interprets grid coordinates and 
+instances scenes additively depending on which room name is provided.
+This script also deteermines wheter a room has enemies or not.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 
 using System.Collections;
 using System.Collections.Generic;

@@ -1,3 +1,10 @@
+/*
+Code that contains the information of the level so it can be accesed in
+other scripts.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

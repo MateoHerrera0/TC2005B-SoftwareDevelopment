@@ -1,6 +1,10 @@
-// Player movement script
-// Mateo Herrera Lavalle
-// 7-04-2022
+/*
+Code used to make player move while including animation settings, its a variant
+of player move. Might be deleted or replaced.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour

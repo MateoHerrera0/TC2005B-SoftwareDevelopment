@@ -1,6 +1,9 @@
-// Enemy movement script
-// Mateo Herrera Lavalle
-// 7-04-2022
+/*
+Code used to determine whether enemies are in room and make 
+them act accordingly.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

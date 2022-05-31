@@ -1,3 +1,10 @@
+/*
+Code used to move background in main menu and handles scene management in it
+as well.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

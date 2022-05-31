@@ -1,3 +1,10 @@
+/*
+Code used to manage room specific details, like which doors are loaded. 
+This scriot is also used to assign room info to specific instances.
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
