@@ -4,26 +4,13 @@ import express from 'express'
 import mysql from 'mysql2/promise'
 import fs from 'fs'
 
-// ---------------------------------
-
-// import mysql from 'mysql2/promise'
-
-// ---------------------------------
-
-// Webpage\FRONT\css\styles.css
-
-// ---------------------------------
-
-
 const app = express()
-const port = 3000
+const port = 5000
 
 app.use(express.json())
 
 app.use('/js', express.static('./js'))
 app.use('/css', express.static('./css'))
-app.use('/assets', express.static('./assets'))
-
 
 async function connectToDB()
 {
@@ -36,7 +23,7 @@ async function connectToDB()
 }
 
 app.get('/', (request,response)=>{
-    fs.readFile('./html/index.html', 'utf8', (err, html)=>{
+    fs.readFile('./html/mysqlUseCases.html', 'utf8', (err, html)=>{
         if(err) response.status(500).send('There was an error: ' + err)
         console.log('Loading page...')
         response.send(html)
@@ -97,8 +84,7 @@ app.get('/api/users/:id', async (request, response)=>
     }
 })
 
-app.post('/api/users', async (request, response)=>
-{
+app.post('/api/users', async (request, response)=>{
 
     let connection = null
 
@@ -106,9 +92,8 @@ app.post('/api/users', async (request, response)=>
     {    
         connection = await connectToDB()
 
-        // const [results, fields] = await connection.query('insert into users set username = ?, pwd = ?, email = ?', [request.body['username'], request.body['pwd'], request.body['email']])
         const [results, fields] = await connection.query('insert into users set ?', request.body)
-
+        
         response.json({'message': "Data inserted correctly."})
     }
     catch(error)
@@ -182,7 +167,7 @@ app.delete('/api/users/:id', async (request, response)=>{
     }
 })
 
-
-app.listen(port, ()=>{
+app.listen(port, ()=>
+{
     console.log(`App listening at http://localhost:${port}`)
 })
