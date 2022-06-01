@@ -18,10 +18,12 @@ using UnityEngine.Networking;
 [System.Serializable]
 public class Level
 {
-    public int level_id;
-    public string level_name;
-    public string room_layout;
-    public string enemy_layout;
+    public int levelID;
+    public string levelName;
+    public string roomLayout;
+    public string enemyLayout;
+    public string objectLayout;
+    public int usernameID;
 }
 
 // Allow the class to be extracted from Unity
@@ -34,7 +36,7 @@ public class LevelList
 public class LevelSelectController : MonoBehaviour
 {
     [SerializeField] string url;
-    [SerializeField] string getUsersEP;
+    [SerializeField] string getLevelsEP;
 
     // This is where the information from the api will be extracted
     public LevelList allLevels;
@@ -66,7 +68,7 @@ public class LevelSelectController : MonoBehaviour
 
     IEnumerator GetLevel()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP))
+        using (UnityWebRequest www = UnityWebRequest.Get(url + getLevelsEP))
         {
             yield return www.SendWebRequest();
 
@@ -95,18 +97,20 @@ public class LevelSelectController : MonoBehaviour
 
         // Create the object to be sent as json
         Level newLevel = new Level();
-        newLevel.level_name = LevelInformation.levelName;
-        newLevel.room_layout = LevelInformation.levelRooms;
-        newLevel.enemy_layout = LevelInformation.levelEnemies;
+        newLevel.levelName = LevelInformation.levelName;
+        newLevel.roomLayout = LevelInformation.levelRooms;
+        newLevel.enemyLayout = LevelInformation.levelEnemies;
+        newLevel.objectLayout = LevelInformation.levelObstacles;
+        newLevel.usernameID = 1;
         //Debug.Log("USER: " + newLevel);
         string jsonData = JsonUtility.ToJson(newLevel);
         //Debug.Log("BODY: " + jsonData);
 
         // Send using the Put method:
         // https://stackoverflow.com/questions/68156230/unitywebrequest-post-not-sending-body
-        using (UnityWebRequest www = UnityWebRequest.Put(url + getUsersEP, jsonData))
+        using (UnityWebRequest www = UnityWebRequest.Put(url + getLevelsEP, jsonData))
         {
-            //UnityWebRequest www = UnityWebRequest.Post(url + getUsersEP, form);
+            //UnityWebRequest www = UnityWebRequest.Post(url + getLevelsEP, form);
             // Set the method later, and indicate the encoding is JSON
             www.method = "POST";
             www.SetRequestHeader("Content-Type", "application/json");
