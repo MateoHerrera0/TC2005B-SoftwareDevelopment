@@ -14,7 +14,7 @@ import fs from 'fs'
 
 
 const app = express()
-const port = 3000
+const port = process.env.port || 3306
 
 app.use(express.json())
 
@@ -26,10 +26,10 @@ app.use('/assets', express.static('./assets'))
 async function connectToDB()
 {
     return await mysql.createConnection({
-        host:'localhost',
-        user:'AlleyCat',
-        password:'j2Qo6!fL949L',
-        database:'alley_cat_db'
+        host:'us-cdbr-east-05.cleardb.net',
+        user:'b6d625abce8a34',
+        password:'48c7415b',
+        database:'heroku_29b718f30c1a210'
     })
 }
 

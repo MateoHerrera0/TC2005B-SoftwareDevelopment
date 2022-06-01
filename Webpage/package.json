@@ -1,12 +1,9 @@
 {
-  "name": "back",
+  "name": "src",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "users_api.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -15,5 +12,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "node-fetch": "^3.2.4"
+  },
+  "scripts": {
+    "start": "node api/users_api.js"
   }
 }
