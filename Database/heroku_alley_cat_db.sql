@@ -5,9 +5,13 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 -- DROP only available from user with privilege 
-DROP SCHEMA IF EXISTS alley_cat_db;
-CREATE SCHEMA alley_cat_db;
-USE alley_cat_db;
+#DROP SCHEMA IF EXISTS alley_cat_db;
+#CREATE SCHEMA alley_cat_db;
+#USE alley_cat_db;
+
+#DROP SCHEMA IF EXISTS heroku_29b718f30c1a210;
+#CREATE SCHEMA heroku_29b718f30c1a210;
+USE heroku_29b718f30c1a210;
 
 --
 -- Table users 
@@ -81,8 +85,3 @@ CREATE TABLE playerStatistics (
 	KEY idx_fk_usernameID (usernameID),
 	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE VIEW users_display
-AS
-SELECT username, activity, lastActive
-	FROM alley_cat_db.users LEFT JOIN alley_cat_db.playerStatistics USING (usernameID);

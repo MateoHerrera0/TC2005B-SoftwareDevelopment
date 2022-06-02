@@ -14,7 +14,7 @@ import fs from 'fs'
 
 
 const app = express()
-const port = process.env.port || 3306
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -47,7 +47,8 @@ app.get('/api/users', async (request, response)=>{
     try
     {
         connection = await connectToDB()
-        const [results, fields] = await connection.execute('select * from users_display')
+        // const [results, fields] = await connection.execute('select * from users_display')
+        const [results, fields] = await connection.execute('select * from users')
 
         response.json(results)
     }
@@ -75,6 +76,7 @@ app.get('/api/users/:id', async (request, response)=>
     {
         connection = await connectToDB()
 
+        // const [results, fields] = await connection.query('select * from users_display where usernameID= ?', [request.params.id])
         const [results, fields] = await connection.query('select * from users where usernameID= ?', [request.params.id])
         
         response.json(results)
@@ -95,92 +97,92 @@ app.get('/api/users/:id', async (request, response)=>
     }
 })
 
-app.post('/api/users', async (request, response)=>
-{
+// app.post('/api/users', async (request, response)=>
+// {
 
-    let connection = null
+//     let connection = null
 
-    try
-    {    
-        connection = await connectToDB()
+//     try
+//     {    
+//         connection = await connectToDB()
 
-        // const [results, fields] = await connection.query('insert into users set username = ?, pwd = ?, email = ?', [request.body['username'], request.body['pwd'], request.body['email']])
-        const [results, fields] = await connection.query('insert into users set ?', request.body)
+//         // const [results, fields] = await connection.query('insert into users set username = ?, pwd = ?, email = ?', [request.body['username'], request.body['pwd'], request.body['email']])
+//         const [results, fields] = await connection.query('insert into users set ?', request.body)
 
-        response.json({'message': "Data inserted correctly."})
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
+//         response.json({'message': "Data inserted correctly."})
+//     }
+//     catch(error)
+//     {
+//         response.status(500)
+//         response.json(error)
+//         console.log(error)
+//     }
+//     finally
+//     {
+//         if(connection!==null) 
+//         {
+//             connection.end()
+//             console.log("Connection closed successfully!")
+//         }
+//     }
+// })
 
-app.put('/api/users', async (request, response)=>{
+// app.put('/api/users', async (request, response)=>{
 
-    let connection = null
+//     let connection = null
 
-    try{
-        connection = await connectToDB()
+//     try{
+//         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('update users set username = ?, pwd = ? where usernameID= ?', [request.body['username'], request.body['pwd'], request.body['usernameID']])
+//         const [results, fields] = await connection.query('update users set username = ?, pwd = ? where usernameID= ?', [request.body['username'], request.body['pwd'], request.body['usernameID']])
         
-        response.json({'message': "Data updated correctly."})
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
+//         response.json({'message': "Data updated correctly."})
+//     }
+//     catch(error)
+//     {
+//         response.status(500)
+//         response.json(error)
+//         console.log(error)
+//     }
+//     finally
+//     {
+//         if(connection!==null) 
+//         {
+//             connection.end()
+//             console.log("Connection closed successfully!")
+//         }
+//     }
+// })
 
-app.delete('/api/users/:id', async (request, response)=>{
+// app.delete('/api/users/:id', async (request, response)=>{
 
-    let connection = null
+//     let connection = null
 
-    try
-    {
-        connection = await connectToDB()
+//     try
+//     {
+//         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('delete from users where usernameID= ?', [request.params.id])
+//         const [results, fields] = await connection.query('delete from users where usernameID= ?', [request.params.id])
         
-        response.json({'message': "Data deleted correctly."})
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
+//         response.json({'message': "Data deleted correctly."})
+//     }
+//     catch(error)
+//     {
+//         response.status(500)
+//         response.json(error)
+//         console.log(error)
+//     }
+//     finally
+//     {
+//         if(connection!==null) 
+//         {
+//             connection.end()
+//             console.log("Connection closed successfully!")
+//         }
+//     }
+// })
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
 })

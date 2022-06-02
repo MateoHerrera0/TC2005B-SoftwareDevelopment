@@ -1,0 +1,2 @@
+ClearDB - mysql://b6d625abce8a34:48c7415b@us-cdbr-east-05.cleardb.net/heroku_29b718f30c1a210?reconnect=true
+JAWSDB MYSQL - mysql://k3ljfb17ry0te232:liqvjwefnl5s4euy@ebh2y8tqym512wqs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/so603tkf6hi0k4n8
