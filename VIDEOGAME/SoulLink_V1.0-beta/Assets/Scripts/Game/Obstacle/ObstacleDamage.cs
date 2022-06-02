@@ -26,7 +26,7 @@ public class ObstacleDamage : MonoBehaviour
     void Update()
     {
         // If main character and obstacle are really close
-        if (Vector2.Distance(transform.position, mainCharacterTransform.position) <= 0.1f)
+        if (Vector2.Distance(transform.position, mainCharacterTransform.position) <= 0.7f)
         {
             // Access health points and reduce by 1
             mainCharacter.GetComponentInChildren<HealthBar>().hp -= 1;
