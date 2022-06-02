@@ -1,7 +1,6 @@
 /*
-Code used for an enemy that moves from one point to another
-If player enters the attack range, the enemy will stop moving 
-and shoot projectiles
+Code used for an enemy that goes side to side and stops to shoot player 
+when they are within the attack range
 
 Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
 */
@@ -11,20 +10,18 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-    // Limits for enemy movement (2 points)
-    public Transform point1, point2;
-    // Determine which point is the target
-    private Transform pointTarget;
+    // Direction of the enemy
+    private float direction;
     // Determine move speed 
     [SerializeField] private float moveSpeed;
     // Determine attack range (distance)
     [SerializeField] private float attackRange;
+    // Get sprite renderer to change direction of sprite
+    [SerializeField] private SpriteRenderer rendr;
     // Enemy's projectile
     public GameObject projectile;
     // Projectile's target
     private Transform projectileTarget;
-    // From where the projectile will be shot
-    public Transform firePoint;
     // Timer to allow shots
     private float timer = 0.0f;
     // Time in between shots
@@ -32,8 +29,8 @@ public class Enemy1 : MonoBehaviour
 
     private void Start()
     {
-        // The first point target will be point1
-        pointTarget = point1;
+        // Start direction
+        direction = -1.0f;
         // The projectile target will be the Player
         projectileTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -65,27 +62,21 @@ public class Enemy1 : MonoBehaviour
     // Function to make enemy move from a point to another
     private void Patrol()
     {
-        // Move towards pointTarget at moveSpeed
-        transform.position = Vector2.MoveTowards(transform.position, pointTarget.position, moveSpeed * Time.deltaTime);
-        // When really close to point1
-        if(Vector2.Distance(transform.position, point1.position) < 0.01f)
+        // When direction is positive
+        if(direction > 0.0f)
         {
-            // Change pointTarget to point2
-            pointTarget = point2;
+            // Movement to right
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             // Change sprite direction (to match movement)
-            Vector3 localTemp = transform.localScale;
-            localTemp.x *= -1;
-            transform.localScale = localTemp;
+            rendr.flipX = false; 
         }
-        // When really close to point 2
-        if (Vector2.Distance(transform.position, point2.position) < 0.01f)
+        // when direction is negative
+        if(direction < 0.0f)
         {
-            // Change pointTarget to point1
-            pointTarget = point1;
-             // Change sprite direction (to match movement)
-            Vector3 localTemp = transform.localScale;
-            localTemp.x *= -1;
-            transform.localScale = localTemp;
+            // Movement to left
+            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+            // Change sprite direction (to match movement)
+            rendr.flipX = true; 
         }
     }
 
@@ -95,6 +86,16 @@ public class Enemy1 : MonoBehaviour
     public void Shot()
     {
         // Create projectile 
-        Instantiate(projectile, firePoint.position, Quaternion.identity);
+        Instantiate(projectile, transform.position, Quaternion.identity);
+    }
+    // Collision with stop objects (walls and other obstacles)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // If detects collision with stop object
+        if(other.gameObject.tag == "Stop")
+        {
+            // Change direction sign 
+            direction *= -1.0f;
+        }
     }
 }
