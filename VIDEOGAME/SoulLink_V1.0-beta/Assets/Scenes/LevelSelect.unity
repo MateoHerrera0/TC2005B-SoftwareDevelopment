@@ -1399,7 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: http://localhost:5000/
-  getUsersEP: api/level/
+  getLevelsEP: api/level
   allLevels:
     levels: []
 --- !u!114 &1451347294
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1488787680}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999297
+  m_Size: 0.99925005
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

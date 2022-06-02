@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: http://localhost:5000
-  getUsersEP: /api/level
+  getLevelsEP: /api/level
   allLevels:
     levels: []
 --- !u!1 &226329613

@@ -101,7 +101,7 @@ public class LevelSelectController : MonoBehaviour
         newLevel.roomLayout = LevelInformation.levelRooms;
         newLevel.enemyLayout = LevelInformation.levelEnemies;
         newLevel.objectLayout = LevelInformation.levelObstacles;
-        newLevel.usernameID = 1;
+        newLevel.usernameID = PlayerPrefs.GetInt("userID");
         //Debug.Log("USER: " + newLevel);
         string jsonData = JsonUtility.ToJson(newLevel);
         //Debug.Log("BODY: " + jsonData);

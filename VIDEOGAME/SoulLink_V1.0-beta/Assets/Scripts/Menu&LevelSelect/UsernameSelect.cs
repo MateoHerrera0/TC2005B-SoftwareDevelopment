@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 
 // Create classes that correspond to the data that will be sent/received
@@ -27,19 +28,36 @@ public class User
     public int builderStatisticsID;
 }
 
+public class NewUser
+{
+    public int usernameID;
+    public string username;
+    public string pwd;
+    public string email;
+}
+
 // Allow the class to be extracted from Unity
 [System.Serializable]
 public class UserList
 {
-    public List<User> levels;
+    public List<User> users;
 }
 
 public class UsernameSelect : MonoBehaviour
 {
     [SerializeField] string url;
     [SerializeField] string getUsersEP;
-    [SerializeField] InputField inputUsername;
-    [SerializeField] Input inputPassword;
+    [SerializeField] InputField loginUsername;
+    [SerializeField] InputField loginPassword;
+    [SerializeField] Text loginError;
+    [SerializeField] InputField signUpUsername;
+    [SerializeField] InputField signUpPassword;
+    [SerializeField] InputField signUpEmail;
+    [SerializeField] Text signUpError;
+    [SerializeField] GameObject signUpPanel;
+    [SerializeField] GameObject loginPanel;
+    bool signUpState = false;
+    
 
     // This is where the information from the api will be extracted
     public UserList allUsers;
@@ -62,11 +80,31 @@ public class UsernameSelect : MonoBehaviour
         StartCoroutine(GetUser());
     }
 
+    public void InsertNewUser()
+    {
+        StartCoroutine(AddUser());
+    }
+
+    public void ToggleSignUp()
+    {
+        if (signUpState)
+        {
+            signUpPanel.SetActive(false);
+            loginPanel.SetActive(true);
+            signUpState = false;
+            return;
+        }
+
+        signUpPanel.SetActive(true);
+        loginPanel.SetActive(false);
+        signUpState = true;
+    }
+
     // These functions make the connection to the API
 
     IEnumerator GetUser()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + inputUsername.text))
+        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + loginUsername.text))
         {
             yield return www.SendWebRequest();
 
@@ -77,62 +115,79 @@ public class UsernameSelect : MonoBehaviour
                 string jsonString = "{\"users\":" + www.downloadHandler.text + "}";
                 allUsers = JsonUtility.FromJson<UserList>(jsonString);
                 Debug.Log(jsonString);
-                if (allUsers != null)
+                if (allUsers.users.Count > 0)
                 {
-                    login();
+                    login(allUsers.users[0]);
+                } else
+                {
+                    notLogin("Invalid Username");
                 }
             } else {
-                notLogin();
+                notLogin("Error 500");
             }
         }
     }
 
-    // IEnumerator AddLevel()
-    // {
-    //     /*
-    //     // This should work with an API that does NOT expect JSON
-    //     WWWForm form = new WWWForm();
-    //     form.AddField("name", "newGuy" + Random.Range(1000, 9000).ToString());
-    //     form.AddField("surname", "Tester" + Random.Range(1000, 9000).ToString());
-    //     Debug.Log(form);
-    //     */
-
-    //     // Create the object to be sent as json
-    //     Level newLevel = new Level();
-    //     newLevel.levelName = LevelInformation.levelName;
-    //     newLevel.roomLayout = LevelInformation.levelRooms;
-    //     newLevel.enemyLayout = LevelInformation.levelEnemies;
-    //     newLevel.objectLayout = LevelInformation.levelObstacles;
-    //     newLevel.usernameID = 1;
-    //     //Debug.Log("USER: " + newLevel);
-    //     string jsonData = JsonUtility.ToJson(newLevel);
-    //     //Debug.Log("BODY: " + jsonData);
-
-    //     // Send using the Put method:
-    //     // https://stackoverflow.com/questions/68156230/unitywebrequest-post-not-sending-body
-    //     using (UnityWebRequest www = UnityWebRequest.Put(url + getUsersEP, jsonData))
-    //     {
-    //         //UnityWebRequest www = UnityWebRequest.Post(url + getUsersEP, form);
-    //         // Set the method later, and indicate the encoding is JSON
-    //         www.method = "POST";
-    //         www.SetRequestHeader("Content-Type", "application/json");
-    //         yield return www.SendWebRequest();
-
-    //         if (www.result == UnityWebRequest.Result.Success) {
-    //             Debug.Log("Response: " + www.downloadHandler.text);
-    //         } else {
-    //             Debug.Log("Error: " + www.error);
-    //         }
-    //     }
-    // }
-
-    void login()
+    IEnumerator AddUser()
     {
-        Debug.Log("loggedin");
+        /*
+        // This should work with an API that does NOT expect JSON
+        WWWForm form = new WWWForm();
+        form.AddField("name", "newGuy" + Random.Range(1000, 9000).ToString());
+        form.AddField("surname", "Tester" + Random.Range(1000, 9000).ToString());
+        Debug.Log(form);
+        */
+
+        // Create the object to be sent as json
+        NewUser newUser = new NewUser();
+        newUser.username = signUpUsername.text;
+        newUser.email = signUpEmail.text;
+        newUser.pwd = signUpPassword.text;
+        //Debug.Log("USER: " + newUser);
+        string jsonData = JsonUtility.ToJson(newUser);
+        Debug.Log(jsonData);
+        //Debug.Log("BODY: " + jsonData);
+
+        // Send using the Put method:
+        // https://stackoverflow.com/questions/68156230/unitywebrequest-post-not-sending-body
+        using (UnityWebRequest www = UnityWebRequest.Put(url + getUsersEP, jsonData))
+        {
+            //UnityWebRequest www = UnityWebRequest.Post(url + getUsersEP, form);
+            // Set the method later, and indicate the encoding is JSON
+            www.method = "POST";
+            www.SetRequestHeader("Content-Type", "application/json");
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success) {
+                loginUsername.text = signUpUsername.text;
+                loginPassword.text = signUpPassword.text;
+                QueryUser();
+            } else {
+                notLogin("Information entered not valid");
+            }
+        }
     }
 
-    void notLogin()
+    void login(User user)
     {
-        Debug.Log("notlogged");
+        if (user.pwd == loginPassword.text)
+        {
+            PlayerPrefs.SetString("username", user.username);
+            PlayerPrefs.SetInt("userID", user.usernameID);
+            SceneManager.LoadScene("MainMenu");
+        } else
+        {
+            notLogin("Invalid Password");
+        }
+    }
+
+    void notLogin(string whyNot)
+    {
+        if (signUpState)
+        {
+            signUpError.text = whyNot;
+            return;
+        }
+        loginError.text = whyNot;
     }
 }
