@@ -9,8 +9,8 @@ function main()
         const data = new FormData(formSelectUser)
         const dataObj = Object.fromEntries(data.entries())
 
-        let response = await fetch(`http://localhost:3000/api/users/${dataObj['usernameID']}`,{
         // let response = await fetch(`http://localhost:3000/${dataObj['usernameID']}`,{
+        let response = await fetch(`https://alley-cat-soul-link.herokuapp.com/api/users/${dataObj['usernameID']}`,{
 
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
@@ -59,7 +59,7 @@ function main()
             }
         }
         else{
-            getResults.innerHTML = response.status
+            getResultsID.innerHTML = response.status
         }
     }
 
@@ -73,7 +73,7 @@ function main()
         console.log(dataObj)
 
         // let response = await fetch('http://localhost:3000/',{
-        let response = await fetch('http://localhost:3000/api/users',{
+        let response = await fetch('https://alley-cat-soul-link.herokuapp.com/api/users',{
 
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -101,7 +101,7 @@ function main()
         const dataObj = Object.fromEntries(data.entries())
         console.log(dataObj)
 
-        let response = await fetch('http://localhost:3000/api/users',{
+        let response = await fetch('https://alley-cat-soul-link.herokuapp.com/api/users',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(dataObj)
@@ -126,7 +126,7 @@ function main()
         const data = new FormData(formDelete)
         const dataObj = Object.fromEntries(data.entries())
 
-        let response = await fetch(`http://localhost:3000/api/users/${dataObj['usernameID']}`,{
+        let response = await fetch(`https://alley-cat-soul-link.herokuapp.com/api/users/${dataObj['usernameID']}`,{
             method: 'DELETE'
         })
         
