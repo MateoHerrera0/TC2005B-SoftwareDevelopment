@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             rendr.flipX = false;
         }
-        Debug.Log(rb2d.velocity);
+        //Debug.Log(rb2d.velocity);
         // Condition to allow dodge: if space clicked
         if(Input.GetKeyDown("space"))
         {
