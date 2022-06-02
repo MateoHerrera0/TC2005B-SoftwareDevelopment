@@ -38,13 +38,13 @@ public class LevelMenuController : MonoBehaviour
             if (type == PrefabType.Button) {
                 // Set the text
                 TextMeshProUGUI field = uiItem.GetComponentInChildren<TextMeshProUGUI>();
-                field.text = "ID: " + lv.level_id + " | " + lv.level_name;
+                field.text = "ID: " + lv.levelID + " | " + lv.levelName;
                 // Set the callback
                 Button btn = uiItem.GetComponent<Button>();
-		        btn.onClick.AddListener(delegate {LoadLevel(lv.room_layout, lv.enemy_layout); });
+		        btn.onClick.AddListener(delegate {LoadLevel(lv.roomLayout, lv.enemyLayout, lv.objectLayout); });
             } else if (type == PrefabType.Text) {
                 TextMeshProUGUI field = uiItem.GetComponent<TextMeshProUGUI>();
-                field.text = "ID: " + lv.level_id + " | " + lv.level_name;
+                field.text = "ID: " + lv.levelID + " | " + lv.levelName;
             }
         }
     }
@@ -57,10 +57,11 @@ public class LevelMenuController : MonoBehaviour
         }
     }
 
-    void LoadLevel(string rooms, string enemies)
+    void LoadLevel(string rooms, string enemies, string objects)
     {
         LevelInformation.levelRooms = rooms;
         LevelInformation.levelEnemies = enemies;
+        LevelInformation.levelObstacles = objects;
         SceneManager.LoadScene("Level");
 
     }

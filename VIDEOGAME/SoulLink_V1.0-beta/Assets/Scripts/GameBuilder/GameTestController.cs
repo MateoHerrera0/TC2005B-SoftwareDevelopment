@@ -64,7 +64,7 @@ public class GameTestController : MonoBehaviour
             StartCoroutine(WaitTillRoomsAreLoaded());
        }
 
-        allObstacle = LevelInformation.levelObstacle;
+        allObstacle = LevelInformation.levelObstacles;
 
        if (allObstacle != null)
        {

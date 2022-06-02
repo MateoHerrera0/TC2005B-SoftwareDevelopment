@@ -15,7 +15,7 @@ USE alley_cat_db;
 
 CREATE TABLE users (
 	usernameID INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(45) NOT NULL,
+	username VARCHAR(45) NOT NULL UNIQUE,
     pwd VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
     gameStatisticsID INT,

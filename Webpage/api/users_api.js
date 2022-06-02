@@ -163,7 +163,7 @@ app.get('/api/users/:id', async (request, response)=>
 //         connection = await connectToDB()
 
 //         const [results, fields] = await connection.query('delete from users where usernameID= ?', [request.params.id])
-        
+ 
 //         response.json({'message': "Data deleted correctly."})
 //     }
 //     catch(error)

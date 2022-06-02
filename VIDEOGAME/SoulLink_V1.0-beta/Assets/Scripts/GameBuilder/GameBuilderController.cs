@@ -165,6 +165,8 @@ public class GameBuilderController : MonoBehaviour
             CreateInfoStrings();
             roomButtons.SetActive(false);
             emptyParent.SetActive(false);
+            obstacleDropdown.SetActive(false);
+            enemyDropdown.SetActive(false);
             SceneManager.LoadScene("Main");
         } 
         else
@@ -224,7 +226,7 @@ public class GameBuilderController : MonoBehaviour
         foreach (ObstacleToBePlaced obstacle in obstaclesToBePlaced)
         {
             obstacleString += obstacle.name + "," + obstacle.roomX + "," + obstacle.roomY + "," + obstacle.X + "," + obstacle.Y + "_";
-            LevelInformation.levelObstacle = obstacleString;
+            LevelInformation.levelObstacles = obstacleString;
         }
     }
 
@@ -262,6 +264,7 @@ public class GameBuilderController : MonoBehaviour
         }
         enemyDropdown.SetActive(true);
         enemyDropdownPressed = true;
+        obstacleDropdown.SetActive(false);
     }
 
     public void ToggleObstacleDropdown()
@@ -274,11 +277,14 @@ public class GameBuilderController : MonoBehaviour
         }
         obstacleDropdown.SetActive(true);
         obstacleDropdownPressed = true;
+        enemyDropdown.SetActive(false);
     }
 
     public void Return()
     {
         ToggleEnemyPlaceState(0, 0);
+        obstacleDropdown.SetActive(false);
+        enemyDropdown.SetActive(false);
     }
 
     public void ReturnToMenu()
