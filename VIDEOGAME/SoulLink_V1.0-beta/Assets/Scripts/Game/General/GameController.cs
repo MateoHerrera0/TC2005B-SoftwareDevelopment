@@ -49,15 +49,19 @@ public class GameController : MonoBehaviour
         {
             endGame();
         }
-
+        // When escape key is pressed
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            // If game is paused
             if(isPaused)
             {
+                // Resume game
                 Resume();
             }
+            // If game is not paused
             else
             {
+                // Pause Game
                 Pause();
             }
         }
@@ -83,21 +87,32 @@ public class GameController : MonoBehaviour
         editor.ReturnToMenu();
     }
 
+    // Function to resume game
     public void Resume()
     {
+        // Deactivate pause menu
         pauseMenu.SetActive(false);
+        // Time runs as normal
         Time.timeScale = 1f; 
+        // Specify that it is not paused
         isPaused = false;  
     }
+
+    // Function to pause game
     void Pause()
     {
+        // Activate pause meny
         pauseMenu.SetActive(true);
+        // Time runs as if application is paused
         Time.timeScale = 0f; 
+        // Specify that it is paused
         isPaused = true;   
     }
 
+    // Function to quit and go to main meny
     public void Quit()
     {
+        // Load main menu
         SceneManager.LoadScene("MainMenu");
     }
 }
