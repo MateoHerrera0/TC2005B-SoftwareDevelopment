@@ -180,6 +180,115 @@ app.delete('/api/users/:id', async (request, response)=>{
     }
 })
 
+app.get('/api/level', async (request, response)=>{
+    let connection = null
+    try
+    {
+        connection = await connectToDB()
+        const [results, fields] = await connection.execute('select * from levels')
+
+        response.json(results)
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+app.get('/api/level/:id', async (request, response)=>
+{
+    let connection = null
+
+    try
+    {
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('select * from levels where levelID= ?', [request.params.id])
+        
+        response.json(results)
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+app.post('/api/level', async (request, response)=>{
+
+    let connection = null
+
+    try
+    {    
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('insert into levels set ?', request.body)
+        
+        response.json({'message': "Data inserted correctly."})
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+app.get('/api/users/:id', async (request, response)=>
+{
+    let connection = null
+
+    try
+    {
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('select * from users where username= ?', [request.params.id])
+        
+        response.json(results)
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully!")
+        }
+    }
+})
+
 
 app.listen(port, ()=>{
     console.log(`App listening at http://localhost:${port}`)
