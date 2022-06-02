@@ -41,6 +41,12 @@ public class PlayerMove : MonoBehaviour
         Vector3 mouse = Input.mousePosition; 
         // Transform position
         Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition); 
+        if(Input.GetKeyDown("space"))
+        {
+            Debug.Log(transform.position); 
+            transform.position = transform.position + movement * Time.deltaTime * (mainCharacterSpeed + 1);
+        }
+        Debug.Log(transform.position); 
     }
 
     // Function to freeze movement
