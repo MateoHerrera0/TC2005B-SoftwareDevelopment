@@ -19,6 +19,11 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameBuilderController editor;
     LevelSelectController publisher;
+
+    // Determine if game is paused
+    public static bool isPaused = false; 
+    // 
+    public GameObject pauseMenu; 
     
     private void Awake()
     {
@@ -44,6 +49,18 @@ public class GameController : MonoBehaviour
         {
             endGame();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
 
     void endGame()
@@ -64,5 +81,23 @@ public class GameController : MonoBehaviour
     {
         publisher.InsertNewLevel();
         editor.ReturnToMenu();
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f; 
+        isPaused = false;  
+    }
+    void Pause()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f; 
+        isPaused = true;   
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
