@@ -104,3 +104,9 @@ AS
 SELECT totalBuiltLevels AS `Levels Created`, mostUsedElement AS `Most Used Element`, leastUsedElement AS `Least Used Element`
 	FROM alley_cat_db.builderStatistics;
     
+--
+-- user time played view
+CREATE VIEW user_time_played
+AS
+SELECT averageTime AS `Avergae Time`, totalTimePlayed AS `Total Time Played`
+	FROM alley_cat_db.gamestatistics;
