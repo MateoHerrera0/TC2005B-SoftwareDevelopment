@@ -126,7 +126,7 @@ public class LevelSelectController : MonoBehaviour
 
     void DisplayUsers()
     {
-        LevelMenuController texter = GetComponent<LevelMenuController>();
+        LevelMenuController texter = Camera.main.GetComponent<LevelMenuController>();
         texter.LoadNames(allLevels);
     }
 }

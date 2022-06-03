@@ -21,11 +21,11 @@ using UnityEngine.SceneManagement;
 public class User
 {
     public int usernameID;
-    public string username;
-    public string pwd;
-    public string email;
-    public int gameStatisticsID;
-    public int builderStatisticsID;
+    // public string username;
+    // public string pwd;
+    // public string email;
+    // public int gameStatisticsID;
+    // public int builderStatisticsID;
 }
 
 public class NewUser
@@ -104,7 +104,7 @@ public class UsernameSelect : MonoBehaviour
 
     IEnumerator GetUser()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + loginUsername.text))
+        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + loginUsername.text + "/" + loginPassword.text))
         {
             yield return www.SendWebRequest();
 
@@ -120,7 +120,7 @@ public class UsernameSelect : MonoBehaviour
                     login(allUsers.users[0]);
                 } else
                 {
-                    notLogin("Invalid Username");
+                    notLogin("Invalid username or \n password");
                 }
             } else {
                 notLogin("Error 500");
@@ -168,17 +168,10 @@ public class UsernameSelect : MonoBehaviour
         }
     }
 
-    void login(User user)
+    void login(User userID)
     {
-        if (user.pwd == loginPassword.text)
-        {
-            PlayerPrefs.SetString("username", user.username);
-            PlayerPrefs.SetInt("userID", user.usernameID);
+            PlayerPrefs.SetInt("userID", userID.usernameID);
             SceneManager.LoadScene("MainMenu");
-        } else
-        {
-            notLogin("Invalid Password");
-        }
     }
 
     void notLogin(string whyNot)
