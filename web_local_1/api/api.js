@@ -40,7 +40,7 @@ app.get('/api/users', async (request, response)=>{
     try
     {
         connection = await connectToDB()
-        const [results, fields] = await connection.execute('select * from users_display')
+        const [results, fields] = await connection.execute('select * from user_display')
 
         response.json(results)
     }
@@ -68,7 +68,7 @@ app.get('/api/users/:username', async (request, response)=>
     {
         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('select * from users_display where username= ?', [request.params.username])
+        const [results, fields] = await connection.query('select * from user_display where username= ?', [request.params.username])
         
         response.json(results)
     }

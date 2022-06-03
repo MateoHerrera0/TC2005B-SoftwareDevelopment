@@ -82,7 +82,25 @@ CREATE TABLE playerStatistics (
 	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE VIEW users_display
+--
+-- user view
+CREATE VIEW user_display
 AS
 SELECT username, activity, lastActive
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.playerStatistics USING (usernameID);
+
+--
+-- user points view
+CREATE VIEW user_point_stats
+AS
+SELECT highScore AS `High Score`, averagePoints AS `Average Points`, gamesPlayed AS `Total Games Played`,
+totalPoints AS `Overall Points`
+	FROM alley_cat_db.gameStatistics;
+
+--
+-- user builder stats
+CREATE VIEW user_builder_stats
+AS
+SELECT totalBuiltLevels AS `Levels Created`, mostUsedElement AS `Most Used Element`, leastUsedElement AS `Least Used Element`
+	FROM alley_cat_db.builderStatistics;
+    
