@@ -173,9 +173,7 @@ app.post('/api/users', async (request, response)=>
 //     }
 // })
 
-
-
-app.get('/api/users/:id', async (request, response)=>
+app.get('/api/users/:username/:pwd', async (request, response)=>
 {
     let connection = null
 
@@ -183,8 +181,7 @@ app.get('/api/users/:id', async (request, response)=>
     {
         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('select * from users where username= ?', [request.params.id])
-        
+        const [results, fields] = await connection.query(`select usernameID from users where username= ? AND pwd= ?`, [request.params.username, request.params.pwd])
         response.json(results)
     }
     catch(error)
