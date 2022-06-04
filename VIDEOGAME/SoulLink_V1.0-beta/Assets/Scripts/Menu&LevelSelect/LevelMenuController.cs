@@ -114,13 +114,14 @@ public class LevelMenuController : MonoBehaviour
 
     void LoadIcons(int numberOfIcons, GameObject parentObject, LevelList lv){
         for(int i = 1; i <= numberOfIcons; i++){
+            Level level = lv.levels[i-1];
             currentLevelCount++;
             Button icon = Instantiate(levelIcon) as Button;
             icon.transform.SetParent(thisCanvas.transform, false);
             icon.transform.SetParent(parentObject.transform);
-            icon.name = "ID: " + lv.levels[i-1].levelID;
-            icon.GetComponentInChildren<TextMeshProUGUI>().SetText(lv.levels[i-1].levelName);
-            icon.onClick.AddListener(delegate {LoadLevel(lv.levels[i-1].roomLayout, lv.levels[i-1].enemyLayout, lv.levels[i-1].objectLayout); });
+            icon.name = "ID: " + level.levelID;
+            icon.GetComponentInChildren<TextMeshProUGUI>().SetText(level.levelName);
+            icon.onClick.AddListener(delegate {LoadLevel(level.roomLayout, level.enemyLayout, level.objectLayout);});
         }
     }
 }
