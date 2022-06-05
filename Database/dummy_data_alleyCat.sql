@@ -48,19 +48,20 @@ VALUES (900, 1200, 9, 8100,10800, 3000),
 COMMIT;
 
 -- insert dummy data into builderStatistics
-INSERT INTO builderStatistics (mostUsedElement, leastUsedElement, totalBuiltLevels) 
-VALUES ('enemy1', 'obstacle2', 1),
-('enemy2', 'obstacle2', 1),
-('enemy1', 'obstacle3', 1),
-('enemy1', 'obstacle2', 1),
-('enemy2', 'obstacle2', 1),
-('enemy2', 'obstacle3', 1),
-('enemy2', 'obstacle1', 1),
-('enemy1', 'obstacle2', 1),
-('enemy2', 'obstacle3', 1),
-('enemy3', 'obstacle1', 1),
-('enemy1', 'obstacle3', 1),
-('enemy1', 'obstacle2', 1);
+INSERT INTO builderStatistics (demonEnemy, eyeEnemy, regularEnemy, dragonEnemy, 
+goblinEnemy, muddyEnemy, zombieEnemy, boxObstacle, floorSpikesObstacle, holeObject, totalBuiltLevels) 
+VALUES (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
+(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1);
 COMMIT;
 
 -- insert dummy data into playerStatistics
@@ -94,10 +95,10 @@ UPDATE users SET gameStatisticsID = 11, builderStatisticsID = 11 WHERE usernameI
 UPDATE users SET gameStatisticsID = 12, builderStatisticsID = 12 WHERE usernameID=12;
 
 
-SELECT * FROM users;
-SELECT * FROM levels;
-SELECT * FROM gameStatistics;
-SELECT * FROM builderStatistics;
-SELECT * FROM playerStatistics;
+#SELECT * FROM users;
+#SELECT * FROM levels;
+#SELECT * FROM gameStatistics;
+#SELECT * FROM builderStatistics;
+#SELECT * FROM playerStatistics;
 
 

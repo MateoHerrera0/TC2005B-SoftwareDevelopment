@@ -64,8 +64,18 @@ CREATE TABLE gameStatistics (
 
 CREATE TABLE builderStatistics (
 	builderStatisticsID INT NOT NULL AUTO_INCREMENT,
-    mostUsedElement VARCHAR(45),
-    leastUsedElement VARCHAR(45),
+    #mostUsedElementVARCHAR(45),
+    demonEnemy INT,
+    eyeEnemy INT,
+    regularEnemy INT,
+    dragonEnemy INT,
+    goblinEnemy INT,
+    muddyEnemy INT,
+    zombieEnemy INT,
+    #leastUsedElementVARCHAR(45),
+    boxObstacle INT,
+    floorSpikesObstacle INT,
+    holeObject INT,
     totalBuiltLevels INT,
 	PRIMARY KEY (builderStatisticsID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -91,22 +101,18 @@ SELECT username, activity, lastActive
 
 --
 -- user points view
-CREATE VIEW user_point_stats
-AS
-SELECT highScore AS `High Score`, averagePoints AS `Average Points`, gamesPlayed AS `Total Games Played`,
-totalPoints AS `Overall Points`
-	FROM alley_cat_db.gameStatistics;
+CREATE VIEW user_point_stats AS SELECT username, gameStatisticsID, highScore AS `HighScore`, 
+averagePoints AS `AveragePoints`, gamesPlayed AS `GamesPlayed`, totalPoints AS `TotalPoints`
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (gameStatisticsID);
 
 --
 -- user builder stats
-CREATE VIEW user_builder_stats
-AS
-SELECT totalBuiltLevels AS `Levels Created`, mostUsedElement AS `Most Used Element`, leastUsedElement AS `Least Used Element`
-	FROM alley_cat_db.builderStatistics;
+CREATE VIEW user_builder_stats AS SELECT username, builderStatisticsID, totalBuiltLevels AS `LevelsCreated`, 
+demonEnemy AS `Demon`, eyeEnemy AS `Eye`, dragonEnemy AS `Dragon`, goblinEnemy AS `Goblin`, muddyEnemy AS `Muddy`,
+zombieEnemy AS `Zombie`, boxObstacle AS `Box`, floorSpikesObstacle AS `FloorSpikes`, holeObject AS `Hole`
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.builderStatistics USING (builderStatisticsID);
     
 --
 -- user time played view
-CREATE VIEW user_time_played
-AS
-SELECT averageTime AS `Avergae Time`, totalTimePlayed AS `Total Time Played`
-	FROM alley_cat_db.gamestatistics;
+CREATE VIEW user_time_played AS SELECT username, gameStatisticsID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (gameStatisticsID);
