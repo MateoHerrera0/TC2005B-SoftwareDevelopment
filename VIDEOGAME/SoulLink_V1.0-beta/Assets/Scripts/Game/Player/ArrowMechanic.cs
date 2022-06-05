@@ -151,5 +151,21 @@ public class ArrowMechanic : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+
+        // If arrow touches enemy and is allowed to damage
+        if(other.gameObject.tag == "Boss" && canDamage)
+        {
+            // Substract points from the enemies health points
+            // Using get component in children to access HealthBar
+            other.GetComponentInChildren<HealthBar>().hp -= 25;
+            // If the health points are equal or lower to 0
+            if(other.GetComponentInChildren<HealthBar>().hp <= 0)
+            {
+                // Destroy Boss
+                Instantiate(healthFlask, other.transform.position, Quaternion.identity);
+                RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
