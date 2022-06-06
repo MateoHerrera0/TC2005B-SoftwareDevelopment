@@ -18,13 +18,7 @@ CREATE TABLE users (
 	username VARCHAR(45) NOT NULL UNIQUE,
     pwd VARCHAR(45) NOT NULL,
 	email VARCHAR(45) NOT NULL,
-    gameStatisticsID INT,
-    builderStatisticsID INT,
-    PRIMARY KEY (usernameID),
-    KEY idx_fk_gameStatisticsID (gameStatisticsID),
-    CONSTRAINT `fk_rating_gameStatisticsID` FOREIGN KEY (gameStatisticsID) REFERENCES gameStatistics(gameStatisticsID),
-	KEY idx_fk_builderStatisticsID (builderStatisticsID),
-    CONSTRAINT `fk_rating_builderStatisticsID` FOREIGN KEY (builderStatisticsID) REFERENCES builderStatistics(builderStatisticsID)
+    PRIMARY KEY (usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -48,14 +42,16 @@ CREATE TABLE levels (
 --
 
 CREATE TABLE gameStatistics (
-	gameStatisticsID INT NOT NULL AUTO_INCREMENT,
+	usernameID INT NOT NULL,
+    gActivate bool,
     averageTime FLOAT,
     averagePoints FLOAT,
     gamesPlayed INT,
     totalTimePlayed FLOAT,
     totalPoints INT,
     highScore INT,
-    PRIMARY KEY (gameStatisticsID)
+	KEY idx_fk_usernameID (usernameID),
+	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
  
 --
@@ -63,7 +59,8 @@ CREATE TABLE gameStatistics (
 --
 
 CREATE TABLE builderStatistics (
-	builderStatisticsID INT NOT NULL AUTO_INCREMENT,
+	usernameID INT NOT NULL,
+	bActivate bool,
     #mostUsedElementVARCHAR(45),
     demonEnemy INT,
     eyeEnemy INT,
@@ -77,7 +74,8 @@ CREATE TABLE builderStatistics (
     floorSpikesObstacle INT,
     holeObject INT,
     totalBuiltLevels INT,
-	PRIMARY KEY (builderStatisticsID)
+	KEY idx_fk_usernameID (usernameID),
+	CONSTRAINT `fk_rating_usernameID3` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -89,7 +87,7 @@ CREATE TABLE playerStatistics (
 	activity BOOLEAN,
 	lastActive TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	KEY idx_fk_usernameID (usernameID),
-	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
+	CONSTRAINT `fk_rating_usernameID4` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -101,61 +99,61 @@ SELECT username, activity, lastActive
 
 --
 -- user points view
-CREATE VIEW user_point_stats AS SELECT username, gameStatisticsID, highScore AS `HighScore`, 
+CREATE VIEW user_point_stats AS SELECT username, usernameID, highScore AS `HighScore`, 
 averagePoints AS `AveragePoints`, gamesPlayed AS `GamesPlayed`, totalPoints AS `TotalPoints`
-	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (gameStatisticsID);
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (usernameID);
 
 --
 -- user builder stats
-CREATE VIEW user_builder_stats AS SELECT username, builderStatisticsID, totalBuiltLevels AS `LevelsCreated`, 
+CREATE VIEW user_builder_stats AS SELECT username, usernameID, totalBuiltLevels AS `LevelsCreated`, 
 demonEnemy AS `Demon`, eyeEnemy AS `Eye`, dragonEnemy AS `Dragon`, goblinEnemy AS `Goblin`, muddyEnemy AS `Muddy`,
 zombieEnemy AS `Zombie`, boxObstacle AS `Box`, floorSpikesObstacle AS `FloorSpikes`, holeObject AS `Hole`
-	FROM alley_cat_db.users LEFT JOIN alley_cat_db.builderStatistics USING (builderStatisticsID);
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.builderStatistics USING (usernameID);
     
 --
 -- user time played view
-CREATE VIEW user_time_played AS SELECT username, gameStatisticsID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
-	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (gameStatisticsID);
+CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (usernameID);
 
--- DELIMITER $$
--- CREATE TRIGGER completeUserTable1
--- AFTER INSERT ON alley_cat_db.users
--- FOR EACH ROW
--- BEGIN
--- 	IF users.gameStatisticsID = NULL THEN
--- 		INSERT INTO gameStatistics (averageTime, averagePoints, gamesPlayed, totalTimePlayed, totalPoints, highScore) 
--- 		VALUES (NULL, NULL, NULL, NULL, NULL, NULL);
--- 	END IF;
--- END$$
--- DELIMITER ;
 
--- DELIMITER $$
--- CREATE TRIGGER completeUserTable
--- BEFORE INSERT ON alley_cat_db.users
--- FOR EACH ROW
--- BEGIN
--- 	INSERT INTO alley_cat_db.gamestatistics (gamesPlayed) VALUE (NULL);
-    
--- END$$
--- DELIMITER ;
 
 DELIMITER $$
 CREATE TRIGGER completeUserTable
-AFTER INSERT ON alley_cat_db.gamestatistics
+AFTER INSERT ON alley_cat_db.users
 FOR EACH ROW
 BEGIN
-	    UPDATE users SET gameStatisticsID = new.gameStatisticsID WHERE usernameID = new.gameStatisticsID;
+	    INSERT INTO gameStatistics (usernameID, gActivate) VALUE (new.usernameID, true);
 END$$
 DELIMITER ;
 
 DELIMITER $$
 CREATE TRIGGER completeUserTable2
-AFTER INSERT ON alley_cat_db.builderStatistics
+AFTER INSERT ON alley_cat_db.users
 FOR EACH ROW
 BEGIN
-	    UPDATE users SET builderStatisticsID = new.builderStatisticsID WHERE usernameID = new.builderStatisticsID;
+	    INSERT INTO builderStatistics (usernameID, bActivate) VALUE (new.usernameID, true);
 END$$
 DELIMITER ;
+
+-- DELIMITER $$
+-- CREATE TRIGGER completeUserTable
+-- AFTER INSERT ON alley_cat_db.gamestatistics
+-- FOR EACH ROW
+-- BEGIN
+-- 	    -- UPDATE users SET gameStatisticsID = new.gameStatisticsID WHERE usernameID = new.gameStatisticsID;
+--      -- INSERT INTO users (gameStatisticsID) VALUE (new.gameStatisticsID);
+-- END$$
+-- DELIMITER ;
+
+-- DELIMITER $$
+-- CREATE TRIGGER completeUserTable2
+-- AFTER INSERT ON alley_cat_db.builderStatistics
+-- FOR EACH ROW
+-- BEGIN
+-- 	    -- UPDATE users SET builderStatisticsID = new.builderStatisticsID WHERE usernameID = new.builderStatisticsID;
+--         INSERT INTO users (builderStatisticsID) VALUE (new.builderStatisticsID);
+-- END$$
+-- DELIMITER ;
 
 DELIMITER $$
 CREATE TRIGGER completePlayerStats
