@@ -88,34 +88,43 @@ app.get('/api/users/:username', async (request, response)=>
     }
 })
 
-app.post('/api/users', async (request, response)=>
-{
+app.post('/api/users', async (request, response)=>{
 
     let connection = null
+    let symbolRegex = new RegExp('.*\\W.*')
+    let emailRegex = new RegExp('\\w+(?:\\.\\w+)*@\\w+(?:\\.\\w+)*\\.[a-z]{2,4}')
 
-    try
-    {    
-        connection = await connectToDB()
-
-        // const [results, fields] = await connection.query('insert into users set username = ?, pwd = ?, email = ?', [request.body['username'], request.body['pwd'], request.body['email']])
-        const [results, fields] = await connection.query('insert into users set ?', request.body)
-
-        response.json({'message': "Data inserted correctly."})
-    }
-    catch(error)
+    if (request.body.username.match(symbolRegex) || request.body.pwd.match(symbolRegex)) {
+        response.json({'message': "Invalid caracters in username or password"})
+    } else if (!request.body.email.match(emailRegex)) 
     {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
+        response.json({'message': "Invalid email"})
+    } else
     {
-        if(connection!==null) 
+        try
+        {    
+            connection = await connectToDB()
+    
+            const [results, fields] = await connection.query('insert into users set ?', request.body)
+            
+            response.json({'message': "Data inserted correctly."})
+        }
+        catch(error)
         {
-            connection.end()
-            console.log("Connection closed successfully!")
+            response.status(500)
+            response.json(error)
+            console.log(error)
+        }
+        finally
+        {
+            if(connection!==null) 
+            {
+                connection.end()
+                console.log("Connection closed succesfully!")
+            }
         }
     }
+
 })
 
 // app.put('/api/users', async (request, response)=>{

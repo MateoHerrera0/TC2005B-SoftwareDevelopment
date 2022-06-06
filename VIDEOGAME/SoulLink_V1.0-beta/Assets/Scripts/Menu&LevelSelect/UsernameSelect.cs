@@ -120,10 +120,10 @@ public class UsernameSelect : MonoBehaviour
                     login(allUsers.users[0]);
                 } else
                 {
-                    notLogin("Invalid username or \n password");
+                    notLogin(www.downloadHandler.text);
                 }
             } else {
-                notLogin("Error 500");
+                notLogin(www.downloadHandler.text);
             }
         }
     }
@@ -163,7 +163,7 @@ public class UsernameSelect : MonoBehaviour
                 loginPassword.text = signUpPassword.text;
                 QueryUser();
             } else {
-                notLogin("Information entered not valid");
+                notLogin(www.downloadHandler.text);
             }
         }
     }
