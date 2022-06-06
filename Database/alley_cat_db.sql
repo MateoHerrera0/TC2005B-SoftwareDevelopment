@@ -116,3 +116,54 @@ zombieEnemy AS `Zombie`, boxObstacle AS `Box`, floorSpikesObstacle AS `FloorSpik
 -- user time played view
 CREATE VIEW user_time_played AS SELECT username, gameStatisticsID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (gameStatisticsID);
+
+-- DELIMITER $$
+-- CREATE TRIGGER completeUserTable1
+-- AFTER INSERT ON alley_cat_db.users
+-- FOR EACH ROW
+-- BEGIN
+-- 	IF users.gameStatisticsID = NULL THEN
+-- 		INSERT INTO gameStatistics (averageTime, averagePoints, gamesPlayed, totalTimePlayed, totalPoints, highScore) 
+-- 		VALUES (NULL, NULL, NULL, NULL, NULL, NULL);
+-- 	END IF;
+-- END$$
+-- DELIMITER ;
+
+-- DELIMITER $$
+-- CREATE TRIGGER completeUserTable
+-- BEFORE INSERT ON alley_cat_db.users
+-- FOR EACH ROW
+-- BEGIN
+-- 	INSERT INTO alley_cat_db.gamestatistics (gamesPlayed) VALUE (NULL);
+    
+-- END$$
+-- DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER completeUserTable
+AFTER INSERT ON alley_cat_db.gamestatistics
+FOR EACH ROW
+BEGIN
+	    UPDATE users SET gameStatisticsID = new.gameStatisticsID WHERE usernameID = new.gameStatisticsID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER completeUserTable2
+AFTER INSERT ON alley_cat_db.builderStatistics
+FOR EACH ROW
+BEGIN
+	    UPDATE users SET builderStatisticsID = new.builderStatisticsID WHERE usernameID = new.builderStatisticsID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER completePlayerStats
+AFTER INSERT ON alley_cat_db.users
+FOR EACH ROW
+BEGIN
+		INSERT INTO playerStatistics (usernameID, activity) VALUE(new.usernameID, true);
+END$$
+DELIMITER ;
+
+
