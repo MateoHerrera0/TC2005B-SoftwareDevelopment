@@ -115,7 +115,9 @@ zombieEnemy AS `Zombie`, boxObstacle AS `Box`, floorSpikesObstacle AS `FloorSpik
 CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (usernameID);
 
-
+--
+-- TRIGGERS
+--
 
 DELIMITER $$
 CREATE TRIGGER completeUserTable
@@ -135,26 +137,6 @@ BEGIN
 END$$
 DELIMITER ;
 
--- DELIMITER $$
--- CREATE TRIGGER completeUserTable
--- AFTER INSERT ON alley_cat_db.gamestatistics
--- FOR EACH ROW
--- BEGIN
--- 	    -- UPDATE users SET gameStatisticsID = new.gameStatisticsID WHERE usernameID = new.gameStatisticsID;
---      -- INSERT INTO users (gameStatisticsID) VALUE (new.gameStatisticsID);
--- END$$
--- DELIMITER ;
-
--- DELIMITER $$
--- CREATE TRIGGER completeUserTable2
--- AFTER INSERT ON alley_cat_db.builderStatistics
--- FOR EACH ROW
--- BEGIN
--- 	    -- UPDATE users SET builderStatisticsID = new.builderStatisticsID WHERE usernameID = new.builderStatisticsID;
---         INSERT INTO users (builderStatisticsID) VALUE (new.builderStatisticsID);
--- END$$
--- DELIMITER ;
-
 DELIMITER $$
 CREATE TRIGGER completePlayerStats
 AFTER INSERT ON alley_cat_db.users
@@ -164,4 +146,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+--
+-- PROCEDURES
+--
 
