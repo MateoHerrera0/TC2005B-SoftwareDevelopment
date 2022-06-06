@@ -145,7 +145,6 @@ public class UsernameSelect : MonoBehaviour
         newUser.pwd = signUpPassword.text;
         //Debug.Log("USER: " + newUser);
         string jsonData = JsonUtility.ToJson(newUser);
-        Debug.Log(jsonData);
         //Debug.Log("BODY: " + jsonData);
 
         // Send using the Put method:

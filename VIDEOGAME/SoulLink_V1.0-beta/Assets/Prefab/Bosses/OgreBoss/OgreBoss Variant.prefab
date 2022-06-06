@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7169098499915173845, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041242, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_Name
       value: OgreBoss Variant
