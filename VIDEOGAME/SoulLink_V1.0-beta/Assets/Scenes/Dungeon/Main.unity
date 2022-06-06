@@ -506,6 +506,7 @@ MonoBehaviour:
   gameTestWinUi: {fileID: 141508181}
   player: {fileID: 505902088}
   editor: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!4 &163492063
 Transform:
   m_ObjectHideFlags: 0
@@ -1444,10 +1445,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectList:
   - {fileID: 7930653309798835682, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
-  - {fileID: 576242792782026062, guid: 93facd3cba4dad94a92bbe06548e9716, type: 3}
+  - {fileID: 916688081751646549, guid: 1435e7e815be24bee8832d91cccc429a, type: 3}
   - {fileID: 6772112017737686936, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
+  - {fileID: 5892732754193100376, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
+  - {fileID: 2442307630867773819, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
+  - {fileID: 1523374637413783800, guid: ab2eb05b16b954c58be193179d08e69d, type: 3}
   - {fileID: 8185050081048798356, guid: 8ac7a7bcc09ba8746800088fed5b95f1, type: 3}
   - {fileID: 874810893185989410, guid: 309d7914270543147980d46cd80bf24b, type: 3}
+  - {fileID: 2131539077576127227, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
+  - {fileID: 7169098500536041242, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
 --- !u!4 &868025851
 Transform:
   m_ObjectHideFlags: 0

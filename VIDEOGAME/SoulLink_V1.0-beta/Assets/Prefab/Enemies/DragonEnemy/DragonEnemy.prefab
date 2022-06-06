@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 916688081751646545}
   - component: {fileID: 916688081751646559}
   - component: {fileID: 916688081751646544}
+  - component: {fileID: 2165226951272553218}
   m_Layer: 0
   m_Name: DragonEnemy
   m_TagString: Enemy
@@ -171,6 +172,20 @@ MonoBehaviour:
   rendr: {fileID: 916688081751646547}
   projectile: {fileID: 1542411921237037059, guid: 6f91b8942b1159547af2cea8f440f070, type: 3}
   maxTime: 2
+--- !u!114 &2165226951272553218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916688081751646549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724c06e85b9e1b14c8ba917e47fcbcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notInRoom: 0
+  enemyType: {fileID: 916688081751646544}
 --- !u!1 &916688082193819705
 GameObject:
   m_ObjectHideFlags: 0

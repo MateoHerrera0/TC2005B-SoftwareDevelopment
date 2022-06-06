@@ -21,7 +21,8 @@ public class GameController : MonoBehaviour
     LevelSelectController publisher;
 
     // Determine if game is paused
-    public static bool isPaused = false; 
+    public static bool isPaused = false;
+    bool bossPlaced = true;
     // 
     public GameObject pauseMenu; 
     
@@ -39,13 +40,14 @@ public class GameController : MonoBehaviour
         {
             editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
             publisher = this.GetComponent<LevelSelectController>();
+            bossPlaced = editor.bossPlaced;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (endRoomReached)
+        if (endRoomReached && bossPlaced && GameObject.FindGameObjectWithTag("Boss") == null)
         {
             endGame();
         }

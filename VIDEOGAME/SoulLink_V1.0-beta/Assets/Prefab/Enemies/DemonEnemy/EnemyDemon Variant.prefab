@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyDemon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7173502560430868317, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8258674100082366794, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -72,6 +76,7 @@ PrefabInstance:
     - {fileID: 6772112017737686937, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
     - {fileID: 272965867264502056, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
     - {fileID: 8194396376599456117, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
+    - {fileID: 5400490180245320270, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7963e39a1f91f3c4bad2ce9809940e4a, type: 3}
 --- !u!1 &1791988839393914760 stripped
 GameObject:
@@ -91,3 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isItRoom: 0
+  isItObstacle: 0
+  roomX: 0
+  roomY: 0

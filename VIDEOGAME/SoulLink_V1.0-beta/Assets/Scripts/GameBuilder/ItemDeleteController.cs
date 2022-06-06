@@ -51,6 +51,7 @@ public class ItemDeleteController : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(0))
             {
+                editor.currentRoom = this.gameObject;
                 editor.ToggleEnemyPlaceState(this.transform.position.x, this.transform.position.y);
             }
         }

@@ -49,16 +49,19 @@ public class GameBuilderController : MonoBehaviour
     public int currentButtonPressed;
     public string currentButtonPressedName;
     public string currentButtonPressedType;
+    public GameObject currentRoom;
     public Vector2 gridSize;
     GameObject roomButtons;
     public GameObject enemyButtons;
+    public GameObject bossButton;
+    public GameObject bossDropdown;
     public GameObject enemyDropdown;
     public GameObject obstacleDropdown;
     bool enemyDropdownPressed = false;
     bool obstacleDropdownPressed = false;
-    int itemImageX;
-    int itemImageY;
+    bool bossDropdownPressed = false;
     public bool enemyPlaceState = false;
+    public bool bossPlaced = false;
     public string levelString;
     public string enemyString;
     public string obstacleString;
@@ -134,6 +137,11 @@ public class GameBuilderController : MonoBehaviour
 
             } else
             {
+                if (currentButtonPressedType == "Boss" && GameObject.FindGameObjectWithTag("Boss") != null)
+                {
+                    Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
+                    return;
+                }
                 EnemyToBePlaced enemy = new EnemyToBePlaced();
                 enemy.name = currentButtonPressedName;
                 enemy.roomX = roomPosX;
@@ -148,7 +156,6 @@ public class GameBuilderController : MonoBehaviour
             }
             
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
-
         }
     }
 
@@ -161,6 +168,13 @@ public class GameBuilderController : MonoBehaviour
             if (enemyPlaceState)
             {
                 Return();
+            }
+            if (GameObject.FindGameObjectWithTag("Boss") != null)
+            {
+                bossPlaced = true;
+            }else
+            {
+                bossPlaced = false;
             }
             CreateInfoStrings();
             roomButtons.SetActive(false);
@@ -188,6 +202,10 @@ public class GameBuilderController : MonoBehaviour
             Camera.main.orthographicSize = 5;
             roomButtons.SetActive(false);
             enemyButtons.SetActive(true);
+            if (currentRoom.name.Contains("End"))
+            {
+                bossButton.SetActive(true);
+            }
             enemyPlaceState = true;
             return;
         }
@@ -196,6 +214,7 @@ public class GameBuilderController : MonoBehaviour
         Camera.main.orthographicSize = 60;
         roomButtons.SetActive(true);
         enemyButtons.SetActive(false);
+        bossButton.SetActive(false);
         enemyPlaceState = false;
     }
 
@@ -265,6 +284,7 @@ public class GameBuilderController : MonoBehaviour
         enemyDropdown.SetActive(true);
         enemyDropdownPressed = true;
         obstacleDropdown.SetActive(false);
+        bossDropdown.SetActive(false);
     }
 
     public void ToggleObstacleDropdown()
@@ -278,6 +298,21 @@ public class GameBuilderController : MonoBehaviour
         obstacleDropdown.SetActive(true);
         obstacleDropdownPressed = true;
         enemyDropdown.SetActive(false);
+        bossDropdown.SetActive(false);
+    }
+
+    public void ToggleBossDropdown()
+    {
+        if (bossDropdownPressed)
+        {
+            bossDropdown.SetActive(false);
+            bossDropdownPressed = false;
+            return;
+        }
+        bossDropdown.SetActive(true);
+        bossDropdownPressed = true;
+        enemyDropdown.SetActive(false);
+        obstacleDropdown.SetActive(false);
     }
 
     public void Return()
