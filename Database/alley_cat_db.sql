@@ -10,6 +10,10 @@ CREATE SCHEMA alley_cat_db;
 USE alley_cat_db;
 
 --
+-- TABLES
+--
+
+--
 -- Table users 
 --
 
@@ -91,6 +95,10 @@ CREATE TABLE playerStatistics (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- VIEWS
+--
+
+--
 -- user view
 CREATE VIEW user_display
 AS
@@ -119,6 +127,9 @@ CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `Ave
 -- TRIGGERS
 --
 
+-- 
+-- INSERT usernameID key on gameStatistics
+-- 
 DELIMITER $$
 CREATE TRIGGER completeUserTable
 AFTER INSERT ON alley_cat_db.users
@@ -128,6 +139,9 @@ BEGIN
 END$$
 DELIMITER ;
 
+--
+-- INSERT usernameID key on builderStatistics
+--
 DELIMITER $$
 CREATE TRIGGER completeUserTable2
 AFTER INSERT ON alley_cat_db.users
@@ -137,6 +151,8 @@ BEGIN
 END$$
 DELIMITER ;
 
+--
+-- -- INSERT usernameID key on playerStatistics
 DELIMITER $$
 CREATE TRIGGER completePlayerStats
 AFTER INSERT ON alley_cat_db.users
