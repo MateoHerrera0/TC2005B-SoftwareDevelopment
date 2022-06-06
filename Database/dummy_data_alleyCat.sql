@@ -32,20 +32,20 @@ VALUES ('', '', '', 'level1', '1'),
 COMMIT;
 
 -- insert dummy data into gameStatistics
-INSERT INTO gameStatistics (averageTime, averagePoints, gamesPlayed, totalTimePlayed, totalPoints, highScore) 
-VALUES (900, 1200, 9, 8100,10800, 3000),
-(1200, 1800, 12, 14400,21600, 5000),
-(200, 1300, 6, 1200,7800, 500),
-(500, 1100, 12, 6000,13200, 600),
-(900, 1400, 11, 9900,15400, 3000),
-(1000, 1000, 4, 4000,4000, 3000),
-(900, 900, 17, 15300,15300, 1200),
-(1000, 1250, 10, 10000,12500, 3000),
-(800, 1400, 9, 7200,12600, 3050),
-(1200, 1100, 7, 8400,7700, 1600),
-(900, 700, 8, 7200,5600, 1000),
-(900, 1700, 14, 12600,23800, 2000);
-COMMIT;
+-- INSERT INTO gameStatistics (averageTime, averagePoints, gamesPlayed, totalTimePlayed, totalPoints, highScore) 
+-- VALUES (900, 1200, 9, 8100,10800, 3000),
+-- (1200, 1800, 12, 14400,21600, 5000),
+-- (200, 1300, 6, 1200,7800, 500),
+-- (500, 1100, 12, 6000,13200, 600),
+-- (900, 1400, 11, 9900,15400, 3000),
+-- (1000, 1000, 4, 4000,4000, 3000),
+-- (900, 900, 17, 15300,15300, 1200),
+-- (1000, 1250, 10, 10000,12500, 3000),
+-- (800, 1400, 9, 7200,12600, 3050),
+-- (1200, 1100, 7, 8400,7700, 1600),
+-- (900, 700, 8, 7200,5600, 1000),
+-- (900, 1700, 14, 12600,23800, 2000);
+-- COMMIT;
 
 -- UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
 -- WHERE gameStatisticsID = alley_cat_db.users.gameStatisticsID;
@@ -64,39 +64,6 @@ COMMIT;
 -- (900, 1700, 14, 12600,23800, 2000);
 -- COMMIT;
 
--- insert dummy data into builderStatistics
-INSERT INTO builderStatistics (demonEnemy, eyeEnemy, regularEnemy, dragonEnemy, 
-goblinEnemy, muddyEnemy, zombieEnemy, boxObstacle, floorSpikesObstacle, holeObject, totalBuiltLevels) 
-VALUES (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1),
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1);
-COMMIT;
-
--- insert dummy data into playerStatistics
--- INSERT INTO  playerStatistics (activity) 
--- VALUES (true),
--- (false),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true),
--- (true);
--- COMMIT;
-
 
 -- UPDATE users SET gameStatisticsID = 1, builderStatisticsID = 1 WHERE usernameID=1;
 -- UPDATE users SET gameStatisticsID = 2, builderStatisticsID = 2 WHERE usernameID=2;
@@ -110,6 +77,69 @@ COMMIT;
 -- UPDATE users SET gameStatisticsID = 10, builderStatisticsID = 10 WHERE usernameID=10;
 -- UPDATE users SET gameStatisticsID = 11, builderStatisticsID = 11 WHERE usernameID=11;
 -- UPDATE users SET gameStatisticsID = 12, builderStatisticsID = 12 WHERE usernameID=12;
+
+UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 1;
+UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 2;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 3;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 4;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 5;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 6;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 7;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 8;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 9;
+UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 10;
+UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 11;
+ UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
+ WHERE usernameID = 12;
+
+UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 1;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 2;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 3;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 4;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 5;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 6;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 7;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 8;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 9;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 10;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 11;
+ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
+ WHERE usernameID = 12;
+ 
 
 
 #SELECT * FROM users;
