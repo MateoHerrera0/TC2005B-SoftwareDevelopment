@@ -11,12 +11,17 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    // Room width
     public float Width;
+    // Room height
     public int Height;
+    // Room X coordinates
     public int X;
+    // Room Y coordinates
     public int Y;
-
+    // Bool variable that checks if unconnected doors have been removed
     private bool updatedDoors = false;
+    
 
     public Room(int x, int y)
     {
@@ -29,21 +34,26 @@ public class Room : MonoBehaviour
     public Door topDoor;
     public Door bottomDoor;
 
+    // List of doors in room
     public List<Door> doors = new List<Door>();
 
     // Start is called before the first frame update
     void Start()
     {
+        // Check if room controller script is present in scene
         if (RoomController.instance == null)
         {
             Debug.Log("Pressed start in wrong room");
             return;
         }
 
+        // Retrieves all doors in room and puts them in array
         Door[] ds = GetComponentsInChildren<Door>(); 
         foreach(Door d in ds)
         {
+            // Adds doors to list
             doors.Add(d);
+            // Categorizes each door depending on its type in the door script
             switch(d.doorType)
             {
                 case Door.DoorType.right:
@@ -61,19 +71,23 @@ public class Room : MonoBehaviour
             }
         }
 
+        // Calls the room controller register room function with this room.
         RoomController.instance.RegisterRoom(this);
     }
 
-    void Update() {
-        if(name.Contains("End") && !updatedDoors)
-        {
-            RemoveUnconnectedDoors();
-            updatedDoors = true;
-        }
-    }
+    // void Update() {
+    //     if(name.Contains("End") && !updatedDoors)
+    //     {
+    //         RemoveUnconnectedDoors();
+    //         updatedDoors = true;
+    //     }
+    // }
 
+    // Function that removes unconnected doors in room.
     public void RemoveUnconnectedDoors()
     {
+        // It iterates through all doors in a room and removes them based on 
+        // on wether or not there is a roomnext to the door
         foreach (Door door in doors)
         {
             switch (door.doorType)
@@ -110,6 +124,7 @@ public class Room : MonoBehaviour
         }
     }
 
+    // Checks if there is a room to the right
     public Room GetRight()
     {
         if(RoomController.instance.DoesRoomExist(X + 1, Y))
@@ -119,6 +134,7 @@ public class Room : MonoBehaviour
         return null;
     }
 
+    // Checks if there is room to the left
     public Room GetLeft()
     {
         if(RoomController.instance.DoesRoomExist(X - 1, Y))
@@ -128,6 +144,7 @@ public class Room : MonoBehaviour
         return null;
     }
 
+    // Checks if there is room up.
     public Room GetTop()
     {
         if(RoomController.instance.DoesRoomExist(X, Y + 1))
@@ -137,6 +154,7 @@ public class Room : MonoBehaviour
         return null;
     }
     
+    // Checks if there is room downs
     public Room GetBottom()
     {
         if(RoomController.instance.DoesRoomExist(X, Y - 1))
@@ -151,16 +169,13 @@ public class Room : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(Width, Height, 0));
     }
 
+    // Gets room center coordinates.
     public Vector3 GetRoomCentre()
     {
         return new Vector3(X*Width, Y*Height, 0);
     }
 
-    public void DestroyRoom()
-    {
-        Destroy(this);
-    }
-
+    // Returns current room to room controller.
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
