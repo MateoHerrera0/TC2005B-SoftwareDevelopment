@@ -7,6 +7,7 @@ Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
 
@@ -41,10 +42,16 @@ public class LevelSelectController : MonoBehaviour
     // This is where the information from the api will be extracted
     public LevelList allLevels;
 
+    private void Start() {
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
+        {
+            QueryLevel();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Space)) {
+        // if (Input.GetKeyDown("r")) {
         //     QueryLevel();
         // }
         // if (Input.GetKeyDown(KeyCode.N)) {
@@ -56,6 +63,7 @@ public class LevelSelectController : MonoBehaviour
 
     public void QueryLevel()
     {
+        
         StartCoroutine(GetLevel());
     }
 
@@ -71,7 +79,6 @@ public class LevelSelectController : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Get(url + getLevelsEP))
         {
             yield return www.SendWebRequest();
-
             if (www.result == UnityWebRequest.Result.Success) {
                 //Debug.Log("Response: " + www.downloadHandler.text);
                 // Compose the response to look like the object we want to extract
