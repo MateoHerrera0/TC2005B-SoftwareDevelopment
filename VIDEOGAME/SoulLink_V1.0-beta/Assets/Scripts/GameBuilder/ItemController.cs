@@ -10,8 +10,8 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    public int id;
-    public string objectName;
+    public int buttonId;
+    public string objectId;
     public bool clicked = false;
     public bool returnGame = false;
     public string type;
@@ -31,10 +31,10 @@ public class ItemController : MonoBehaviour
 
         clicked = true;
 
-        Instantiate(editor.itemImage[id], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
+        Instantiate(editor.itemImage[buttonId], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
         
-        editor.currentButtonPressed = id;
-        editor.currentButtonPressedName = objectName;
+        editor.currentButtonPressedId = buttonId;
+        editor.currentButtonPressedObjectId = objectId;
         editor.currentButtonPressedType = type;
     }
 }

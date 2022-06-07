@@ -45,9 +45,8 @@ public class GameBuilderController : MonoBehaviour
     public List<RoomToBePlaced> roomsToBePlaced = new List<RoomToBePlaced>();
     public List<EnemyToBePlaced> enemiesToBePlaced = new List<EnemyToBePlaced>();
     public List<ObstacleToBePlaced> obstaclesToBePlaced = new List<ObstacleToBePlaced>();
-    private FollowMouseBuilder mouse;
-    public int currentButtonPressed;
-    public string currentButtonPressedName;
+    public int currentButtonPressedId;
+    public string currentButtonPressedObjectId;
     public string currentButtonPressedType;
     public GameObject currentRoom;
     public Vector2 gridSize;
@@ -96,35 +95,35 @@ public class GameBuilderController : MonoBehaviour
         int roomPosX = (int)(currentPosOnGrid.x/17.5);
         int roomPosY = (int)(currentPosOnGrid.y/9);
 
-        if (Input.GetMouseButtonDown(0) && itemButtons[currentButtonPressed].clicked)
+        if (Input.GetMouseButtonDown(0) && itemButtons[currentButtonPressedId].clicked)
         {
-            itemButtons[currentButtonPressed].clicked = false;
+            itemButtons[currentButtonPressedId].clicked = false;
 
             if (!enemyPlaceState)
             {
                 if (DoesRoomExist(roomPosX, roomPosY) == false)
                 {
-                    if (currentButtonPressedName == "End" && DoesEndRoomExist())
+                    if (currentButtonPressedObjectId == "End" && DoesEndRoomExist())
                     {
                         Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
                         return;
                     }
 
                     RoomToBePlaced room = new RoomToBePlaced();
-                    room.name = currentButtonPressedName;
+                    room.name = currentButtonPressedObjectId;
                     room.X = roomPosX;
                     room.Y = roomPosY;
                     
                     roomsToBePlaced.Add(room);
     
-                    GameObject newRoom = Instantiate(itemList[currentButtonPressed],
+                    GameObject newRoom = Instantiate(itemList[currentButtonPressedId],
                     new Vector3(currentPosOnGrid.x, currentPosOnGrid.y, 0), Quaternion.identity);
                     newRoom.transform.parent = emptyParent.transform;
                 }
             } else if (currentButtonPressedType == "obstacle")
             {
                 ObstacleToBePlaced obstacle = new ObstacleToBePlaced();
-                obstacle.name = currentButtonPressedName;
+                obstacle.name = currentButtonPressedObjectId;
                 obstacle.roomX = roomPosX;
                 obstacle.roomY = roomPosY;
                 obstacle.X = worldPos.x;
@@ -132,7 +131,7 @@ public class GameBuilderController : MonoBehaviour
 
                 obstaclesToBePlaced.Add(obstacle);
 
-                GameObject newObstacle = Instantiate(itemList[currentButtonPressed], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
+                GameObject newObstacle = Instantiate(itemList[currentButtonPressedId], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
                 newObstacle.transform.parent = emptyParent.transform;
 
             } else
@@ -143,7 +142,7 @@ public class GameBuilderController : MonoBehaviour
                     return;
                 }
                 EnemyToBePlaced enemy = new EnemyToBePlaced();
-                enemy.name = currentButtonPressedName;
+                enemy.name = currentButtonPressedObjectId;
                 enemy.roomX = roomPosX;
                 enemy.roomY = roomPosY;
                 enemy.X = worldPos.x;
@@ -151,7 +150,7 @@ public class GameBuilderController : MonoBehaviour
 
                 enemiesToBePlaced.Add(enemy);
 
-                GameObject newEnemy = Instantiate(itemList[currentButtonPressed], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
+                GameObject newEnemy = Instantiate(itemList[currentButtonPressedId], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
                 newEnemy.transform.parent = emptyParent.transform;
             }
             
