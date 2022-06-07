@@ -67,7 +67,6 @@ CREATE TABLE builderStatistics (
 	bActivate bool,
     #mostUsedElementVARCHAR(45),
     demonEnemy INT,
-    eyeEnemy INT,
     regularEnemy INT,
     dragonEnemy INT,
     goblinEnemy INT,
