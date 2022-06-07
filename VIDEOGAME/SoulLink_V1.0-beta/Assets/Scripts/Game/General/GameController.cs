@@ -68,56 +68,63 @@ public class GameController : MonoBehaviour
         {
             endGame();
         }
-        // When escape key is pressed
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(!isTest)
         {
-            Debug.Log(isPaused);
-
-            // If game is paused
-            if(isPaused)
+            // When escape key is pressed
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
-                // Resume game
-                Resume();
+                Debug.Log(isPaused);
+
+                // If game is paused
+                if(isPaused)
+                {
+                    // Resume game
+                    Resume();
+                }
+                // If game is not paused
+                else
+                {
+                    // Pause Game
+                    Pause();
+                }
             }
-            // If game is not paused
+            // If timer allowed
+            if(activeTimer)
+            {
+                // Update timer
+                currentTime += Time.deltaTime;
+            }
+            // If time is bigger than 60 secs
+            if(currentTime >= 60)
+            {
+                // Specify seconds
+                TimeSpan time = TimeSpan.FromSeconds(currentTime);
+                // Show time in text (structure: mins:secs:ms)
+                timeText.text = time.ToString(@"mm\:ss\:ff");
+            }
+            // If time is smaller than 60 secs
             else
             {
-                // Pause Game
-                Pause();
+                // Specify seconds
+                TimeSpan time = TimeSpan.FromSeconds(currentTime);
+                // Show time in text (structure: mins:secs:ms)
+                timeText.text = time.ToString(@"ss\:ff");
+            }
+            // If player lost their whole hp
+            if(player.GetComponentInChildren<HealthBar>().hp <= 0)
+            {
+                GameOver();
             }
         }
-        // If timer allowed
-        if(activeTimer)
-        {
-            // Update timer
-            currentTime += Time.deltaTime;
-        }
-        // If time is bigger than 60 secs
-        if(currentTime >= 60)
-        {
-            // Specify seconds
-            TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            // Show time in text (structure: mins:secs:ms)
-            timeText.text = time.ToString(@"mm\:ss\:ff");
-        }
-        // If time is smaller than 60 secs
         else
         {
-            // Specify seconds
-            TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            // Show time in text (structure: mins:secs:ms)
-            timeText.text = time.ToString(@"ss\:ff");
-        }
-        // If player lost their whole hp
-        if(player.GetComponentInChildren<HealthBar>().hp <= 0)
-        {
-            // Display Game over in game mode
-            if(!isTest)
-                GameOver();
-            // Display Game over in test mode
-            else
+            // If player lost their whole hp
+            if(player.GetComponentInChildren<HealthBar>().hp <= 0)
+            {
                 TestOver();
+            }
         }
+        
     }
 
     void endGame()
