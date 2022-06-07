@@ -7,7 +7,9 @@ Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -23,9 +25,22 @@ public class GameController : MonoBehaviour
     // Determine if game is paused
     public static bool isPaused = false;
     bool bossPlaced = true;
-    // 
+    // Pause menu object
     public GameObject pauseMenu; 
-    
+
+    // Timer variables
+    // Variable to enable timer
+    private bool activeTimer = true;
+    // Timer time
+    private float currentTime; 
+    // Timer text
+    public Text timeText;  
+
+    // Game Over Variables
+    // Game over menu object game mode
+    public GameObject GameOverMenu; 
+    // Game over menu object builder mode
+    public GameObject BuilderOverMenu; 
     private void Awake()
     {
         if(instance == null)
@@ -42,6 +57,8 @@ public class GameController : MonoBehaviour
             publisher = this.GetComponent<LevelSelectController>();
             bossPlaced = editor.bossPlaced;
         }
+        // Start timer in 0
+        currentTime = 0; 
     }
 
     // Update is called once per frame
@@ -54,6 +71,8 @@ public class GameController : MonoBehaviour
         // When escape key is pressed
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log(isPaused);
+
             // If game is paused
             if(isPaused)
             {
@@ -66,6 +85,38 @@ public class GameController : MonoBehaviour
                 // Pause Game
                 Pause();
             }
+        }
+        // If timer allowed
+        if(activeTimer)
+        {
+            // Update timer
+            currentTime += Time.deltaTime;
+        }
+        // If time is bigger than 60 secs
+        if(currentTime >= 60)
+        {
+            // Specify seconds
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            // Show time in text (structure: mins:secs:ms)
+            timeText.text = time.ToString(@"mm\:ss\:ff");
+        }
+        // If time is smaller than 60 secs
+        else
+        {
+            // Specify seconds
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            // Show time in text (structure: mins:secs:ms)
+            timeText.text = time.ToString(@"ss\:ff");
+        }
+        // If player lost their whole hp
+        if(player.GetComponentInChildren<HealthBar>().hp <= 0)
+        {
+            // Display Game over in game mode
+            if(!isTest)
+                GameOver();
+            // Display Game over in test mode
+            else
+                TestOver();
         }
     }
 
@@ -98,6 +149,10 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f; 
         // Specify that it is not paused
         isPaused = false;  
+        // Show timer
+        timeText.enabled = true; 
+        // Resume timer
+        activeTimer = true; 
     }
 
     // Function to pause game
@@ -109,6 +164,10 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0f; 
         // Specify that it is paused
         isPaused = true;   
+        // Stop timer
+        activeTimer = false; 
+        // Stop showing timer
+        timeText.enabled = false; 
     }
 
     // Function to quit and go to main meny
@@ -116,5 +175,39 @@ public class GameController : MonoBehaviour
     {
         // Load main menu
         SceneManager.LoadScene("MainMenu");
+    }
+    // Function for game over in game mode
+    void GameOver()
+    {
+        // Activate gameover menu
+        GameOverMenu.SetActive(true);
+        // Time runs as if application is paused
+        Time.timeScale = 0f; 
+        // Stop timer
+        activeTimer = false; 
+        // Stop showing timer
+        timeText.enabled = false; 
+    }
+    // Function for game over in test mode
+    void TestOver()
+    {
+        // Activate gameover menu
+        BuilderOverMenu.SetActive(true);
+        // Time runs as if application is paused
+        Time.timeScale = 0f; 
+        // Stop timer
+        activeTimer = false; 
+        // Stop showing timer
+        timeText.enabled = false; 
+    }
+    // Function to play again
+    public void PlayAgain()
+    {
+        // Load main menu
+        SceneManager.LoadScene("Level");
+    }
+    public void ReturnBuilder()
+    {
+        editor.ToggleGameBuilder();
     }
 }

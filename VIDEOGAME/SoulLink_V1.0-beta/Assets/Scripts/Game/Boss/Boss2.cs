@@ -53,6 +53,7 @@ public class Boss2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Increase timer in each frame
         timer += Time.deltaTime;
         // 

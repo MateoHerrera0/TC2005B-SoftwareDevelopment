@@ -26,6 +26,10 @@ public class Enemy1 : MonoBehaviour
     private float timer = 0.0f;
     // Time in between shots
     [SerializeField] private float maxTime;
+    // Determine if enemy was attacked to run effect
+    public bool wasAttacked; 
+    // time of attacked effect
+    private float attackedTime; 
 
     private void Start()
     {
@@ -88,6 +92,7 @@ public class Enemy1 : MonoBehaviour
         // Create projectile 
         Instantiate(projectile, transform.position, Quaternion.identity);
     }
+    // 
     // Collision with stop objects (walls and other obstacles)
     private void OnTriggerEnter2D(Collider2D other)
     {

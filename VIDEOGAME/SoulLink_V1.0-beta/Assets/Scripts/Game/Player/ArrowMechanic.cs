@@ -30,7 +30,9 @@ public class ArrowMechanic : MonoBehaviour
     public GameObject crosshairs;
     // Indicate the position of the mouse (target)
     private Vector3 target; 
+    // Flask
     [SerializeField] private GameObject healthFlask; 
+    [SerializeField] private GameObject impactEffect; 
 
 
     // Start is called before the first frame update
@@ -139,12 +141,16 @@ public class ArrowMechanic : MonoBehaviour
         // If arrow touches enemy and is allowed to damage
         if(other.gameObject.tag == "Enemy" && canDamage)
         {
+            other.GetComponent<SpriteRenderer>().color = Color.red;
             // Substract points from the enemies health points
             // Using get component in children to access HealthBar
             other.GetComponentInChildren<HealthBar>().hp -= 15;
+            // Place effect
+            Instantiate(impactEffect, other.transform.position, Quaternion.identity);
             // If the health points are equal or lower to 0
             if(other.GetComponentInChildren<HealthBar>().hp <= 0)
             {
+                Instantiate(impactEffect, other.transform.position, Quaternion.identity);
                 // Destroy enemy
                 Instantiate(healthFlask, other.transform.position, Quaternion.identity);
                 RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
