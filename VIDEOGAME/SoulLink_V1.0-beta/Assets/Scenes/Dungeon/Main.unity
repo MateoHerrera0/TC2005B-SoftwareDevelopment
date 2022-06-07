@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endRoomReached: 0
-  isTest: 0
+  isTest: 1
   gameTestWinUi: {fileID: 0}
   player: {fileID: 505902088}
   editor: {fileID: 0}
