@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class GetHealth : MonoBehaviour
 {
+    // Get main character object to extract points info
+    private GameObject mainCharacter;
     // Get transform from the MainCharacter
     private Transform mainCharacterTrans;
     // Get the speed of the flask
@@ -17,8 +19,10 @@ public class GetHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Obtain the Player through its tag
-        mainCharacterTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+         // Get main character object
+        mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        // Get main character's transform through tag
+        mainCharacterTrans = mainCharacter.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -38,6 +42,7 @@ public class GetHealth : MonoBehaviour
         // If flask touches Player
         if(other.gameObject.tag == "Player")
         {
+            other.gameObject.GetComponent<PlayerController>().totalPoints += 50;
             // If Player doesn't have all their points
             if(other.GetComponentInChildren<HealthBar>().hp <= other.GetComponentInChildren<HealthBar>().maxHp)
             {

@@ -29,10 +29,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 lastDirection;
     // Trail effect
     public GameObject trail; 
+    // Player points
+    public float totalPoints; 
 
     // Start is called before the first frame update
     void Start()
     {
+        // Start with 0 points
+        totalPoints = 0;
         // Get RigidBody
         rb2d = GetComponent<Rigidbody2D>();
         // Get sprite renderer
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
+        Debug.Log(totalPoints);
         // Get vertical input axis
         float vertical = Input.GetAxis("Vertical");
         // get horizontal input axis
