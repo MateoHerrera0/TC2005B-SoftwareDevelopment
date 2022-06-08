@@ -2001,7 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: http://localhost:5000
-  getUsersEP: /api/users/delete/
+  getUsersEP: /api/usersDelete/
   loginUsername: {fileID: 0}
   loginPassword: {fileID: 0}
   loginError: {fileID: 0}

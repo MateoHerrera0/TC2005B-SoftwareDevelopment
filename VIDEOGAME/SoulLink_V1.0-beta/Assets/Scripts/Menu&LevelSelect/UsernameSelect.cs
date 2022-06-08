@@ -137,7 +137,7 @@ public class UsernameSelect : MonoBehaviour
     IEnumerator StartDeleteProcedure()
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + PlayerPrefs.GetInt("userID").ToString()))
-        {
+        {   
             yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.Success) {
@@ -146,9 +146,11 @@ public class UsernameSelect : MonoBehaviour
                 // https://answers.unity.com/questions/1503047/json-must-represent-an-object-type.html
                 string jsonString = "{\"status\":" + www.downloadHandler.text + "}";
                 Debug.Log(jsonString);
+                menu.Logout();
+            } else
+            {
+                Debug.Log(www.downloadHandler.text);
             }
-
-            menu.Logout();
         }
     }
 

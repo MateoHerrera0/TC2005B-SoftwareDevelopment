@@ -132,7 +132,7 @@ app.post('/api/users', async (request, response)=>{
 
 })
 
-app.get('/api/users/delete/:id', async (request, response)=>{
+app.get('/api/usersDelete/:id', async (request, response)=>{
 
     let connection = null
     try
@@ -140,6 +140,7 @@ app.get('/api/users/delete/:id', async (request, response)=>{
         connection = await connectToDB()
 
         const [results, fields] = await connection.query('call deleteUser(?)', request.params.id)
+        console.log(results);
         
         response.json({'message': "Called procedure correctly."})
     }
