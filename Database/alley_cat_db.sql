@@ -113,7 +113,7 @@ averagePoints AS `AveragePoints`, gamesPlayed AS `GamesPlayed`, totalPoints AS `
 --
 -- user builder stats
 CREATE VIEW user_builder_stats AS SELECT username, usernameID, totalBuiltLevels AS `LevelsCreated`, 
-demonEnemy AS `Demon`, eyeEnemy AS `Eye`, dragonEnemy AS `Dragon`, goblinEnemy AS `Goblin`, muddyEnemy AS `Muddy`,
+demonEnemy AS `Demon`, dragonEnemy AS `Dragon`, goblinEnemy AS `Goblin`, muddyEnemy AS `Muddy`,
 zombieEnemy AS `Zombie`, boxObstacle AS `Box`, floorSpikesObstacle AS `FloorSpikes`, holeObject AS `Hole`
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.builderStatistics USING (usernameID);
     
