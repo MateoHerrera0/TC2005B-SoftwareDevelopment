@@ -47,13 +47,13 @@ CREATE TABLE levels (
 
 CREATE TABLE gameStatistics (
 	usernameID INT NOT NULL,
-    gActivate bool,
-    averageTime FLOAT,
-    averagePoints FLOAT,
-    gamesPlayed INT,
-    totalTimePlayed FLOAT,
-    totalPoints INT,
-    highScore INT,
+    gActivate BOOL,
+    averageTime FLOAT NOT NULL DEFAULT 0,
+    averagePoints FLOAT NOT NULL DEFAULT 0,
+    gamesPlayed INT NOT NULL DEFAULT 0,
+    totalTimePlayed FLOAT NOT NULL DEFAULT 0,
+    totalPoints INT NOT NULL DEFAULT 0,
+    highScore INT NOT NULL DEFAULT 0,
 	KEY idx_fk_usernameID (usernameID),
 	CONSTRAINT `fk_rating_usernameID2` FOREIGN KEY (usernameID) REFERENCES users(usernameID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,7 +64,7 @@ CREATE TABLE gameStatistics (
 
 CREATE TABLE builderStatistics (
 	usernameID INT NOT NULL,
-	bActivate bool,
+	bActivate BOOL,
     #mostUsedElementVARCHAR(45),
     demonEnemy INT DEFAULT 0,
     regularEnemy INT DEFAULT 0,
@@ -132,6 +132,7 @@ CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `Ave
 -- INSERT usernameID key on gameStatistics
 -- 
 DELIMITER $$
+-- DROP TRIGGER IF EXISTS completeUserTable;
 CREATE TRIGGER completeUserTable
 AFTER INSERT ON alley_cat_db.users
 FOR EACH ROW
@@ -144,6 +145,7 @@ DELIMITER ;
 -- INSERT usernameID key on builderStatistics
 --
 DELIMITER $$
+-- DROP TRIGGER IF EXISTS completeUserTable2;
 CREATE TRIGGER completeUserTable2
 AFTER INSERT ON alley_cat_db.users
 FOR EACH ROW
@@ -152,9 +154,12 @@ BEGIN
 END$$
 DELIMITER ;
 
+
 --
--- -- INSERT usernameID key on playerStatistics
+-- INSERT usernameID key on playerStatistics
+--
 DELIMITER $$
+-- DROP TRIGGER IF EXISTS completePlayerStats;
 CREATE TRIGGER completePlayerStats
 AFTER INSERT ON alley_cat_db.users
 FOR EACH ROW
@@ -166,4 +171,17 @@ DELIMITER ;
 --
 -- PROCEDURES
 --
+
+--
+-- PROCEDURE to UPDATE last time a user was active
+-- UPDATE playerStatistics SET lastActive = DEFAULT WHERE usernameID = 1;
+DElIMITER $$
+
+CREATE PROCEDURE userActivity (IN activeBool BOOL, IN userID INT)
+BEGIN
+        UPDATE playerStatistics SET activity = activeBool
+        WHERE usernameID = userID;
+END $$
+
+DELIMITER ;
 
