@@ -99,8 +99,8 @@ app.post('/api/users', async (request, response)=>{
     let emailRegex = new RegExp('\\w+(?:\\.\\w+)*@\\w+(?:\\.\\w+)*\\.[a-z]{2,4}')
 
     if (request.body.username.match(symbolRegex) || request.body.pwd.match(symbolRegex)) {
-        // response.json({'message': "Invalid caracters in username or password"})
-        response.status(400).send("Invalid caracters in username or password")
+        // response.json({'message': "Invalid characters in username or password"})
+        response.status(400).send("Invalid characters in username or password")
     } else if (!request.body.email.match(emailRegex))
     {
         response.status(400).send("Invalid email")
@@ -125,7 +125,7 @@ app.post('/api/users', async (request, response)=>{
             if(connection!==null) 
             {
                 connection.end()
-                console.log("Connection closed succesfully!")
+                console.log("Connection closed successfully!")
             }
         }
     }
@@ -153,7 +153,7 @@ app.get('/api/level', async (request, response)=>{
         if(connection!==null) 
         {
             connection.end()
-            console.log("Connection closed succesfully!")
+            console.log("Connection closed successfully!")
         }
     }
 })
@@ -181,7 +181,7 @@ app.get('/api/level/:id', async (request, response)=>
         if(connection!==null) 
         {
             connection.end()
-            console.log("Connection closed succesfully!")
+            console.log("Connection closed successfully!")
         }
     }
 })
@@ -209,7 +209,7 @@ app.post('/api/level', async (request, response)=>{
         if(connection!==null) 
         {
             connection.end()
-            console.log("Connection closed succesfully!")
+            console.log("Connection closed successfully!")
         }
     }
 })
@@ -222,7 +222,7 @@ app.put('/api/builderStatistics', async (request, response)=>{
     try{
         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('update builderstatistics set demonEnemy = ? + demonEnemy, regularEnemy = ? + regularEnemy, dragonEnemy = ? + dragonEnemy, goblinEnemy = ? + goblinEnemy, muddyEnemy = ? + muddyEnemy, zombieEnemy = ? + zombieEnemy, boxObstacle = ? + boxObstacle, floorSpikesObstacle = ? + floorSpikesObstacle, holeObject = ? + holeObject, ogreBoss = ? + ogreBoss, zombieBoss = ? + zombieBoss, totalBuiltLevels = ? + totalBuiltLevels where usernameID = ?', [request.body['demonEnemy'], request.body['regularEnemy'], request.body['dragonEnemy'], request.body['goblinEnemy'], request.body['muddyEnemy'], request.body['zombieEnemy'], request.body['boxObstacle'], request.body['floorSpikesObstacle'], request.body['holeObject'], request.body['ogreBoss'], request.body['zombieBoss'], request.body['totalBuiltLevels'], request.body['usernameID']])
+        const [results, fields] = await connection.query('update builderStatistics set demonEnemy = ? + demonEnemy, regularEnemy = ? + regularEnemy, dragonEnemy = ? + dragonEnemy, goblinEnemy = ? + goblinEnemy, muddyEnemy = ? + muddyEnemy, zombieEnemy = ? + zombieEnemy, boxObstacle = ? + boxObstacle, floorSpikesObstacle = ? + floorSpikesObstacle, holeObject = ? + holeObject, ogreBoss = ? + ogreBoss, zombieBoss = ? + zombieBoss, totalBuiltLevels = ? + totalBuiltLevels where usernameID = ?', [request.body['demonEnemy'], request.body['regularEnemy'], request.body['dragonEnemy'], request.body['goblinEnemy'], request.body['muddyEnemy'], request.body['zombieEnemy'], request.body['boxObstacle'], request.body['floorSpikesObstacle'], request.body['holeObject'], request.body['ogreBoss'], request.body['zombieBoss'], request.body['totalBuiltLevels'], request.body['usernameID']])
         
         response.json({'message': "Data updated correctly."})
     }
@@ -237,7 +237,7 @@ app.put('/api/builderStatistics', async (request, response)=>{
         if(connection!==null) 
         {
             connection.end()
-            console.log("Connection closed succesfully!")
+            console.log("Connection closed successfully!")
         }
     }
 })
