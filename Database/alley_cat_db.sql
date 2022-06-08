@@ -175,14 +175,18 @@ DELIMITER ;
 
 --
 -- PROCEDURE to UPDATE last time a user was active
--- UPDATE playerStatistics SET lastActive = DEFAULT WHERE usernameID = 1;
 DElIMITER $$
 
 CREATE PROCEDURE userActivity (IN activeBool BOOL, IN userID INT)
 BEGIN
-        UPDATE playerStatistics SET activity = activeBool
+        UPDATE playerStatistics SET activity = activeBool, lastActive = DEFAULT
         WHERE usernameID = userID;
 END $$
 
 DELIMITER ;
 
+--
+-- PROCEDURE to delete user
+
+--
+-- PROCEDURE to delete level?
