@@ -181,7 +181,7 @@ public class GameController : MonoBehaviour
     public void Quit()
     {
         // Load main menu
-        SceneManager.LoadScene("MainMenu");
+        editor.ReturnToMenu();
     }
     // Function for game over in game mode
     void GameOver()
@@ -212,9 +212,14 @@ public class GameController : MonoBehaviour
     {
         // Load main menu
         SceneManager.LoadScene("Level");
+        // Time runs as normal
+        Time.timeScale = 1f;
     }
     public void ReturnBuilder()
     {
+        // Time runs as normal
+        Time.timeScale = 1f;
         editor.ToggleGameBuilder();
+        player.GetComponentInChildren<HealthBar>().hp = 120;
     }
 }
