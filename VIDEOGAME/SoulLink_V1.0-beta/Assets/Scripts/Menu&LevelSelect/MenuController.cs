@@ -14,15 +14,24 @@ public class MenuController : MonoBehaviour
 {
 
     public Vector2 direction = Vector2.right;
+    Vector2 direction2 = Vector2.up;
     public float speed  = 1f;
     public int size = 1;
 
     private Vector3 leftEdge;
     private Vector3 rightEdge;
+    private Vector3 upEdge;
+    private Vector3 bottomEdge;
+    public bool up;
 
     public void SwitchToGameBuilder()
     {
         SceneManager.LoadScene("GameBuiler");
+    }
+
+    public void SwitchToLogin()
+    {
+        SceneManager.LoadScene("UserLogin");
     }
 
     public void SwitchToLevelSelector()
@@ -38,20 +47,36 @@ public class MenuController : MonoBehaviour
     private void Start() {
         leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        upEdge = Camera.main.ViewportToWorldPoint(Vector3.up);
+        bottomEdge = Camera.main.ViewportToWorldPoint(Vector3.down);
     }
 
     private void Update() {
-        if(direction.x > 0 && (transform.position.x - size) > rightEdge.x)
+        if (!up)
         {
-            transform.position = new Vector3(leftEdge.x - size, transform.position.y, transform.position.z);
-        }
-        else if(direction.x < 0 && (transform.position.x + size) < leftEdge.x)
-        {
-            transform.position = new Vector3(rightEdge.x + size, transform.position.y, transform.position.z);
+            if(direction.x > 0 && (transform.position.x - size) > rightEdge.x)
+            {
+                transform.position = new Vector3(leftEdge.x - size, transform.position.y, transform.position.z);
+            }
+            else if(direction.x < 0 && (transform.position.x + size) < leftEdge.x)
+            {
+                transform.position = new Vector3(rightEdge.x + size, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.Translate(direction * speed * Time.deltaTime);
+            }
         }
         else
         {
-            transform.Translate(direction * speed * Time.deltaTime);
+            if (transform.position.y - size > bottomEdge.y)
+            {
+                transform.position = new Vector3(transform.position.x, upEdge.y - size, transform.position.z);
+            }
+            else
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
+            }
         }
     }
 }
