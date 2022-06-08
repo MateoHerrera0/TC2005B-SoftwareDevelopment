@@ -85,7 +85,7 @@ public class LevelSelectController : MonoBehaviour
                 // https://answers.unity.com/questions/1503047/json-must-represent-an-object-type.html
                 string jsonString = "{\"levels\":" + www.downloadHandler.text + "}";
                 allLevels = JsonUtility.FromJson<LevelList>(jsonString);
-                DisplayUsers();
+                DisplayLevels();
             } else {
                 Debug.Log("Error: " + www.error);
             }
@@ -131,7 +131,7 @@ public class LevelSelectController : MonoBehaviour
         }
     }
 
-    void DisplayUsers()
+    void DisplayLevels()
     {
         LevelMenuController texter = Camera.main.GetComponent<LevelMenuController>();
         texter.LoadNames(allLevels);

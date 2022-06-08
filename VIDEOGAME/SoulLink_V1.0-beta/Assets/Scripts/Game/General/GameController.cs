@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameBuilderController editor;
     LevelSelectController publisher;
+    GameBuilderStatistics builderStatistics;
 
     // Determine if game is paused
     public static bool isPaused = false;
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour
         {
             editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
             publisher = this.GetComponent<LevelSelectController>();
+            builderStatistics = editor.GetComponent<GameBuilderStatistics>();
             bossPlaced = editor.bossPlaced;
         }
         // Start timer in 0
@@ -144,6 +146,7 @@ public class GameController : MonoBehaviour
     public void Publish()
     {
         publisher.InsertNewLevel();
+        builderStatistics.UpdateStatistics();
         editor.ReturnToMenu();
     }
 
