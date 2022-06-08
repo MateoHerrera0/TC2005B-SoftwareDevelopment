@@ -169,6 +169,19 @@ BEGIN
 END$$
 DELIMITER ;
 
+
+-- 
+-- UPDATE levels to admin when deleting user
+DELIMITER $$
+-- DROP TRIGGER IF EXISTS deleteUserLevels
+CREATE TRIGGER deleteUserLevels
+BEFORE DELETE ON alley_cat_db.users
+FOR EACH ROW
+BEGIN
+		UPDATE levels SET usernameID = 1 WHERE usernameID = old.usernameID;
+END$$
+DELIMITER ;
+
 --
 -- PROCEDURES
 --
@@ -203,4 +216,8 @@ END $$
 DELIMITER ;
 
 --
--- PROCEDURE to delete level?
+-- PROCEDURE to create admin
+-- DELIMITER $$
+
+-- CREATE PROCEDURE admincreate (IN 
+
