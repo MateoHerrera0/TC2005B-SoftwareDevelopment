@@ -141,7 +141,8 @@ public class ArrowMechanic : MonoBehaviour
         // If arrow touches enemy and is allowed to damage
         if(other.gameObject.tag == "Enemy" && canDamage)
         {
-            //other.GetComponent<SpriteRenderer>().color = Color.red;
+            //Allow damage effect
+            other.GetComponent<DamageEffect>().effect = true;
             // Substract points from the enemies health points
             // Using get component in children to access HealthBar
             other.GetComponentInChildren<HealthBar>().hp -= 15;
@@ -158,6 +159,8 @@ public class ArrowMechanic : MonoBehaviour
         // If arrow touches enemy and is allowed to damage
         if(other.gameObject.tag == "Boss" && canDamage)
         {
+            //Allow damage effect
+            other.GetComponent<DamageEffect>().effect = true;
             // Substract points from the enemies health points
             // Using get component in children to access HealthBar
             other.GetComponentInChildren<HealthBar>().hp -= 25;

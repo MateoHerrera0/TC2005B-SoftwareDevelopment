@@ -56,6 +56,8 @@ public class EnemyWeapon1 : MonoBehaviour
         // If projectile touches Player
         if(other.gameObject.tag == "Player")
         {
+            //Allow damage effect
+            other.GetComponent<DamageEffect>().effect = true;
             // Substract health points from Player
             other.GetComponentInChildren<HealthBar>().hp -= 10;
             // Destroy projectile

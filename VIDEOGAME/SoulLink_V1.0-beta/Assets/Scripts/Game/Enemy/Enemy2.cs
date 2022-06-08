@@ -46,6 +46,8 @@ public class Enemy2 : MonoBehaviour
         {
             // Access health points and reduce by 3
             mainCharacter.GetComponentInChildren<HealthBar>().hp -= 3;
+            //Allow damage effect
+            mainCharacter.GetComponent<DamageEffect>().effect = true;
         }
     }
 }
