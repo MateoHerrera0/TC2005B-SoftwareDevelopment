@@ -179,9 +179,13 @@ public class GameController : MonoBehaviour
         // Stop showing timer
         timeText.enabled = false; 
     }
-
-    // Function to quit and go to main meny
     public void Quit()
+    {
+        // Load main menu
+        SceneManager.LoadScene("MainMenu");
+    }
+    // Function to quit and go to main meny
+    public void QuitBuilder()
     {
         // Load main menu
         editor.ReturnToMenu();
@@ -213,10 +217,10 @@ public class GameController : MonoBehaviour
     // Function to play again
     public void PlayAgain()
     {
-        // Load main menu
-        SceneManager.LoadScene("Level");
         // Time runs as normal
         Time.timeScale = 1f;
+        // Load main menu
+        SceneManager.LoadScene("Level");
     }
     public void ReturnBuilder()
     {
