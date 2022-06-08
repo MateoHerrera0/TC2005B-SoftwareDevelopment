@@ -19,3 +19,4 @@ FROM user_builder_stats;
 SELECT * FROM playerStatistics;
 SELECT AverageTime, TotalTimePlayed FROM user_time_played;
 
+SELECT * FROM levels;

@@ -202,7 +202,7 @@ DELIMITER ;
 -- PROCEDURE to delete user
 DELIMITER $$
 
-CREATE PROCEDURE deleteUser (IN deleteUserID VARCHAR(45))
+CREATE PROCEDURE deleteUser (IN deleteUserID INT)
 BEGIN
 		DELETE FROM alley_cat_db.users WHERE usernameID = deleteUserID;
         DELETE  FROM alley_cat_db.gameStatistics WHERE usernameID = deleteUserID;
