@@ -222,6 +222,6 @@ BEGIN
 END $$
 DELIMITER ;
 
--- Administrator creation
+-- Administrator creation calling adminCreate procedure
 CALL adminCreate('administrator', '8zinnQ98662AAp', 'studios.alleyCat@gmail.com');
 
