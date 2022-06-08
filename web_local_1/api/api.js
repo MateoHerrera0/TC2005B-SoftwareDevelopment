@@ -5,7 +5,7 @@ import mysql from 'mysql2/promise'
 import fs from 'fs'
 
 const app = express()
-const port = 3000
+const port = 5000
 
 app.use(express.json())
 
@@ -18,8 +18,8 @@ async function connectToDB()
 {
     return await mysql.createConnection({
         host:'localhost',
-        user:'AlleyCat',
-        password:'j2Qo6!fL949L',
+        user:'web2',
+        password:'1234',
         database:'alley_cat_db'
     })
 }
