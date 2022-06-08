@@ -34,8 +34,14 @@ public class GameController : MonoBehaviour
     private bool activeTimer = true;
     // Timer time
     private float currentTime; 
+    // Points for time
+    private float timePoints;
     // Timer text
     public Text timeText;  
+    public GameObject finishMenu;
+    public Text finalTime;
+    public Text finalPoints; 
+    public float playerFinalPoints;
 
     // Game Over Variables
     // Game over menu object game mode
@@ -136,6 +142,21 @@ public class GameController : MonoBehaviour
         {
             gameTestWinUi.SetActive(true);
         }
+        else
+        {
+            // Show timer
+            timeText.enabled = false; 
+            // Resume timer
+            activeTimer = false;
+            finishMenu.SetActive(true);
+            timePoints = 3600 - currentTime; 
+            //Debug.Log(player.GetComponent<PlayerController>().totalPoints);
+            playerFinalPoints = player.GetComponent<PlayerController>().totalPoints + timePoints;
+            // Specify seconds
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            finalTime.text = "Total time: " + time.ToString(@"mm\:ss\:ff");
+            finalPoints.text = playerFinalPoints.ToString();
+        }
     }
 
     public void CancelPublish()
@@ -181,12 +202,16 @@ public class GameController : MonoBehaviour
     }
     public void Quit()
     {
+        // Time runs as normal
+        Time.timeScale = 1f; 
         // Load main menu
         SceneManager.LoadScene("MainMenu");
     }
     // Function to quit and go to main meny
     public void QuitBuilder()
     {
+        // Time runs as normal
+        Time.timeScale = 1f; 
         // Load main menu
         editor.ReturnToMenu();
     }
