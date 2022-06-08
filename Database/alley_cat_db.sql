@@ -204,20 +204,23 @@ DELIMITER $$
 
 CREATE PROCEDURE deleteUser (IN deleteUserID VARCHAR(45))
 BEGIN
-		DELETE usernameID, username, pwd, email FROM alley_cat_db.users WHERE usernameID = deleteUserID;
-        DELETE  usernameID, gActivate, averageTime, averagePoints, gamesPlayed, totalTimePlayed, totalPoints,
-        highScore FROM alley_cat_db.gameStatistics WHERE usernameID = deleteUserID;
-        DELETE usernameID, bActivate, demonEnemy, regularEnemy, dragonEnemy, goblinEnemy, muddyEnemy, zombieEnemy, 
-        boxObstacle, floorSpikesObstacle, holeObject, ogreBoss, zombieBoss, totalBuiltLevels
-        FROM alley_cat_db.builderStatistics WHERE usernameID = deleteUserID;
-        DELETE usernameID, activity, lastActive FROM alley_cat_db.playerStatistics WHERE usernameID = deleteUserID;
+		DELETE FROM alley_cat_db.users WHERE usernameID = deleteUserID;
+        DELETE  FROM alley_cat_db.gameStatistics WHERE usernameID = deleteUserID;
+        DELETE FROM alley_cat_db.builderStatistics WHERE usernameID = deleteUserID;
+        DELETE FROM alley_cat_db.playerStatistics WHERE usernameID = deleteUserID;
 END $$
 
 DELIMITER ;
 
 --
 -- PROCEDURE to create admin
--- DELIMITER $$
+DELIMITER $$
 
--- CREATE PROCEDURE admincreate (IN 
+CREATE PROCEDURE adminCreate (IN username4admin VARCHAR (45), IN pwd4admin VARCHAR(45), email4admin VARCHAR(45))
+BEGIN
+		INSERT INTO users (username, pwd, email) VALUES(username4admin, pwd4admin, email4admin);
+        
+END $$
+DELIMITER ;
 
+CALL adminCreate('administrator', '8zinnQ98662AAp', 'studios.alleyCat@gmail.com');
