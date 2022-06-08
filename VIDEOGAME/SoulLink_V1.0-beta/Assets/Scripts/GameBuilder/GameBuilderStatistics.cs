@@ -30,6 +30,7 @@ public class BuilderStatistics
     public int holeObject;
     public int ogreBoss;
     public int zombieBoss;
+    public int totalBuiltLevels;
     public int usernameID;
 }
 
@@ -120,6 +121,8 @@ public class GameBuilderStatistics : MonoBehaviour
                     break;
             }
         }
+        
+        newStatistic.totalBuiltLevels = 1;
         newStatistic.usernameID = PlayerPrefs.GetInt("userID");
         //Debug.Log("USER: " + newStatistic);
         string jsonData = JsonUtility.ToJson(newStatistic);
