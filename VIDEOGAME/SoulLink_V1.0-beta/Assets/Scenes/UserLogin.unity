@@ -4048,7 +4048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1750820348}
         m_TargetAssemblyTypeName: UsernameSelect, Assembly-CSharp
         m_MethodName: ToggleSignUp
         m_Mode: 1
