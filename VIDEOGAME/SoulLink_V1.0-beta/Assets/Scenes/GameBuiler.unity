@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  objectName: End
+  buttonId: 1
+  objectId: End
   clicked: 0
   returnGame: 0
   type: 
@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
-  objectName: 2
+  buttonId: 4
+  objectId: 2
   clicked: 0
   returnGame: 0
   type: 
@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  objectName: Empty
+  buttonId: 0
+  objectId: Empty
   clicked: 0
   returnGame: 0
   type: 
@@ -828,8 +828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
-  objectName: 3
+  buttonId: 5
+  objectId: 3
   clicked: 0
   returnGame: 0
   type: 
@@ -1057,8 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 12
-  objectName: 10
+  buttonId: 12
+  objectId: 10
   clicked: 0
   returnGame: 0
   type: 
@@ -1438,8 +1438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
-  objectName: 5
+  buttonId: 7
+  objectId: 5
   clicked: 0
   returnGame: 0
   type: 
@@ -1721,8 +1721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 10
-  objectName: 8
+  buttonId: 10
+  objectId: 8
   clicked: 0
   returnGame: 0
   type: obstacle
@@ -2304,8 +2304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  objectName: 0
+  buttonId: 2
+  objectId: 0
   clicked: 0
   returnGame: 0
   type: 
@@ -2454,8 +2454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
-  objectName: 7
+  buttonId: 9
+  objectId: 7
   clicked: 0
   returnGame: 0
   type: obstacle
@@ -2898,8 +2898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 11
-  objectName: 9
+  buttonId: 11
+  objectId: 9
   clicked: 0
   returnGame: 0
   type: 
@@ -3142,8 +3142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
-  objectName: 6
+  buttonId: 8
+  objectId: 6
   clicked: 0
   returnGame: 0
   type: obstacle
@@ -3292,8 +3292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
-  objectName: 1
+  buttonId: 3
+  objectId: 1
   clicked: 0
   returnGame: 0
   type: 
@@ -3419,6 +3419,7 @@ GameObject:
   - component: {fileID: 1658231029}
   - component: {fileID: 1658231028}
   - component: {fileID: 1658231027}
+  - component: {fileID: 1658231030}
   m_Layer: 0
   m_Name: GameBuilderController
   m_TagString: GameBuilderController
@@ -3494,8 +3495,8 @@ MonoBehaviour:
   - {fileID: 1627609700194250639, guid: 332925d0c91b11441a45bda829fc3e1a, type: 3}
   - {fileID: 3579621079542902882, guid: b74497531ef48a44dbe34eae3dc0a601, type: 3}
   emptyParent: {fileID: 193161749}
-  currentButtonPressed: 0
-  currentButtonPressedName: 
+  currentButtonPressedId: 0
+  currentButtonPressedObjectId: 
   currentButtonPressedType: 
   currentRoom: {fileID: 0}
   gridSize: {x: 17.5, y: 9}
@@ -3525,6 +3526,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1658231030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658231026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b411919af9e8e94dbf2cd16986b135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:5000
+  updateStatisticsEp: /api/builderStatistics
+  editor: {fileID: 1658231028}
+  allStatistics:
+    levels: []
 --- !u!1 &1660218524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,8 +3688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47ead8c9e1e9bd48a0876f84b25273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
-  objectName: 4
+  buttonId: 6
+  objectId: 4
   clicked: 0
   returnGame: 0
   type: 
