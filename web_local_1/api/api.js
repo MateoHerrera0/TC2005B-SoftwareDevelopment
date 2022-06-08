@@ -60,7 +60,7 @@ app.get('/api/users', async (request, response)=>{
     }
 })
 
-app.get('/api/users/:username', async (request, response)=>
+app.get('/api/users/:username/:pwd', async (request, response)=>
 {
     let connection = null
 
@@ -68,9 +68,13 @@ app.get('/api/users/:username', async (request, response)=>
     {
         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('select * from user_display where username= ?', [request.params.username])
-        
-        response.json(results)
+        const [results, fields] = await connection.query(`select usernameID from users where username= ? AND pwd= ?`, [request.params.username, request.params.pwd])
+        if (results.length == 0) {
+            response.status(400).send("No matching username or password")
+        }else
+        {
+            response.json(results)
+        }
     }
     catch(error)
     {
@@ -95,10 +99,11 @@ app.post('/api/users', async (request, response)=>{
     let emailRegex = new RegExp('\\w+(?:\\.\\w+)*@\\w+(?:\\.\\w+)*\\.[a-z]{2,4}')
 
     if (request.body.username.match(symbolRegex) || request.body.pwd.match(symbolRegex)) {
-        response.json({'message': "Invalid caracters in username or password"})
-    } else if (!request.body.email.match(emailRegex)) 
+        // response.json({'message': "Invalid caracters in username or password"})
+        response.status(400).send("Invalid caracters in username or password")
+    } else if (!request.body.email.match(emailRegex))
     {
-        response.json({'message': "Invalid email"})
+        response.status(400).send("Invalid email")
     } else
     {
         try
@@ -125,6 +130,116 @@ app.post('/api/users', async (request, response)=>{
         }
     }
 
+})
+
+//LevelMethods
+app.get('/api/level', async (request, response)=>{
+    let connection = null
+    try
+    {
+        connection = await connectToDB()
+        const [results, fields] = await connection.execute('select * from levels')
+
+        response.json(results)
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+app.get('/api/level/:id', async (request, response)=>
+{
+    let connection = null
+
+    try
+    {
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('select * from levels where levelID= ?', [request.params.id])
+        
+        response.json(results)
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+app.post('/api/level', async (request, response)=>{
+
+    let connection = null
+
+    try
+    {    
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('insert into levels set ?', request.body)
+        
+        response.json({'message': "Data inserted correctly."})
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
+})
+
+//Statistics Methods
+app.put('/api/builderStatistics', async (request, response)=>{
+
+    let connection = null
+
+    try{
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('update builderstatistics set demonEnemy = ? + demonEnemy, regularEnemy = ? + regularEnemy, dragonEnemy = ? + dragonEnemy, goblinEnemy = ? + goblinEnemy, muddyEnemy = ? + muddyEnemy, zombieEnemy = ? + zombieEnemy, boxObstacle = ? + boxObstacle, floorSpikesObstacle = ? + floorSpikesObstacle, holeObject = ? + holeObject, ogreBoss = ? + ogreBoss, zombieBoss = ? + zombieBoss where usernameID = ?', [request.body['demonEnemy'], request.body['regularEnemy'], request.body['dragonEnemy'], request.body['goblinEnemy'], request.body['muddyEnemy'], request.body['zombieEnemy'], request.body['boxObstacle'], request.body['floorSpikesObstacle'], request.body['holeObject'], request.body['ogreBoss'], request.body['zombieBoss'], request.body['usernameID']])
+        
+        response.json({'message': "Data updated correctly."})
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed succesfully!")
+        }
+    }
 })
 
 // app.put('/api/users', async (request, response)=>{
