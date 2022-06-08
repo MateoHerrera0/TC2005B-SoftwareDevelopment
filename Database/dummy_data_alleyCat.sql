@@ -143,7 +143,7 @@ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed =
  CALL userActivity(true, 9);
 
 CALL deleteUser(6);
--- CALL deleteUser(11);
+CALL deleteUser(11);
 
 #SELECT * FROM users;
 #SELECT * FROM levels;
