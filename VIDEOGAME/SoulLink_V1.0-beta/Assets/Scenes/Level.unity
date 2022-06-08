@@ -947,7 +947,7 @@ MonoBehaviour:
   endRoomReached: 0
   isTest: 0
   gameTestWinUi: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 192689241}
   editor: {fileID: 0}
   pauseMenu: {fileID: 778357605}
   timeText: {fileID: 82358281}
@@ -2247,7 +2247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1987362326
 MonoBehaviour:
   m_ObjectHideFlags: 0

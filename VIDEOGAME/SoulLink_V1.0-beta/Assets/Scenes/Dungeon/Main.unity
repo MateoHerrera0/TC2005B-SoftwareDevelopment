@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 163492062}
+      - m_Target: {fileID: 701645575}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: CancelPublish
         m_Mode: 1
@@ -621,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &163492062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 701645577}
   - component: {fileID: 701645576}
   - component: {fileID: 701645575}
+  - component: {fileID: 701645580}
   m_Layer: 5
   m_Name: GeneralCanvas
   m_TagString: Untagged
@@ -1509,7 +1510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endRoomReached: 0
   isTest: 1
-  gameTestWinUi: {fileID: 0}
+  gameTestWinUi: {fileID: 141508181}
   player: {fileID: 505902088}
   editor: {fileID: 0}
   pauseMenu: {fileID: 1788115419}
@@ -1600,6 +1601,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &701645580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701645574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361cb58557b3f4e4d959560cd8fad8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:5000
+  getLevelsEP: /api/level
+  allLevels:
+    levels: []
 --- !u!1 &737179072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 163492062}
+      - m_Target: {fileID: 701645575}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: Publish
         m_Mode: 1
