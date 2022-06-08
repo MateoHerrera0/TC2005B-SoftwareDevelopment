@@ -17,6 +17,8 @@ public class MenuController : MonoBehaviour
     Vector2 direction2 = Vector2.up;
     public float speed  = 1f;
     public int size = 1;
+    public GameObject logoutPanel;
+    bool currentlyOpenMenu = false;
 
     private Vector3 leftEdge;
     private Vector3 rightEdge;
@@ -42,6 +44,25 @@ public class MenuController : MonoBehaviour
     public void SwitchToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ToggleLogoutMenu()
+    {
+        if (!currentlyOpenMenu)
+        {
+            logoutPanel.SetActive(true);
+            currentlyOpenMenu = true;
+        } else
+        {
+            logoutPanel.SetActive(false);
+            currentlyOpenMenu = false;
+        }
+    }
+
+    public void Logout()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("StartScreem");
     }
 
     private void Start() {

@@ -132,6 +132,33 @@ app.post('/api/users', async (request, response)=>{
 
 })
 
+app.get('/api/users/delete/:id', async (request, response)=>{
+
+    let connection = null
+    try
+    {    
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('call deleteUser(?)', request.params.id)
+        
+        response.json({'message': "Called procedure correctly."})
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully!")
+        }
+    }
+})
+
 //LevelMethods
 app.get('/api/level', async (request, response)=>{
     let connection = null
@@ -296,33 +323,6 @@ app.put('/api/builderStatistics', async (request, response)=>{
 //         }
 //     }
 // })
-
-app.get('/api/users/:username/:pwd', async (request, response)=>
-{
-    let connection = null
-
-    try
-    {
-        connection = await connectToDB()
-
-        const [results, fields] = await connection.query(`select usernameID from users where username= ? AND pwd= ?`, [request.params.username, request.params.pwd])
-        response.json(results)
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
 
 // LEVEL METHODS
 

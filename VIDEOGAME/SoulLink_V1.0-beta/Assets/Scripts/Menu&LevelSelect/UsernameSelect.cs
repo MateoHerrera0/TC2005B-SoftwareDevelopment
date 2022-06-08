@@ -56,6 +56,7 @@ public class UsernameSelect : MonoBehaviour
     [SerializeField] Text signUpError;
     [SerializeField] GameObject signUpPanel;
     [SerializeField] GameObject loginPanel;
+    [SerializeField] MenuController menu;
     bool signUpState = false;
     
 
@@ -83,6 +84,11 @@ public class UsernameSelect : MonoBehaviour
     public void InsertNewUser()
     {
         StartCoroutine(AddUser());
+    }
+
+    public void DeleteUser()
+    {
+        StartCoroutine(StartDeleteProcedure());
     }
 
     public void ToggleSignUp()
@@ -125,6 +131,24 @@ public class UsernameSelect : MonoBehaviour
             } else {
                 notLogin(www.error);
             }
+        }
+    }
+
+    IEnumerator StartDeleteProcedure()
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + PlayerPrefs.GetInt("userID").ToString()))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success) {
+                //Debug.Log("Response: " + www.downloadHandler.text);
+                // Compose the response to look like the object we want to extract
+                // https://answers.unity.com/questions/1503047/json-must-represent-an-object-type.html
+                string jsonString = "{\"status\":" + www.downloadHandler.text + "}";
+                Debug.Log(jsonString);
+            }
+
+            menu.Logout();
         }
     }
 

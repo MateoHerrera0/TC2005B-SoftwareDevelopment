@@ -350,7 +350,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 3.05
-    functionName: QueryUser
+    functionName: InsertNewUser
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
