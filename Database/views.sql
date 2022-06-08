@@ -12,7 +12,8 @@ SELECT * FROM gameStatistics;
 SELECT HighScore, AveragePoints, GamesPlayed, TotalPoints FROM user_point_stats;
 
 SELECT * FROM builderStatistics;
-SELECT LevelsCreated, Demon, Dragon, Goblin, Muddy, Zombie, Box, FloorSpikes, Hole 
+SELECT LevelsCreated, Demon, Dragon, Goblin, Muddy, Zombie, Box, FloorSpikes, Hole,
+OgreBoss, ZombieBoss
 FROM user_builder_stats;
 
 SELECT * FROM playerStatistics;
