@@ -123,7 +123,7 @@ public class UsernameSelect : MonoBehaviour
                     notLogin(www.downloadHandler.text);
                 }
             } else {
-                notLogin(www.downloadHandler.text);
+                notLogin(www.error);
             }
         }
     }

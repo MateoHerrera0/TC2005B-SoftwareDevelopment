@@ -736,18 +736,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847397730}
-        m_TargetAssemblyTypeName: UsernameSelect, Assembly-CSharp
-        m_MethodName: QueryUser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1750820345}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -1280,11 +1268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2509691608718190012, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.62
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 2509691608718190012, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.93
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2509691608718190012, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2257,18 +2245,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847397730}
-        m_TargetAssemblyTypeName: UsernameSelect, Assembly-CSharp
-        m_MethodName: InsertNewUser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1750820345}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
@@ -2278,7 +2254,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PlayerFallingExit
+          m_StringArgument: PlayerFallingExitSignUp
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1085174683
@@ -2501,7 +2477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847397730}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UsernameSelect, Assembly-CSharp
         m_MethodName: ToggleSignUp
         m_Mode: 1
@@ -3613,6 +3589,31 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2509691608718190014, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
   m_PrefabInstance: {fileID: 437674167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750820348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750820343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7376989450bf44a8dbcc381cc82bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:5000
+  getUsersEP: /api/users/
+  loginUsername: {fileID: 1572756419}
+  loginPassword: {fileID: 736512436}
+  loginError: {fileID: 326012457}
+  signUpUsername: {fileID: 49846882}
+  signUpPassword: {fileID: 693662230}
+  signUpEmail: {fileID: 1665783278}
+  signUpError: {fileID: 1521346883}
+  signUpPanel: {fileID: 37528012}
+  loginPanel: {fileID: 98769678}
+  allUsers:
+    users: []
 --- !u!1 &1776391306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,7 +3705,6 @@ GameObject:
   - component: {fileID: 1847397728}
   - component: {fileID: 1847397727}
   - component: {fileID: 1847397726}
-  - component: {fileID: 1847397730}
   m_Layer: 5
   m_Name: LoginCanvas
   m_TagString: Untagged
@@ -3794,31 +3794,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1847397730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847397725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb7376989450bf44a8dbcc381cc82bc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  url: http://localhost:5000
-  getUsersEP: /api/users/
-  loginUsername: {fileID: 1572756419}
-  loginPassword: {fileID: 736512436}
-  loginError: {fileID: 326012457}
-  signUpUsername: {fileID: 49846882}
-  signUpPassword: {fileID: 693662230}
-  signUpEmail: {fileID: 1665783278}
-  signUpError: {fileID: 1521346883}
-  signUpPanel: {fileID: 37528012}
-  loginPanel: {fileID: 98769678}
-  allUsers:
-    users: []
 --- !u!1 &1954551163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,7 +4048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847397730}
+      - m_Target: {fileID: 1750820348}
         m_TargetAssemblyTypeName: UsernameSelect, Assembly-CSharp
         m_MethodName: ToggleSignUp
         m_Mode: 1
