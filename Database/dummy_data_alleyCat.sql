@@ -78,40 +78,40 @@ COMMIT;
 -- UPDATE users SET gameStatisticsID = 11, builderStatisticsID = 11 WHERE usernameID=11;
 -- UPDATE users SET gameStatisticsID = 12, builderStatisticsID = 12 WHERE usernameID=12;
 
-UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 1;
-UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 2;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 3;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 4;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 5;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 6;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 7;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 8;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 9;
-UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 10;
-UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 11;
- UPDATE builderStatistics SET demonEnemy = 1, eyeEnemy = 2, regularEnemy = 3, dragonEnemy = 4, 
+ UPDATE builderStatistics SET demonEnemy = 1, regularEnemy = 3, dragonEnemy = 4, 
  goblinEnemy = 5, muddyEnemy = 6, zombieEnemy = 7, boxObstacle = 8, floorSpikesObstacle = 9, holeObject = 10, totalBuiltLevels = 1
  WHERE usernameID = 12;
 
