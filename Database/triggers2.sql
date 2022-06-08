@@ -36,3 +36,5 @@ FOR EACH ROW
 BEGIN
 		INSERT INTO playerStatistics (usernameID, activity) VALUE(new.usernameID, true);
 END$$
+
+DELIMITER ;
