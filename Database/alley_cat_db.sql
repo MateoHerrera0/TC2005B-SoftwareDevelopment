@@ -204,10 +204,10 @@ DELIMITER $$
 
 CREATE PROCEDURE deleteUser (IN deleteUserID INT)
 BEGIN
-		DELETE FROM alley_cat_db.users WHERE usernameID = deleteUserID;
-        DELETE  FROM alley_cat_db.gameStatistics WHERE usernameID = deleteUserID;
-        DELETE FROM alley_cat_db.builderStatistics WHERE usernameID = deleteUserID;
-        DELETE FROM alley_cat_db.playerStatistics WHERE usernameID = deleteUserID;
+        DELETE FROM alley_cat_db.gameStatistics WHERE gamestatistics.usernameID = deleteUserID;
+        DELETE FROM alley_cat_db.builderStatistics WHERE builderstatistics.usernameID = deleteUserID;
+        DELETE FROM alley_cat_db.playerStatistics WHERE playerstatistics.usernameID = deleteUserID;
+		DELETE FROM alley_cat_db.users WHERE users.usernameID = deleteUserID;
 END $$
 
 DELIMITER ;
