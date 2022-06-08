@@ -140,7 +140,10 @@ UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed =
  UPDATE gameStatistics SET averageTime = 900, averagePoints = 1200, gamesPlayed = 9, totalTimePlayed = 8100, totalPoints = 10800, highScore = 3000
  WHERE usernameID = 12;
  
+ CALL userActivity(true, 9);
+
 -- CALL deleteUser(6);
+-- CALL deleteUSer(11);
 
 #SELECT * FROM users;
 #SELECT * FROM levels;

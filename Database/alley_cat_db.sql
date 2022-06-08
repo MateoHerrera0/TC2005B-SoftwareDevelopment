@@ -219,8 +219,9 @@ DELIMITER $$
 CREATE PROCEDURE adminCreate (IN username4admin VARCHAR (45), IN pwd4admin VARCHAR(45), email4admin VARCHAR(45))
 BEGIN
 		INSERT INTO users (username, pwd, email) VALUES(username4admin, pwd4admin, email4admin);
-        
 END $$
 DELIMITER ;
 
+-- Administrator creation
 CALL adminCreate('administrator', '8zinnQ98662AAp', 'studios.alleyCat@gmail.com');
+
