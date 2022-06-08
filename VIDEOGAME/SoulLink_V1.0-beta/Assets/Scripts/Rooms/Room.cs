@@ -75,13 +75,13 @@ public class Room : MonoBehaviour
         RoomController.instance.RegisterRoom(this);
     }
 
-    // void Update() {
-    //     if(name.Contains("End") && !updatedDoors)
-    //     {
-    //         RemoveUnconnectedDoors();
-    //         updatedDoors = true;
-    //     }
-    // }
+    void Update() {
+        if(name.Contains("End") && !updatedDoors)
+        {
+            RemoveUnconnectedDoors();
+            updatedDoors = true;
+        }
+    }
 
     // Function that removes unconnected doors in room.
     public void RemoveUnconnectedDoors()
