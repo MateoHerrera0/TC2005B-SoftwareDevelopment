@@ -100,6 +100,5 @@ public class MenuController : MonoBehaviour
                 transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
             }
         }
-        Debug.Log(Time.deltaTime);
     }
 }
