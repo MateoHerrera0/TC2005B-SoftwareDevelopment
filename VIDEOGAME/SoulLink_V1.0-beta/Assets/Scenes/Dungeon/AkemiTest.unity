@@ -242,6 +242,7 @@ MonoBehaviour:
   gameTestWinUi: {fileID: 0}
   player: {fileID: 0}
   editor: {fileID: 0}
+  statistics: {fileID: 0}
   pauseMenu: {fileID: 1079014691}
   timeText: {fileID: 0}
   finishMenu: {fileID: 0}
@@ -3179,6 +3180,7 @@ MonoBehaviour:
   gameTestWinUi: {fileID: 0}
   player: {fileID: 1585139199}
   editor: {fileID: 0}
+  statistics: {fileID: 0}
   pauseMenu: {fileID: 288790393}
   timeText: {fileID: 1659678973}
   finishMenu: {fileID: 0}
@@ -4867,6 +4869,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6773066328284230762, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1778486103640686009, guid: 1d64a8a1275a44f1e9891cea55077745, type: 3}
+    - target: {fileID: 6773066328284230762, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773066328284230762, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773066328284230762, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7384626155982172634, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
       propertyPath: crosshairs
       value: 
@@ -6531,6 +6549,7 @@ MonoBehaviour:
   gameTestWinUi: {fileID: 0}
   player: {fileID: 1585139199}
   editor: {fileID: 0}
+  statistics: {fileID: 0}
   pauseMenu: {fileID: 473315653}
   timeText: {fileID: 2140312914}
   finishMenu: {fileID: 0}
