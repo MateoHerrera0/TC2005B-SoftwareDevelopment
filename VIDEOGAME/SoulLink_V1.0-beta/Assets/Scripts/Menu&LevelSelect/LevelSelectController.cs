@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using TMPro;
 
 
 // Create classes that correspond to the data that will be sent/received
@@ -38,6 +39,7 @@ public class LevelSelectController : MonoBehaviour
 {
     [SerializeField] string url;
     [SerializeField] string getLevelsEP;
+    [SerializeField] TMP_InputField search;
 
     // This is where the information from the api will be extracted
     public LevelList allLevels;
@@ -76,7 +78,7 @@ public class LevelSelectController : MonoBehaviour
 
     IEnumerator GetLevel()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(url + getLevelsEP))
+        using (UnityWebRequest www = UnityWebRequest.Get(url + getLevelsEP + search.text))
         {
             yield return www.SendWebRequest();
             if (www.result == UnityWebRequest.Result.Success) {

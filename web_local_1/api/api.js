@@ -186,7 +186,7 @@ app.get('/api/level', async (request, response)=>{
     }
 })
 
-app.get('/api/level/:id', async (request, response)=>
+app.get('/api/level/:name', async (request, response)=>
 {
     let connection = null
 
@@ -194,7 +194,7 @@ app.get('/api/level/:id', async (request, response)=>
     {
         connection = await connectToDB()
 
-        const [results, fields] = await connection.query('select * from levels where levelID= ?', [request.params.id])
+        const [results, fields] = await connection.query('select * from levels where levelName= ?', [request.params.name])
         
         response.json(results)
     }
