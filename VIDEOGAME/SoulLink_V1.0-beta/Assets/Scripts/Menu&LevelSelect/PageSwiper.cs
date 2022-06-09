@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler{
     private Vector3 panelLocation;
+    public Vector3 startingPos;
     public float percentThreshold = 0.2f;
     public float easing = 0.5f;
     public int totalPages = 1;
@@ -13,6 +14,7 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler{
     // Start is called before the first frame update
     void Start(){
         panelLocation = transform.position;
+        startingPos = transform.position;
     }
     public void OnDrag(PointerEventData data){
         float difference = data.pressPosition.x - data.position.x;
@@ -35,7 +37,7 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler{
             StartCoroutine(SmoothMove(transform.position, panelLocation, easing));
         }
     }
-    IEnumerator SmoothMove(Vector3 startpos, Vector3 endpos, float seconds){
+    public IEnumerator SmoothMove(Vector3 startpos, Vector3 endpos, float seconds){
         float t = 0f;
         while(t <= 1.0){
             t += Time.deltaTime / seconds;
