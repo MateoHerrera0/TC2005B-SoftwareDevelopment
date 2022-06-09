@@ -10,57 +10,61 @@ function main()
         const dataObj = Object.fromEntries(data.entries())
 
         // let response = await fetch(`https://alley-cat-soul-link.herokuapp.com/api/users/${dataObj['usernameID']}`,{
-        let response = await fetch(`http://localhost:3000/api/users/${dataObj['username']}`,{
+        // let response = await fetch(`http://localhost:5000/api/users/${dataObj['username']}`,{
+        let response = await fetch(`http://localhost:5000/api/charts/${dataObj['username']}`,{
+
 
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
 
         })
         
-        if(response.ok)
-        {
-            let results = await response.json()
         
-            if(results.length > 0)
-            {
-                const headers = Object.keys(results[0])
-                const values = Object.values(results)
+
+        // if(response.ok)
+        // {
+        //     let results = await response.json()
+        
+        //     if(results.length > 0)
+        //     {
+        //         const headers = Object.keys(results[0])
+        //         const values = Object.values(results)
     
-                let table = document.createElement("table")
+        //         let table = document.createElement("table")
     
-                let tr = table.insertRow(-1)                  
+        //         let tr = table.insertRow(-1)                  
     
-                for(const header of headers)
-                {
-                    let th = document.createElement("th")     
-                    th.innerHTML = header
-                    tr.appendChild(th)
-                }
+        //         for(const header of headers)
+        //         {
+        //             let th = document.createElement("th")     
+        //             th.innerHTML = header
+        //             tr.appendChild(th)
+        //         }
     
-                for(const row of values)
-                {
-                    let tr = table.insertRow(-1)
+        //         for(const row of values)
+        //         {
+        //             let tr = table.insertRow(-1)
     
-                    for(const key of Object.keys(row))
-                    {
-                        let tabCell = tr.insertCell(-1)
-                        tabCell.innerHTML = row[key]
-                    }
-                }
+        //             for(const key of Object.keys(row))
+        //             {
+        //                 let tabCell = tr.insertCell(-1)
+        //                 tabCell.innerHTML = row[key]
+        //             }
+        //         }
     
-                const container = document.getElementById('getResultsID')
-                container.innerHTML = ''
-                container.appendChild(table)
-            }
-            else
-            {
-                const container = document.getElementById('getResultsID')
-                container.innerHTML = 'No results to show.'
-            }
-        }
-        else{
-            getResultsID.innerHTML = response.status
-        }
+        //         const container = document.getElementById('getResultsID')
+        //         container.innerHTML = ''
+        //         container.appendChild(table)
+        //     }
+        //     else
+        //     {
+        //         const container = document.getElementById('getResultsID')
+        //         container.innerHTML = 'No results to show.'
+        //     }
+        // }
+        // else{
+        //     getResultsID.innerHTML = response.status
+        // }
     }
 
     document.getElementById('formInsert').onsubmit = async(e)=>
@@ -73,7 +77,7 @@ function main()
         console.log(dataObj)
 
         // let response = await fetch('https://alley-cat-soul-link.herokuapp.com/api/users',{
-        let response = await fetch('http://localhost:3000/api/users',{
+        let response = await fetch('http://localhost:5000/api/users',{
 
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -102,7 +106,7 @@ function main()
         console.log(dataObj)
 
         // let response = await fetch('https://alley-cat-soul-link.herokuapp.com/api/users',{
-        let response = await fetch('http://localhost:3000/api/users',{
+        let response = await fetch('http://localhost:5000/api/users',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(dataObj)
@@ -128,7 +132,7 @@ function main()
         const dataObj = Object.fromEntries(data.entries())
 
         // let response = await fetch(`https://alley-cat-soul-link.herokuapp.com/api/users/${dataObj['usernameID']}`,{
-        let response = await fetch(`http://localhost:3000/api/users${dataObj['usernameID']}`,{
+        let response = await fetch(`http://localhost:5000/api/users${dataObj['usernameID']}`,{
             method: 'DELETE'
         })
         
@@ -145,4 +149,7 @@ function main()
     }
 }
 
+
+
 main()
+

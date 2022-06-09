@@ -5,7 +5,7 @@
     "node": "16.x"
   },
   "description": "",
-  "main": "users_api.js",
+  "main": "api.js",
   "type": "module",
   "author": "",
   "license": "ISC",
