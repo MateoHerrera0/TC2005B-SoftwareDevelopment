@@ -699,6 +699,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &387133325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -850,6 +851,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 676488277}
 --- !u!1 &433928161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 676488276}
+  - component: {fileID: 676488277}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1109,6 +1112,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676488277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676488275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7194f4f5bf50d6546a032d4b35e0d239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:5000
+  updateStatisticsEp: /api/playerStatistics
 --- !u!1 &839034724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1568,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1577828662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1651,6 +1669,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1584447615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1881,6 +1900,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &1903884630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2059,7 @@ MonoBehaviour:
   signUpPanel: {fileID: 0}
   loginPanel: {fileID: 0}
   menu: {fileID: 399335872}
+  playerStatistics: {fileID: 0}
   allUsers:
     users: []
 --- !u!1 &1921414194
@@ -2410,6 +2431,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 510033935}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &2143066384
 GameObject:
   m_ObjectHideFlags: 0

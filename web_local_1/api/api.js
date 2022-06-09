@@ -297,6 +297,33 @@ app.put('/api/gameStatistics', async (request, response)=>{
     }
 })
 
+app.put('/api/playerStatistics', async (request, response)=>{
+
+    let connection = null
+
+    try{
+        connection = await connectToDB()
+
+        const [results, fields] = await connection.query('call userActivity(?,?)', [request.body['activeBool'], request.body['usernameID']])
+        
+        response.json({'message': "Data updated correctly."})
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully!")
+        }
+    }
+})
+
 // app.put('/api/users', async (request, response)=>{
 
 //     let connection = null

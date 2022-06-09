@@ -26,6 +26,8 @@ public class MenuController : MonoBehaviour
     private Vector3 bottomEdge;
     public bool up;
 
+    [SerializeField] PlayerStatistics playerStatistics;
+
     public void SwitchToGameBuilder()
     {
         SceneManager.LoadScene("GameBuiler");
@@ -61,6 +63,7 @@ public class MenuController : MonoBehaviour
 
     public void Logout()
     {
+        playerStatistics.UpdatePlayerStatistics(false);
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("StartScreem");
     }

@@ -57,6 +57,7 @@ public class UsernameSelect : MonoBehaviour
     [SerializeField] GameObject signUpPanel;
     [SerializeField] GameObject loginPanel;
     [SerializeField] MenuController menu;
+    [SerializeField] PlayerStatistics playerStatistics;
     bool signUpState = false;
     
 
@@ -195,6 +196,7 @@ public class UsernameSelect : MonoBehaviour
     void login(User userID)
     {
             PlayerPrefs.SetInt("userID", userID.usernameID);
+            playerStatistics.UpdatePlayerStatistics(true);
             SceneManager.LoadScene("MainMenu");
     }
 
