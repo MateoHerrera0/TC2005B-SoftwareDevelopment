@@ -66,7 +66,8 @@ public class GameController : MonoBehaviour
             bossPlaced = editor.bossPlaced;
         }
         // Start timer in 0
-        currentTime = 0; 
+        currentTime = 0;
+        Time.timeScale = 1; 
     }
 
     // Update is called once per frame
