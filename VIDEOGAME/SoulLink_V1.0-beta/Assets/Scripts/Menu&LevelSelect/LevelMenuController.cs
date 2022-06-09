@@ -41,7 +41,17 @@ public class LevelMenuController : MonoBehaviour
 
     public void LoadNames(LevelList allLevels)
     {
-        // ClearContents();
+        Destroy(levelHolder.GetComponent<PageSwiper>());
+        currentLevelCount = 0;
+        GameObject[] pages = GameObject.FindGameObjectsWithTag("Page");
+        if (pages != null)
+        {
+            for (int i = 0; i < pages.Length; i++)
+            {
+                Destroy(pages[i]);
+            }
+        }
+
         numberOfLevels = allLevels.levels.Count;
         int totalPages = Mathf.CeilToInt((float)numberOfLevels / amountPerPage);
         GameObject panelClone = Instantiate(levelHolder) as GameObject;
@@ -52,11 +62,17 @@ public class LevelMenuController : MonoBehaviour
             GameObject panel = Instantiate(panelClone) as GameObject;
             panel.transform.SetParent(thisCanvas.transform, false);
             panel.transform.SetParent(levelHolder.transform);
+            foreach (Transform child in panel.transform)
+            {
+                Destroy(child.gameObject);
+            }
             panel.name = "Page-" + i;
+            panel.tag = "Page";
             panel.GetComponent<RectTransform>().localPosition = new Vector2(panelDimensions.width * (i-1), 0);
             SetUpGrid(panel);
             int numberOfIcons = i == totalPages ? numberOfLevels - currentLevelCount : amountPerPage;
-            LoadIcons(numberOfIcons, panel, allLevels);
+            Debug.Log(numberOfIcons);
+            LoadIcons(currentLevelCount, numberOfIcons + currentLevelCount, panel, allLevels);
         }
         Destroy(panelClone);
 
@@ -112,9 +128,9 @@ public class LevelMenuController : MonoBehaviour
         grid.spacing = iconSpacing;
     }
 
-    void LoadIcons(int numberOfIcons, GameObject parentObject, LevelList lv){
-        for(int i = 1; i <= numberOfIcons; i++){
-            Level level = lv.levels[i-1];
+    void LoadIcons(int start, int numberOfIcons, GameObject parentObject, LevelList lv){
+        for(int i = start; i < numberOfIcons; i++){
+            Level level = lv.levels[i];
             currentLevelCount++;
             Button icon = Instantiate(levelIcon) as Button;
             icon.transform.SetParent(thisCanvas.transform, false);

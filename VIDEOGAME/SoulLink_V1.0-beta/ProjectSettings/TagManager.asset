@@ -16,6 +16,9 @@ TagManager:
   - EndRoom
   - Arrow
   - Main Character
+  - Boss
+  - Stop
+  - Page
   layers:
   - Default
   - TransparentFX
