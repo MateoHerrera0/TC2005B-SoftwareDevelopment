@@ -9,6 +9,7 @@ const port = 5000
 
 app.use(express.json())
 
+app.use('/scripts/charts', express.static('./node_modules/chart.js/dist/'))
 app.use('/js', express.static('./js'))
 app.use('/css', express.static('./css'))
 app.use('/assets', express.static('./assets'))
@@ -18,8 +19,10 @@ async function connectToDB()
 {
     return await mysql.createConnection({
         host:'localhost',
-        user:'web2',
-        password:'1234',
+        // user:'web2',
+        user:'AlleyCat',
+        // password:'1234',
+        password:'j2Qo6!fL949L',
         database:'alley_cat_db'
     })
 }
@@ -324,141 +327,35 @@ app.put('/api/playerStatistics', async (request, response)=>{
     }
 })
 
-// app.put('/api/users', async (request, response)=>{
+// chart methods
+app.get('/api/charts/:username', (request, response)=>{
+    let connection = connectToDB()
 
-//     let connection = null
+    try{
 
-//     try{
-//         connection = await connectToDB()
+        connection.connect()
 
-//         const [results, fields] = await connection.query('update users set username = ?, pwd = ? where usernameID= ?', [request.body['username'], request.body['pwd'], request.body['usernameID']])
-        
-//         response.json({'message': "Data updated correctly."})
-//     }
-//     catch(error)
-//     {
-//         response.status(500)
-//         response.json(error)
-//         console.log(error)
-//     }
-//     finally
-//     {
-//         if(connection!==null) 
-//         {
-//             connection.end()
-//             console.log("Connection closed successfully!")
-//         }
-//     }
-// })
+        connection.query('LevelsCreated, Demon, Dragon, Goblin, Muddy, Zombie, Box, FloorSpikes, Hole, OgreBoss, ZombieBoss from user_builder_stats where username=?',[request.params.username],(error, results, fields)=>{
+            if(error) console.log(error)
+            console.log("Sending data correctly.")
+            response.status(200)
+            response.json(results)
+        })
 
-// app.delete('/api/users/:id', async (request, response)=>{
+        if (results.length == 0) {
+            response.status(400).send("No matching username")
+        }else
+        {
+            response.json(results)
+        }
 
-//     let connection = null
-
-//     try
-//     {
-//         connection = await connectToDB()
-
-//         const [results, fields] = await connection.query('delete from users where usernameID= ?', [request.params.id])
-        
-//         response.json({'message': "Data deleted correctly."})
-//     }
-//     catch(error)
-//     {
-//         response.status(500)
-//         response.json(error)
-//         console.log(error)
-//     }
-//     finally
-//     {
-//         if(connection!==null) 
-//         {
-//             connection.end()
-//             console.log("Connection closed successfully!")
-//         }
-//     }
-// })
-
-// LEVEL METHODS
-
-app.get('/api/level', async (request, response)=>{
-    let connection = null
-    try
-    {
-        connection = await connectToDB()
-        const [results, fields] = await connection.execute('select * from levels')
-
-        response.json(results)
+        connection.end()
     }
     catch(error)
     {
         response.status(500)
         response.json(error)
         console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
-
-app.get('/api/level/:id', async (request, response)=>
-{
-    let connection = null
-
-    try
-    {
-        connection = await connectToDB()
-
-        const [results, fields] = await connection.query('select * from levels where levelID= ?', [request.params.id])
-        
-        response.json(results)
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
-    }
-})
-
-app.post('/api/level', async (request, response)=>{
-
-    let connection = null
-
-    try
-    {    
-        connection = await connectToDB()
-
-        const [results, fields] = await connection.query('insert into levels set ?', request.body)
-        
-        response.json({'message': "Data inserted correctly."})
-    }
-    catch(error)
-    {
-        response.status(500)
-        response.json(error)
-        console.log(error)
-    }
-    finally
-    {
-        if(connection!==null) 
-        {
-            connection.end()
-            console.log("Connection closed successfully!")
-        }
     }
 })
 
