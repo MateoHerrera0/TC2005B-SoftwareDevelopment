@@ -70,6 +70,7 @@ public class MenuController : MonoBehaviour
         rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
         upEdge = Camera.main.ViewportToWorldPoint(Vector3.up);
         bottomEdge = Camera.main.ViewportToWorldPoint(Vector3.down);
+        Time.timeScale = 1;
     }
 
     private void Update() {
@@ -99,5 +100,6 @@ public class MenuController : MonoBehaviour
                 transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
             }
         }
+        Debug.Log(Time.deltaTime);
     }
 }

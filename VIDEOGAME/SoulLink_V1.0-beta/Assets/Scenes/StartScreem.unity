@@ -170,6 +170,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.5
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &31906454
 SpriteRenderer:
@@ -335,6 +336,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.5
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &115909479
 SpriteRenderer:
@@ -485,6 +487,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.5
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!1 &267588819
 GameObject:
@@ -563,6 +566,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.7
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &320943848
 SpriteRenderer:
@@ -662,6 +666,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &458792791
 SpriteRenderer:
@@ -812,6 +817,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!1001 &561471827
 PrefabInstance:
@@ -936,6 +942,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &595070368
 SpriteRenderer:
@@ -1048,7 +1055,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1168,6 +1175,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.7
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &1039171181
 SpriteRenderer:
@@ -1245,6 +1253,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 1
   size: 1
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!1 &1144550250
 GameObject:
@@ -1578,6 +1587,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.7
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!1 &1759313107
 GameObject:
@@ -1709,6 +1719,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &1902449628
 SpriteRenderer:
@@ -1859,6 +1870,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!1 &2000078995
 GameObject:
@@ -1949,6 +1961,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 0.2
   size: 16
+  logoutPanel: {fileID: 0}
   up: 0
 --- !u!212 &2137238301
 SpriteRenderer:

@@ -120,7 +120,6 @@ public class UsernameSelect : MonoBehaviour
                 // https://answers.unity.com/questions/1503047/json-must-represent-an-object-type.html
                 string jsonString = "{\"users\":" + www.downloadHandler.text + "}";
                 allUsers = JsonUtility.FromJson<UserList>(jsonString);
-                Debug.Log(jsonString);
                 if (allUsers.users.Count > 0)
                 {
                     login(allUsers.users[0]);
