@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
                 // Specify seconds
                 TimeSpan time = TimeSpan.FromSeconds(currentTime);
                 // Show time in text (structure: mins:secs:ms)
-                timeText.text = time.ToString(@"mm\:ss\:ff");
+                timeText.text = time.ToString(@"mm\:ss");
             }
             // If time is smaller than 60 secs
             else
@@ -120,7 +120,7 @@ public class GameController : MonoBehaviour
                 // Specify seconds
                 TimeSpan time = TimeSpan.FromSeconds(currentTime);
                 // Show time in text (structure: mins:secs:ms)
-                timeText.text = time.ToString(@"ss\:ff");
+                timeText.text = time.ToString(@"ss");
             }
             // If player lost their whole hp
             if(player.GetComponentInChildren<HealthBar>().hp <= 0)
