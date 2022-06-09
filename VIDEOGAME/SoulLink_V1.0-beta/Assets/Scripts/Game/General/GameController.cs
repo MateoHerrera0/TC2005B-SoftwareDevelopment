@@ -165,7 +165,7 @@ public class GameController : MonoBehaviour
             // Place time text
             finalTime.text = time.ToString(@"mm\:ss\:ff");
             // Place score text
-            finalPoints.text = playerFinalPoints.ToString();
+            finalPoints.text = Mathf.RoundToInt(playerFinalPoints).ToString();
         }
     }
 
