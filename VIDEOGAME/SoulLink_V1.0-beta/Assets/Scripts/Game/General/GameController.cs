@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     // Determine if game is paused
     public static bool isPaused = false;
     bool bossPlaced = true;
+    bool justOnce;
     // Pause menu object
     public GameObject pauseMenu; 
 
@@ -69,6 +70,7 @@ public class GameController : MonoBehaviour
         // Start timer in 0
         currentTime = 0;
         Time.timeScale = 1; 
+        justOnce = true;
     }
 
     // Update is called once per frame
@@ -167,7 +169,11 @@ public class GameController : MonoBehaviour
             finalTime.text = time.ToString(@"mm\:ss\:ff");
             // Place score text
             finalPoints.text = playerFinalPoints.ToString();
-            statistics.UpdateGameStatistics(playerFinalPoints, currentTime);
+            if (justOnce)
+            {
+                statistics.UpdateGameStatistics(playerFinalPoints, currentTime);   
+            }
+            justOnce = false;
         }
     }
 

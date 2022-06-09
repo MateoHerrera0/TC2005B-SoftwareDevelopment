@@ -237,7 +237,7 @@ BEGIN
         
         UPDATE gamestatistics
         SET averageTime = totalTimePlayed / gamesPlayed, averagePoints = totalPoints / gamesPlayed
-        WHERE usernameID = UserID AND highScore < Points;
+        WHERE usernameID = UserID;
 END $$
 
 DELIMITER ;
