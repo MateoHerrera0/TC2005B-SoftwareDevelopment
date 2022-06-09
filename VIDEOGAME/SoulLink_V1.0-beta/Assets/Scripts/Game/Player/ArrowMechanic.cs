@@ -18,6 +18,7 @@ public class ArrowMechanic : MonoBehaviour
     private Vector3 mouseTargetPos;
     // Control click information
     private bool isClicked;
+    GameObject mainCharacter;
     // Get transform from the MainCharacter
     private Transform mainCharacterTrans;
     // Define if arrow is allowed to come back
@@ -38,8 +39,10 @@ public class ArrowMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Obtain the Player through its tag
-        mainCharacterTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        // Get main character object
+        mainCharacter = GameObject.FindGameObjectWithTag("Player");
+        // Get main character's transform through tag
+        mainCharacterTrans = mainCharacter.GetComponent<Transform>();
     }
     // Update is called once per frame
     void Update()
@@ -149,6 +152,7 @@ public class ArrowMechanic : MonoBehaviour
             // If the health points are equal or lower to 0
             if(other.GetComponentInChildren<HealthBar>().hp <= 0)
             {
+                mainCharacter.GetComponent<PlayerController>().totalPoints += 50;
                 // Destroy enemy
                 Instantiate(healthFlask, other.transform.position, Quaternion.identity);
                 RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());

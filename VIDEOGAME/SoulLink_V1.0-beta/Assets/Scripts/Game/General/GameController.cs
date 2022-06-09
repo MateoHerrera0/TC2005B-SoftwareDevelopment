@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
             // When escape key is pressed
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log(isPaused);
+                //Debug.Log(isPaused);
 
                 // If game is paused
                 if(isPaused)
@@ -136,26 +136,35 @@ public class GameController : MonoBehaviour
         
     }
 
+    // Function used when player wins game - finish
     void endGame()
     {
+        // Deactivate player
         player.SetActive(false);
+        // If currently on test
         if (isTest)
         {
+            // Set game tes menu UI
             gameTestWinUi.SetActive(true);
         }
+        // If currently on game mode
         else
         {
             // Show timer
             timeText.enabled = false; 
             // Resume timer
             activeTimer = false;
+            // Activate finish menu
             finishMenu.SetActive(true);
+            // Calculate points from time
             timePoints = 3600 - currentTime; 
-            //Debug.Log(player.GetComponent<PlayerController>().totalPoints);
+            // Ponts from time + points from enemies
             playerFinalPoints = player.GetComponent<PlayerController>().totalPoints + timePoints;
             // Specify seconds
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            finalTime.text = "Total time: " + time.ToString(@"mm\:ss\:ff");
+            // Place time text
+            finalTime.text = time.ToString(@"mm\:ss\:ff");
+            // Place score text
             finalPoints.text = playerFinalPoints.ToString();
         }
     }
