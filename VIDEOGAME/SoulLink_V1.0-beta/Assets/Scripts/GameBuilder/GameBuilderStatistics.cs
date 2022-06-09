@@ -35,19 +35,11 @@ public class BuilderStatistics
 }
 
 // Allow the class to be extracted from Unity
-[System.Serializable]
-public class BuilderStatisticsList
-{
-    public List<BuilderStatistics> levels;
-}
 public class GameBuilderStatistics : MonoBehaviour
 {
     [SerializeField] string url;
     [SerializeField] string updateStatisticsEp;
     [SerializeField] GameBuilderController editor;
-
-    // This is where the information from the api will be extracted
-    public BuilderStatisticsList allStatistics;
 
     // These are the functions that must be called to interact with the API
 

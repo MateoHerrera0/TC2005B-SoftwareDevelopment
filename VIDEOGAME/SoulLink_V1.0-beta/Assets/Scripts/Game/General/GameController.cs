@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public GameObject gameTestWinUi;
     public GameObject player;
     public GameBuilderController editor;
+    public GameStatistics statistics;
     LevelSelectController publisher;
     GameBuilderStatistics builderStatistics;
 
@@ -41,7 +42,7 @@ public class GameController : MonoBehaviour
     public GameObject finishMenu;
     public Text finalTime;
     public Text finalPoints; 
-    public float playerFinalPoints;
+    public int playerFinalPoints;
 
     // Game Over Variables
     // Game over menu object game mode
@@ -159,13 +160,14 @@ public class GameController : MonoBehaviour
             // Calculate points from time
             timePoints = 3600 - currentTime; 
             // Ponts from time + points from enemies
-            playerFinalPoints = player.GetComponent<PlayerController>().totalPoints + timePoints;
+            playerFinalPoints = Mathf.RoundToInt(player.GetComponent<PlayerController>().totalPoints + timePoints);
             // Specify seconds
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
             // Place time text
             finalTime.text = time.ToString(@"mm\:ss\:ff");
             // Place score text
-            finalPoints.text = Mathf.RoundToInt(playerFinalPoints).ToString();
+            finalPoints.text = playerFinalPoints.ToString();
+            statistics.UpdateGameStatistics(playerFinalPoints, currentTime);
         }
     }
 

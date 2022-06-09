@@ -222,6 +222,28 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- PROCEDURE to update game statistics
+DELIMITER $$
+
+CREATE PROCEDURE updateGameStatistics (IN UserID INT, IN TimePlayed FLOAT, IN Points INT)
+BEGIN
+        UPDATE gamestatistics
+        SET gamesPlayed = gamesPlayed + 1, totalTimePlayed = TimePlayed + totalTimePlayed, totalPoints = Points + totalPoints
+        WHERE usernameID = UserID;
+        
+        UPDATE gamestatistics
+        SET highScore = Points
+        WHERE usernameID = UserID AND highScore < Points;
+        
+        UPDATE gamestatistics
+        SET averageTime = totalTimePlayed / gamesPlayed, averagePoints = totalPoints / gamesPlayed
+        WHERE usernameID = UserID AND highScore < Points;
+END $$
+
+DELIMITER ;
+
+--
+
 -- Administrator creation calling adminCreate procedure
 CALL adminCreate('administrator', '8zinnQ98662AAp', 'studios.alleyCat@gmail.com');
 
