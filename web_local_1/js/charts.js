@@ -54,9 +54,10 @@ try
                 labels: ['LevelsCreated', 'Demon', 'Dragon', 'Goblin', 'Muddy', 'Zombie', 'Box', 'FloorSpikes', 'Hole', 'OgreBoss', 'ZombieBoss'],
                 datasets: [
                     {
-                        label: ['LevelsCreated', 'Demon', 'Dragon', 'Goblin', 'Muddy', 'Zombie', 'Box', 'FloorSpikes', 'Hole', 'OgreBoss', 'ZombieBoss'],
+                        label: 'Builder Stats',
                         backgroundColor: level_colors,
-                        data: bStats_levels, bStats_demon, bStats_dragon, bStats_goblin, bStats_muddy, bStats_zombie, bStats_box, bStats_floorSpikes, bStats_hole, bStats_ogreBoss, bStats_zombieBoss
+                        data: bStats_levels, bStats_demon, bStats_dragon, bStats_goblin, bStats_muddy,
+                        bStats_zombie, bStats_box, bStats_floorSpikes, bStats_hole, bStats_ogreBoss, bStats_zombieBoss
                     }
                 ]
             }

@@ -24,6 +24,7 @@ async function connectToDB()
         // password:'1234',
         password:'j2Qo6!fL949L',
         database:'alley_cat_db'
+
     })
 }
 
@@ -328,14 +329,18 @@ app.put('/api/playerStatistics', async (request, response)=>{
 })
 
 // chart methods
-app.get('/api/charts/:username', (request, response)=>{
-    let connection = connectToDB()
+app.get('/api/charts/:username', async (request, response)=>{
+
+    // let connection = connectToDB()
+    let connection = null
 
     try{
 
-        connection.connect()
+        connection = await connectToDB()
 
-        connection.query('LevelsCreated, Demon, Dragon, Goblin, Muddy, Zombie, Box, FloorSpikes, Hole, OgreBoss, ZombieBoss from user_builder_stats where username=?',[request.params.username],(error, results, fields)=>{
+        // const [results, fields] = await 
+        const [results, fields] = await connection.query('select LevelsCreated, Demon, Dragon, Goblin, Muddy, Zombie, Box, FloorSpikes, Hole, OgreBoss, ZombieBoss from user_builder_stats where username=?',
+        request.params.username, (error, results, fields)=>{
             if(error) console.log(error)
             console.log("Sending data correctly.")
             response.status(200)
@@ -349,13 +354,21 @@ app.get('/api/charts/:username', (request, response)=>{
             response.json(results)
         }
 
-        connection.end()
+        // connection.end()
     }
     catch(error)
     {
         response.status(500)
         response.json(error)
         console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully!")
+        }
     }
 })
 
