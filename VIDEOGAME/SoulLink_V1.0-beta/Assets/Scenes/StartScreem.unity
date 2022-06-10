@@ -172,6 +172,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &31906454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &115909479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -489,6 +491,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &267588819
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +571,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &320943848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -668,6 +672,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &458792791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -819,6 +824,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1001 &561471827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -944,6 +950,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &595070368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1177,6 +1184,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1039171181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1255,6 +1263,7 @@ MonoBehaviour:
   size: 1
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &1144550250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1598,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &1759313107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1731,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1902449628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1872,6 +1883,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!1 &2000078995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,6 +1975,7 @@ MonoBehaviour:
   size: 16
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &2137238301
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -448,6 +448,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &374645841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -776,6 +777,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1062914945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1165,6 +1167,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1301559814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1367,6 +1370,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1355536001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1532,7 +1536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6629313374767466384, guid: 15c754a459fc0d348827e6bc8ae89b49, type: 3}
+  m_Sprite: {fileID: 7664807735657788756, guid: 5504ae175afb84253865f44ad386f386, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1599,6 +1603,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1394154279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1813,6 +1818,7 @@ MonoBehaviour:
   size: 13
   logoutPanel: {fileID: 0}
   up: 0
+  playerStatistics: {fileID: 0}
 --- !u!212 &1906128373
 SpriteRenderer:
   m_ObjectHideFlags: 0
