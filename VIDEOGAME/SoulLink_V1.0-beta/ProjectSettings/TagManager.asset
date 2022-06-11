@@ -19,6 +19,7 @@ TagManager:
   - Boss
   - Stop
   - Page
+  - Health
   layers:
   - Default
   - TransparentFX
