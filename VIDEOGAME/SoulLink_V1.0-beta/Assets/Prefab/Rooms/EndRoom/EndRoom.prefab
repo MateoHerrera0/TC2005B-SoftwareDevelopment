@@ -1372,7 +1372,7 @@ GameObject:
   - component: {fileID: 4407454151967548197}
   m_Layer: 0
   m_Name: TopDoorCollider
-  m_TagString: Untagged
+  m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6152,7 +6152,7 @@ GameObject:
   - component: {fileID: 1907979752063312015}
   m_Layer: 0
   m_Name: BottomDoorCollider
-  m_TagString: Untagged
+  m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8209,7 +8209,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012534142, y: 0.01284194}
+  m_Offset: {x: -0.0077228546, y: 0.046856403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8220,7 +8220,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.383093, y: 8.346481}
+  m_Size: {x: 17.21001, y: 7.5950117}
   m_EdgeRadius: 0
 --- !u!1 &3086517654430671554
 GameObject:
@@ -16482,7 +16482,7 @@ GameObject:
   - component: {fileID: 6892475833859487381}
   m_Layer: 0
   m_Name: LeftDoorCollider
-  m_TagString: Untagged
+  m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19130,7 +19130,7 @@ GameObject:
   - component: {fileID: 8618857163303111790}
   m_Layer: 0
   m_Name: RightDoorCollider
-  m_TagString: Untagged
+  m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
