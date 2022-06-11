@@ -31,18 +31,25 @@ public class ArrowMechanic : MonoBehaviour
     public GameObject crosshairs;
     // Indicate the position of the mouse (target)
     private Vector3 target; 
+
+    // Sound
+    private AudioSource damageSound;
+    private bool allowSound; 
+    
     // Flask
     [SerializeField] private GameObject healthFlask; 
-    [SerializeField] private GameObject impactEffect; 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        allowSound = false;
         // Get main character object
         mainCharacter = GameObject.FindGameObjectWithTag("Player");
         // Get main character's transform through tag
         mainCharacterTrans = mainCharacter.GetComponent<Transform>();
+        // Get sound
+        damageSound = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -61,6 +68,7 @@ public class ArrowMechanic : MonoBehaviour
             mouseTargetPos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
                                          Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
         } 
+        
         // If clicked information is true
         if(isClicked)
         {
@@ -104,6 +112,14 @@ public class ArrowMechanic : MonoBehaviour
             // Can't damage while being with the Player
             canDamage = false;
         }
+        // If damage sound allowed
+        if(allowSound)
+        {
+            // Play sound
+            damageSound.Play ();
+            // Sound stops being allowed
+            allowSound = false;
+        }
     }
 
     // Function to throw arrow
@@ -144,6 +160,8 @@ public class ArrowMechanic : MonoBehaviour
         // If arrow touches enemy and is allowed to damage
         if(other.gameObject.tag == "Enemy" && canDamage)
         {
+            // Allow damage sound to be played
+            allowSound = true;
             //Allow damage effect
             other.GetComponent<DamageEffect>().effect = true;
             // Substract points from the enemies health points
@@ -163,6 +181,8 @@ public class ArrowMechanic : MonoBehaviour
         // If arrow touches enemy and is allowed to damage
         if(other.gameObject.tag == "Boss" && canDamage)
         {
+            // Allow damage sound to be played
+            allowSound = true;
             //Allow damage effect
             other.GetComponent<DamageEffect>().effect = true;
             // Substract points from the enemies health points

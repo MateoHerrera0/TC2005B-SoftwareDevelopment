@@ -15,14 +15,19 @@ public class GetHealth : MonoBehaviour
     private Transform mainCharacterTrans;
     // Get the speed of the flask
     [SerializeField] private float flaskSpeed; 
-
+    //
+    private bool allowSound;
+    // 
+    private AudioSource healthSound;
     // Start is called before the first frame update
     void Start()
     {
+        allowSound = false;
          // Get main character object
         mainCharacter = GameObject.FindGameObjectWithTag("Player");
         // Get main character's transform through tag
         mainCharacterTrans = mainCharacter.GetComponent<Transform>();
+        healthSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +39,14 @@ public class GetHealth : MonoBehaviour
             // Move flask towards Player
             transform.position = Vector2.MoveTowards(transform.position, mainCharacterTrans.position, flaskSpeed* Time.deltaTime);
         }
+
+        if(allowSound)
+        {
+            // Play sound
+            healthSound.Play ();
+            // Sound stops being allowed
+            allowSound = false;
+        }
     }  
 
     // Flask collision
@@ -42,7 +55,7 @@ public class GetHealth : MonoBehaviour
         // If flask touches Player
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().totalPoints += 50;
+            allowSound = true;
             // If Player doesn't have all their points
             if(other.GetComponentInChildren<HealthBar>().hp <= other.GetComponentInChildren<HealthBar>().maxHp)
             {
