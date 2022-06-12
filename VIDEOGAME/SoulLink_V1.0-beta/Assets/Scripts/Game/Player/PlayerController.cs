@@ -31,9 +31,13 @@ public class PlayerController : MonoBehaviour
     public GameObject trail; 
     
     // 
-    private bool allowSound;
+    private bool HealthEffect;
+    //
+    private bool DamageEffect; 
     // 
-    private AudioSource healthSound;
+    private AudioSource Sound;
+    public AudioClip healthSound;
+    public AudioClip damageSound; 
 
     // Player points
     public float totalPoints; 
@@ -48,9 +52,10 @@ public class PlayerController : MonoBehaviour
         // Get sprite renderer
         rendr = GetComponent<SpriteRenderer>();
         //
-        allowSound = false;
+        HealthEffect = false;
+        DamageEffect = false; 
         //
-        healthSound = GetComponent<AudioSource>();
+        Sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -116,12 +121,19 @@ public class PlayerController : MonoBehaviour
             // Move as usual (normal player velocity)
             rb2d.velocity = saveMovement;
         }
-        if(allowSound)
+        if(HealthEffect)
         {
             // Play sound
-            healthSound.Play ();
+            Sound.PlayOneShot(healthSound, 0.5f);
             // Sound stops being allowed
-            allowSound = false;
+            HealthEffect = false;
+        }
+        if(DamageEffect)
+        {
+            // Play sound
+            Sound.PlayOneShot(damageSound, 0.5f);
+            // Sound stops being allowed
+            DamageEffect = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -129,7 +141,12 @@ public class PlayerController : MonoBehaviour
         // If flask touches Player
         if(other.gameObject.tag == "Health")
         {
-            allowSound = true;
+            HealthEffect = true;
+            //Debug.Log(allowSound);
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            DamageEffect = true;
             //Debug.Log(allowSound);
         }
     }
