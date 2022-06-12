@@ -20,6 +20,8 @@ public class Enemy3 : MonoBehaviour
     private GameObject mainCharacter; 
     // Transform from main character
     private Transform mainCharacterTransform;
+    // 
+    private bool colliderExit = true; 
 
     private void Start()
     {
@@ -65,13 +67,24 @@ public class Enemy3 : MonoBehaviour
     }
 
     // Collision with stop objects (walls and other obstacles)
-    private void OnTriggerEnter2D(Collider2D other)
+   private void OnTriggerEnter2D(Collider2D other)
     {
+        //Debug.Log("babye");
         // If detects collision with stop object
-        if(other.gameObject.tag == "Stop")
+        if(other.gameObject.tag == "Stop" && colliderExit)
         {
             // Change direction sign 
             direction *= -1.0f;
+            colliderExit = false; 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        //Debug.Log("babye");
+        // If detects collision with stop object
+        if(other.gameObject.tag == "Stop")
+        {
+            colliderExit = true; 
         }
     }
 }

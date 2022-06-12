@@ -153,7 +153,8 @@ public class GameBuilderController : MonoBehaviour
                 GameObject newEnemy = Instantiate(itemList[currentButtonPressedId], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
                 newEnemy.transform.parent = emptyParent.transform;
             }
-            
+            // Poner click
+
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
         }
     }
