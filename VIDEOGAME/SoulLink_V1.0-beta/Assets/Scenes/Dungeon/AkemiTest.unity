@@ -5250,6 +5250,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 43258065922879136, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 85cafed39f4a348a9b6f2829d2646a6a, type: 3}
+    - target: {fileID: 43258065922879136, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
+      propertyPath: healthSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 35b7e8952e2a040138b32ccc352de049, type: 3}
     - target: {fileID: 43258065922879139, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
       propertyPath: m_Name
       value: Player Variant
@@ -5338,7 +5346,8 @@ PrefabInstance:
       propertyPath: impactEffect
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4131403417827628828, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1b7104d4cd897cb44b895dc7c8ce2ef9, type: 3}
 --- !u!1 &1585139199 stripped
 GameObject:
