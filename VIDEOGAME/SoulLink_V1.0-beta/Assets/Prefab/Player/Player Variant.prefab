@@ -185,6 +185,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5032351099696674128, guid: 4bd9711c8eb89ba489999c1fb7e3a354, type: 3}
+    - target: {fileID: 3800701252020088691, guid: 1dafdd8c613c013478f0b91dda461ea5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3984574384852130926, guid: 1dafdd8c613c013478f0b91dda461ea5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -416,6 +420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2509691608718190000, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2509691608718190001, guid: b6e6a5f4253967448ade01bdd626de9e, type: 3}
       propertyPath: trail
       value: 
