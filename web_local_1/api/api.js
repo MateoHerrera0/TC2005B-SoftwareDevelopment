@@ -329,7 +329,7 @@ app.put('/api/playerStatistics', async (request, response)=>{
 })
 
 // chart methods
-app.get('/api/charts/:username', async (request, response)=>{
+app.get('/api/chart1/:username', async (request, response)=>{
 
     // let connection = connectToDB()
     let connection = null
@@ -368,6 +368,49 @@ app.get('/api/charts/:username', async (request, response)=>{
         {
             connection.end()
             console.log("Connection closed successfully!")
+        }
+    }
+})
+
+app.get('/api/chart2/:username', async (request, response)=>{
+
+    // let connection = connectToDB()
+    let connection = null
+
+    try{
+
+        connection = await connectToDB()
+
+        // const [results, fields] = await 
+        const [results, fields] = await connection.query('select HighScore, AveragePoints, GamesPlayed, TotalPoints from user_point_stats where username=?',
+        request.params.username, (error, results, fields)=>{
+            if(error) console.log(error)
+            console.log("Sending data2 correctly.")
+            response.status(200)
+            response.json(results)
+        })
+
+        if (results.length == 0) {
+            response.status(400).send("No matching username2")
+        }else
+        {
+            response.json(results)
+        }
+
+        // connection.end()
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully2!")
         }
     }
 })
