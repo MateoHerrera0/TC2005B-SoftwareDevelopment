@@ -9,22 +9,23 @@ using UnityEngine;
 
 public class ObstacleSlowDown : MonoBehaviour
 {
+    // New speed variable
     private float newSpeed = 0.5f; 
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If obstacle touches main character
         if(other.gameObject.tag == "Player")
         {
-            // Substract health points from Main Character
+            // Reduce speed
             other.GetComponent<PlayerController>().speed *= newSpeed;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        // If obstacle touches main characterS
+        // If obstacle touches main character
         if(other.gameObject.tag == "Player")
         {
-            // Substract health points from Main Character
+            // Turn speed to normal
             other.GetComponent<PlayerController>().speed /= newSpeed;
         }
     }
