@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     // Allow health audio
     private bool HealthEffect;
     // Allow damage audio
-    private bool DamageEffect; 
+    public bool DamageEffect; 
     // Audio variables 
     // Player's auio source
     private AudioSource Sound;

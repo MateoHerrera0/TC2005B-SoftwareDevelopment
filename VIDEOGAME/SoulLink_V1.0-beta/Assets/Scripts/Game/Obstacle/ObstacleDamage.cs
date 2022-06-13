@@ -30,6 +30,7 @@ public class ObstacleDamage : MonoBehaviour
         {
             // Access health points and reduce by 1
             mainCharacter.GetComponentInChildren<HealthBar>().hp -= 1;
+            mainCharacter.GetComponent<PlayerController>().DamageEffect = true;
         }
     }
 }

@@ -170,10 +170,13 @@ public class ArrowMechanic : MonoBehaviour
             // If the health points are equal or lower to 0
             if(other.GetComponentInChildren<HealthBar>().hp <= 0)
             {
+                // Asign points to player when enemy killed
                 mainCharacter.GetComponent<PlayerController>().totalPoints += 50;
-                // Destroy enemy
+                // Create health flask
                 Instantiate(healthFlask, other.transform.position, Quaternion.identity);
+                // Check if enemies exist within room
                 RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+                // Destroy enemy
                 Destroy(other.gameObject);
             }
         }
@@ -191,9 +194,13 @@ public class ArrowMechanic : MonoBehaviour
             // If the health points are equal or lower to 0
             if(other.GetComponentInChildren<HealthBar>().hp <= 0)
             {
-                // Destroy Boss
+                // Asign points to player when boss killed
+                mainCharacter.GetComponent<PlayerController>().totalPoints += 100;
+                // Create health flask
                 Instantiate(healthFlask, other.transform.position, Quaternion.identity);
+                // Check if boss exists within room
                 RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+                // Destroy Boss
                 Destroy(other.gameObject);
             }
         }
