@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if(DamageEffect)
         {
             // Play sound
-            Sound.PlayOneShot(damageSound, 0.5f);
+            Sound.PlayOneShot(damageSound, 0.7f);
             // Sound stops being allowed
             DamageEffect = false;
         }

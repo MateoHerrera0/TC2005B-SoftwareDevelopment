@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
         if(!isTest)
         {
             // When escape key is pressed
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.P))
             {
                 //Debug.Log(isPaused);
 
