@@ -156,27 +156,16 @@ try
                         {
                             label: 'High Score',
                             data: gStats_highScore,
-                            borderColor: '#FFFFFF',
                             backgroundColor: highScore_colors,
-                            // label: 'Game Stats', 
-                            // data: [gStats_highScore,gStats_averagePoints, gStats_totalPoints],
-                            // backgroundColor: [highScore_colors, averagePoints_colors, totalPoints_colors],
                         },
                         {
                             label: 'Average Points',
                             data: gStats_averagePoints,
-                            borderColor: '#FFFFFF',
                             backgroundColor: averagePoints_colors,
                         },
-                        // // {
-                        // //     label: 'Games Played',
-                        // //     data: [gStats_gamesPlayed],
-                        // //     backgroundColor: [gamesPlayed_colors],
-                        // // },
                         {
                             label: 'Total Points',
                             data: gStats_totalPoints,
-                            borderColor: '#FFFFFF',
                             backgroundColor: totalPoints_colors,
                         }
                     ]
@@ -188,11 +177,13 @@ try
                         legend: {
                             labels: {
                                 color: '#FFFFFF'
+                            },
+                            y: {
+                                color: '#FFFFFF'
                             }
                         }
                     }
                 }
-                        
             })
         }
 
@@ -217,30 +208,33 @@ try
             const averageTime_colors = values3.map(e => random_color(0.8))
             
             const tStats_totalTimePlayed = values3.map(e => e['TotalTimePlayed'])
-            const totalTimePlayed_colors = values3.map(e => random_color(0.1))
+            const totalTimePlayed_colors = values3.map(e => random_color(0.5))
             
             const ctx3 = document.getElementById('chart3').getContext('2d')
+            const data3data = [tStats_averageTime, tStats_totalTimePlayed]
             
             const tStatsChart = new Chart(ctx3, {
                 type: 'polarArea',
                 data: {
-                    labels: ['Average Time', 'Total Time Played'],
+                    labels: ['TotalTimePLayed', 'AverageTime'],
                     datasets: [
                         {
-                            label: 'Average Time',
-                            data: tStats_averageTime,
-                            borderColor: '#FFFFFF',
-                            backgroundColor: averageTime_colors,
-                            // label: 'Game Stats', 
-                            // data: [gStats_highScore,gStats_averagePoints, gStats_totalPoints],
-                            // backgroundColor: [highScore_colors, averagePoints_colors, totalPoints_colors],
-                        },
-                        {
-                            label: 'Total Time Played',
-                            data: tStats_totalTimePlayed,
-                            borderColor: '#FFFFFF',
-                            backgroundColor: totalTimePlayed_colors,
-                        },
+                            // label: 'TotalTimePlayed',
+                            label: 'Time',
+                            // label: ['Time', 'time2'],
+                            data: tStats_totalTimePlayed, tStats_averageTime,
+                            // data: data3data,
+                            // borderColor: '#FFFFFF',
+                            // backgroundColor: totalTimePlayed_colors,
+                            backgroundColor: totalTimePlayed_colors, averageTime_colors
+                        }
+                    //     {
+                    //         label: 'AverageTime',
+                    //         data: tStats_averageTime,
+                    //         borderColor: '#FFFFFF',
+                    //         backgroundColor: averageTime_colors,
+
+                    //     }
                     ]
                 },
                         
@@ -251,11 +245,14 @@ try
                             labels: {
                                 color: '#FFFFFF'
                             }
+                            // y: {
+                            //     color: '#FFFFFF'
+                            // }
                         }
                     }
                 }
                         
-            })
+            });
         }
 
     }
