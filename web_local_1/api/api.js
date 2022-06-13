@@ -13,6 +13,8 @@ app.use('/scripts/charts', express.static('./node_modules/chart.js/dist/'))
 app.use('/js', express.static('./js'))
 app.use('/css', express.static('./css'))
 app.use('/assets', express.static('./assets'))
+app.use('/Builds/TemplateData', express.static('./Builds/TemplateData'))
+app.use('/Builds/Build', express.static('./Builds/Build'))
 
 
 async function connectToDB()
