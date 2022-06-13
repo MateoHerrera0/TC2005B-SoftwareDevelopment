@@ -1,3 +1,9 @@
+/*
+Code used for enemy that shoots a projectile when player is near
+
+Ana Paula Katsuda, Mateo Herrera, Gerardo Gutiérrez
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

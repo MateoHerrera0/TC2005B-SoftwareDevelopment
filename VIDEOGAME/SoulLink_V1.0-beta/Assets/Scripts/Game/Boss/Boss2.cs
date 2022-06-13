@@ -1,3 +1,9 @@
+/*
+Code used for a boss that turns into rock and shoots when player is near 
+Boss follows player
+
+Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +62,7 @@ public class Boss2 : MonoBehaviour
 
         // Increase timer in each frame
         timer += Time.deltaTime;
-        // 
+        // When boss isn't near player
         if(Vector2.Distance(transform.position, projectileTarget.position) >= attackRange)
         {
             // Call patrol function to make enemy move side to side
@@ -65,7 +71,9 @@ public class Boss2 : MonoBehaviour
             bossCollider.enabled = true; 
             // Enable boss' health bar
             showBar.enabled = true; 
+            // Enable animation
             bossAnimation.enabled = true;
+            // Sprite color to default (white)
             sprite.color = Color.white;
         }
         // If distance is lower than attackRange
@@ -82,7 +90,9 @@ public class Boss2 : MonoBehaviour
                 bossCollider.enabled = false;  
                 // Disable boss' health bar
                 showBar.enabled = false; 
+                // Disable animation
                 bossAnimation.enabled = false;
+                // Change color to grey
                 sprite.color = Color.grey;
             }
         }
@@ -91,7 +101,7 @@ public class Boss2 : MonoBehaviour
         {
             // Access health points and reduce by 3
             mainCharacter.GetComponentInChildren<HealthBar>().hp -= 5;
-            //Allow damage effect
+            // Allow damage effect
             mainCharacter.GetComponent<DamageEffect>().effect = true;
         }
     }
