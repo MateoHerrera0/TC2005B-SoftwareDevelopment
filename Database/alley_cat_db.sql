@@ -123,7 +123,14 @@ ogreBoss AS `OgreBoss`, zombieBoss AS `ZombieBoss`
 --
 -- user time played view
 CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
-	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gamestatistics USING (usernameID);
+	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (usernameID);
+
+
+--
+-- chart 4 view
+CREATE VIEW chart4 AS SELECT username, activity AS `Activity`, lastActive AS `LastActive`, gamesPlayed AS `GamesPlayed`
+    FROM alley_cat_db.users LEFT JOIN alley_cat_db.playerStatistics USING (usernameID) LEFT JOIN alley_cat_db.gameStatistics
+    USING (usernameID);
 
 --
 -- TRIGGERS

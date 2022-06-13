@@ -16,6 +16,8 @@ function random_color(alpha=1.0)
 
 const ctx = document.getElementById('chart1').getContext('2d');
 const ctx2 = document.getElementById('chart2').getContext('2d');
+const ctx3 = document.getElementById('chart3').getContext('2d');
+
 
 try
 {
@@ -153,16 +155,18 @@ try
                     datasets: [
                         {
                             label: 'High Score',
-                            data: [gStats_highScore],
-                            backgroundColor: [highScore_colors],
+                            data: gStats_highScore,
+                            borderColor: '#FFFFFF',
+                            backgroundColor: highScore_colors,
                             // label: 'Game Stats', 
                             // data: [gStats_highScore,gStats_averagePoints, gStats_totalPoints],
                             // backgroundColor: [highScore_colors, averagePoints_colors, totalPoints_colors],
                         },
                         {
                             label: 'Average Points',
-                            data: [gStats_averagePoints],
-                            backgroundColor: [averagePoints_colors],
+                            data: gStats_averagePoints,
+                            borderColor: '#FFFFFF',
+                            backgroundColor: averagePoints_colors,
                         },
                         // // {
                         // //     label: 'Games Played',
@@ -171,8 +175,9 @@ try
                         // // },
                         {
                             label: 'Total Points',
-                            data: [gStats_totalPoints],
-                            backgroundColor: [totalPoints_colors],
+                            data: gStats_totalPoints,
+                            borderColor: '#FFFFFF',
+                            backgroundColor: totalPoints_colors,
                         }
                     ]
                 },
@@ -190,6 +195,69 @@ try
                         
             })
         }
+
+        const tStats = await fetch(`http://localhost:5000/api/chart3/${dataObj['username']}`,{
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        })
+
+        console.log('Got response 3 correctly')
+
+        if(tStats.ok)
+        {
+            console.log('Response3 is ok. Converting to Json.')
+            
+            let results3 = await tStats.json()
+            
+            console.log('Data3 converted correctly. Plotting chart 3.')
+            
+            const values3 = Object.values(results3)
+            
+            const tStats_averageTime = values3.map(e => e['AverageTime'])
+            const averageTime_colors = values3.map(e => random_color(0.8))
+            
+            const tStats_totalTimePlayed = values3.map(e => e['TotalTimePlayed'])
+            const totalTimePlayed_colors = values3.map(e => random_color(0.1))
+            
+            const ctx3 = document.getElementById('chart3').getContext('2d')
+            
+            const tStatsChart = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Average Time', 'Total Time Played'],
+                    datasets: [
+                        {
+                            label: 'Average Time',
+                            data: tStats_averageTime,
+                            borderColor: '#FFFFFF',
+                            backgroundColor: averageTime_colors,
+                            // label: 'Game Stats', 
+                            // data: [gStats_highScore,gStats_averagePoints, gStats_totalPoints],
+                            // backgroundColor: [highScore_colors, averagePoints_colors, totalPoints_colors],
+                        },
+                        {
+                            label: 'Total Time Played',
+                            data: tStats_totalTimePlayed,
+                            borderColor: '#FFFFFF',
+                            backgroundColor: totalTimePlayed_colors,
+                        },
+                    ]
+                },
+                        
+                options:
+                {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#FFFFFF'
+                            }
+                        }
+                    }
+                }
+                        
+            })
+        }
+
     }
             
             
