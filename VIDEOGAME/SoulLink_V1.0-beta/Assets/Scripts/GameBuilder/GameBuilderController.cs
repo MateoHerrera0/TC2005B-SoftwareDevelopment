@@ -64,6 +64,8 @@ public class GameBuilderController : MonoBehaviour
     public string levelString;
     public string enemyString;
     public string obstacleString;
+    // 
+    AudioSource placeAudio; 
 
     // Start is called before the first frame update
     void Awake() {
@@ -83,7 +85,7 @@ public class GameBuilderController : MonoBehaviour
         startRoom.X = 0;
         startRoom.Y = 0;
         roomsToBePlaced.Add(startRoom);
-
+        placeAudio = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -153,7 +155,8 @@ public class GameBuilderController : MonoBehaviour
                 GameObject newEnemy = Instantiate(itemList[currentButtonPressedId], new Vector3(worldPos.x, worldPos.y, 0), Quaternion.identity);
                 newEnemy.transform.parent = emptyParent.transform;
             }
-            // Poner click
+            // 
+            placeAudio.Play();
 
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
         }
