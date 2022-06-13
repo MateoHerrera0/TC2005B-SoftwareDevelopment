@@ -30,14 +30,19 @@ public class PlayerController : MonoBehaviour
     // Trail effect
     public GameObject trail; 
     
-    // 
+    // Allow health audio
     private bool HealthEffect;
-    //
+    // Allow damage audio
     private bool DamageEffect; 
-    // 
+    // Audio variables 
+    // Player's auio source
     private AudioSource Sound;
+    // Health sound clip
     public AudioClip healthSound;
+    // damage sound clip
     public AudioClip damageSound; 
+    // dash sound clip
+    public AudioClip dashSound;
 
     // Player points
     public float totalPoints; 
@@ -51,10 +56,10 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         // Get sprite renderer
         rendr = GetComponent<SpriteRenderer>();
-        //
+        //Start effects booleans
         HealthEffect = false;
         DamageEffect = false; 
-        //
+        // Get AudioSource 
         Sound = GetComponent<AudioSource>();
     }
 
@@ -102,6 +107,7 @@ public class PlayerController : MonoBehaviour
         // If dash is allowed
         if (dash)
         {
+            Sound.PlayOneShot(dashSound, 0.5f);
             // Timer will increase 
             timer += Time.deltaTime;
             // If timer gets to the maximum dash duration
@@ -121,6 +127,7 @@ public class PlayerController : MonoBehaviour
             // Move as usual (normal player velocity)
             rb2d.velocity = saveMovement;
         }
+        // Health sound effect
         if(HealthEffect)
         {
             // Play sound
@@ -128,6 +135,7 @@ public class PlayerController : MonoBehaviour
             // Sound stops being allowed
             HealthEffect = false;
         }
+        // Damage sound effect 
         if(DamageEffect)
         {
             // Play sound
@@ -141,13 +149,14 @@ public class PlayerController : MonoBehaviour
         // If flask touches Player
         if(other.gameObject.tag == "Health")
         {
+            // Allow health effect
             HealthEffect = true;
-            //Debug.Log(allowSound);
         }
+        // If boss or enemy touches player
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
+            // Allow damage effect
             DamageEffect = true;
-            //Debug.Log(allowSound);
         }
     }
 }
