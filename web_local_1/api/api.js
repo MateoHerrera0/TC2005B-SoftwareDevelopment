@@ -382,7 +382,7 @@ app.get('/api/chart2/:username', async (request, response)=>{
         connection = await connectToDB()
 
         // const [results, fields] = await 
-        const [results, fields] = await connection.query('select HighScore, AveragePoints, GamesPlayed, TotalPoints from user_point_stats where username=?',
+        const [results, fields] = await connection.query('select HighScore, AveragePoints, TotalPoints from user_point_stats where username=?',
         request.params.username, (error, results, fields)=>{
             if(error) console.log(error)
             console.log("Sending data2 correctly.")
@@ -411,6 +411,49 @@ app.get('/api/chart2/:username', async (request, response)=>{
         {
             connection.end()
             console.log("Connection closed successfully2!")
+        }
+    }
+})
+
+app.get('/api/chart3/:username', async (request, response)=>{
+
+    // let connection = connectToDB()
+    let connection = null
+
+    try{
+
+        connection = await connectToDB()
+
+        // const [results, fields] = await 
+        const [results, fields] = await connection.query('select AverageTime, TotalTimePlayed from user_time_played  where username=?',
+        request.params.username, (error, results, fields)=>{
+            if(error) console.log(error)
+            console.log("Sending data3 correctly.")
+            response.status(200)
+            response.json(results)
+        })
+
+        if (results.length == 0) {
+            response.status(400).send("No matching username3")
+        }else
+        {
+            response.json(results)
+        }
+
+        // connection.end()
+    }
+    catch(error)
+    {
+        response.status(500)
+        response.json(error)
+        console.log(error)
+    }
+    finally
+    {
+        if(connection!==null) 
+        {
+            connection.end()
+            console.log("Connection closed successfully3!")
         }
     }
 })
