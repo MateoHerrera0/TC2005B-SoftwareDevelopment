@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         // If dash is allowed
         if (dash)
         {
-            Sound.PlayOneShot(dashSound, 0.5f);
+            Sound.PlayOneShot(dashSound, 0.05f);
             // Timer will increase 
             timer += Time.deltaTime;
             // If timer gets to the maximum dash duration
