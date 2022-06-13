@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
             HealthEffect = true;
             //Debug.Log(allowSound);
         }
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
             DamageEffect = true;
             //Debug.Log(allowSound);
