@@ -20,7 +20,7 @@ public class ItemDeleteController : MonoBehaviour
     {
         editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
         Vector2 pos = editor.SnapToGrid(new Vector2(this.transform.position.x, this.transform.position.y));
-        roomX = (int)pos.x/17;
+        roomX = (int)(pos.x/17.5);
         roomY = (int)pos.y/9;
     }
 
