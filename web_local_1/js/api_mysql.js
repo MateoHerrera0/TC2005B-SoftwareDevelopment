@@ -214,7 +214,7 @@ try
             const data3data = [tStats_averageTime, tStats_totalTimePlayed]
             
             const tStatsChart = new Chart(ctx3, {
-                type: 'polarArea',
+                type: 'pie',
                 data: {
                     labels: ['TotalTimePLayed', 'AverageTime'],
                     datasets: [
@@ -222,11 +222,11 @@ try
                             // label: 'TotalTimePlayed',
                             label: 'Time',
                             // label: ['Time', 'time2'],
-                            data: tStats_totalTimePlayed, tStats_averageTime,
+                            data: [tStats_totalTimePlayed, tStats_averageTime],
                             // data: data3data,
                             // borderColor: '#FFFFFF',
                             // backgroundColor: totalTimePlayed_colors,
-                            backgroundColor: totalTimePlayed_colors, averageTime_colors
+                            backgroundColor: [totalTimePlayed_colors, averageTime_colors]
                         }
                     //     {
                     //         label: 'AverageTime',
