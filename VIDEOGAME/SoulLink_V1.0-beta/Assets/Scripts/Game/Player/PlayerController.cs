@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
             HealthEffect = true;
         }
         // If boss or enemy touches player
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss" || other.gameObject.tag == "Projectile")
         {
             // Allow damage effect
             DamageEffect = true;
