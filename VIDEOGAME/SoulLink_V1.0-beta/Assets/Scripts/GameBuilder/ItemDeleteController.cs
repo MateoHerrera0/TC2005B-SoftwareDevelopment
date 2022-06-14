@@ -21,50 +21,31 @@ public class ItemDeleteController : MonoBehaviour
         editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
         Vector2 pos = editor.SnapToGrid(new Vector2(this.transform.position.x, this.transform.position.y));
         roomX = (int)(pos.x/17.5);
-        roomY = (int)pos.y/9;
+        roomY = (int)(pos.y/9);
     }
 
     private void Update() {
-        if (!isItRoom && editor.FindRoom(roomX, roomY) == null)
+        if (editor.FindRoom(roomX, roomY) == null)
         {
             DeleteObject();
         }
     }
 
-    private void OnMouseOver() {
-        
-        if (!this.isItRoom)
-        {
-            if (Input.GetMouseButtonDown(1))
-                {
-                    DeleteObject();
-                }
-        }
+    private void OnMouseDown() {
+                DeleteObject();
+        Debug.Log(gameObject.name);
 
-        if(!editor.enemyPlaceState)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                Destroy(this.gameObject);
-                editor.roomsToBePlaced.Remove(editor.FindRoom((int)(this.transform.position.x/17.5), (int)(this.transform.position.y/9)));
-
-            }
-            if (Input.GetMouseButtonDown(0))
-            {
-                editor.currentRoom = this.gameObject;
-                editor.ToggleEnemyPlaceState(this.transform.position.x, this.transform.position.y);
-            }
-        }
     }
 
     void DeleteObject()
     {
-        Destroy(this.gameObject);
         if (!isItObstacle)
         {
             editor.enemiesToBePlaced.Remove(editor.FindEnemy(this.transform.position.x, this.transform.position.y));
-            return;
+        } else
+        {
+            editor.obstaclesToBePlaced.Remove(editor.FindObstacle(this.transform.position.x, this.transform.position.y));
         }
-        editor.obstaclesToBePlaced.Remove(editor.FindObstacle(this.transform.position.x, this.transform.position.y));
+        Destroy(this.gameObject);
     }
 }

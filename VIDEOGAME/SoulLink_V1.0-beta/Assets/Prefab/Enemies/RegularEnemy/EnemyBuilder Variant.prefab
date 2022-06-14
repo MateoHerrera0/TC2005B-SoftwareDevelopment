@@ -19,17 +19,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBuilder Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7930653309798835692, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930653309798835693, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930653309798835693, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7930653309798835694, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7930653309798835694, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7930653309798835694, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7930653309798835694, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,6 +75,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7946221617861473841, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9175931073406642214, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -72,6 +88,7 @@ PrefabInstance:
     - {fileID: 1009375747873478724, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
     - {fileID: 8967679444769216537, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
     - {fileID: 3541705429687923552, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
+    - {fileID: 4264641349842184318, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de0b3a130fc82df41a7ccab1df5a126d, type: 3}
 --- !u!1 &1486740232040113016 stripped
 GameObject:

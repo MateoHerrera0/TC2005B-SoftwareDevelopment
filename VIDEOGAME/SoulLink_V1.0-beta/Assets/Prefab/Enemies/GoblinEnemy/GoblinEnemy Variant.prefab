@@ -11,17 +11,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5892732754193100380, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892732754193100380, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 37021731
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892732754193100382, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5892732754193100387, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892732754193100387, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.627002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892732754193100387, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892732754193100387, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64,6 +76,7 @@ PrefabInstance:
     - {fileID: 5892732754193100386, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
     - {fileID: -1343792971634403149, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
     - {fileID: 5892732754193100381, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
+    - {fileID: 1124659447469456954, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7cc39eaea0d9f4cffa9d8bdd90298a37, type: 3}
 --- !u!1 &2881400301658552427 stripped
 GameObject:

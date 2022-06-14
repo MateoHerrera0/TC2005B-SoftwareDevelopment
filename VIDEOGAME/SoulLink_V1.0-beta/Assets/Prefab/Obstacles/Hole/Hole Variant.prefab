@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hole Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 874810893185989411, guid: 309d7914270543147980d46cd80bf24b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 874810893185989412, guid: 309d7914270543147980d46cd80bf24b, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -29,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 874810893185989413, guid: 309d7914270543147980d46cd80bf24b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 874810893185989413, guid: 309d7914270543147980d46cd80bf24b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 874810893185989413, guid: 309d7914270543147980d46cd80bf24b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -69,6 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 874810893185989414, guid: 309d7914270543147980d46cd80bf24b, type: 3}
+    - {fileID: 6857885914148146142, guid: 309d7914270543147980d46cd80bf24b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 309d7914270543147980d46cd80bf24b, type: 3}
 --- !u!1 &2760463660523424451 stripped
 GameObject:

@@ -11375,7 +11375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666681863465694178}
   - component: {fileID: 5666681863465694179}
-  - component: {fileID: 7088279140877875070}
+  - component: {fileID: 7483534466680582959}
   m_Layer: 0
   m_Name: EndRoomBuilder
   m_TagString: Untagged
@@ -11430,7 +11430,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.383093, y: 8.346481}
   m_EdgeRadius: 0
---- !u!114 &7088279140877875070
+--- !u!114 &7483534466680582959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11439,10 +11439,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5666681863465694180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5b27156d307084d9e336a13cc588ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 89748f7d2bc87514dbb2c4e36c8ea5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isItRoom: 1
 --- !u!1 &5666681863471235597
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2442307630867773817, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2442307630867773819, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
       propertyPath: m_Name
       value: MuddyEnemy Variant
@@ -17,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442307630867773821, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.796027
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442307630867773821, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5398622
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442307630867773821, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55,6 +59,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2442307630867773822, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442307630867773822, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 37021731
+      objectReference: {fileID: 0}
     - target: {fileID: 2442307631066950691, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -64,6 +76,7 @@ PrefabInstance:
     - {fileID: -8146258132335865725, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
     - {fileID: 2442307630867773816, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
     - {fileID: 2442307630867773823, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
+    - {fileID: -1578360434731141512, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 58ea9026e209c42d7909391045d4f4ca, type: 3}
 --- !u!1 &3330798280806258960 stripped
 GameObject:

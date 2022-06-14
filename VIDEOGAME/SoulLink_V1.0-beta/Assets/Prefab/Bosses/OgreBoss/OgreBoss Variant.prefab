@@ -15,17 +15,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: OgreBoss Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7169098500536041316, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169098500536041316, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 37021731
+      objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041317, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041317, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9107733
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041317, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2426459
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041317, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,6 +65,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7169098500536041317, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169098500536041318, guid: 50dcda28f41ed40d68a8a83688a6048c, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

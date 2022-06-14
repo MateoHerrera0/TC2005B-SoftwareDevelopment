@@ -11,17 +11,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2131539077576127229, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2131539077576127231, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131539077576127231, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.78
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131539077576127231, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14078104
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131539077576127231, guid: f81ee86baeba2470f89bfe4529db47da, type: 3}
       propertyPath: m_LocalPosition.z
