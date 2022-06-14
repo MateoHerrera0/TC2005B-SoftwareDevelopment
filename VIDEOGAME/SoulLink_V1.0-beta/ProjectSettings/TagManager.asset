@@ -21,6 +21,7 @@ TagManager:
   - Page
   - Health
   - Circe
+  - Projectile
   layers:
   - Default
   - TransparentFX
