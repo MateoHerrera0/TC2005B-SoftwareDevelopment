@@ -293,7 +293,7 @@
                     <h3 class="section-subheading text-muted">Enjoy the journey</h3>
                     <button class="btn btn-primary" id="playButton">PLAY</button>
                     <div id="unity-container" class="unity-desktop">
-                        <canvas id="unity-canvas" width=960 height=600></canvas>
+                        <canvas id="unity-canvas" width=1280 height=720></canvas>
                         <div id="unity-loading-bar">
                           <div id="unity-logo"></div>
                           <div id="unity-progress-bar-empty">
@@ -304,6 +304,7 @@
                         <div id="unity-footer">
                           <div id="unity-webgl-logo"></div>
                           <div id="unity-fullscreen-button"></div>
+                          <div id="unity-build-title">SoulLink_V1.0-beta</div>
                         </div>
                       </div>
                       <script>
@@ -313,8 +314,6 @@
                         var progressBarFull = document.querySelector("#unity-progress-bar-full");
                         var fullscreenButton = document.querySelector("#unity-fullscreen-button");
                         var warningBanner = document.querySelector("#unity-warning");
-                        var button = document.getElementById("playButton");
-                        var playingGame = false;
                   
                         // Shows a temporary message banner/ribbon for a few seconds, or
                         // a permanent error message on top of the canvas if type=='error'.
@@ -361,38 +360,40 @@
                         // config.matchWebGLToCanvasSize = false;
                   
                         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                          // Mobile device style: fill the whole browser client area with the game canvas:
+                  
+                          var meta = document.createElement('meta');
+                          meta.name = 'viewport';
+                          meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+                          document.getElementsByTagName('head')[0].appendChild(meta);
                           container.className = "unity-mobile";
-                          // Avoid draining fillrate performance on mobile devices,
-                          // and default/override low DPI mode on mobile browsers.
-                          config.devicePixelRatio = 1;
+                  
+                          // To lower canvas resolution on mobile devices to gain some
+                          // performance, uncomment the following line:
+                          // config.devicePixelRatio = 1;
+                  
+                          canvas.style.width = window.innerWidth + 'px';
+                          canvas.style.height = window.innerHeight + 'px';
+                  
                           unityShowBanner('WebGL builds are not supported on mobile devices.');
                         } else {
+                          // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+                  
                           canvas.style.width = "1280px";
                           canvas.style.height = "720px";
                         }
+                  
                         loadingBar.style.display = "block";
                   
                         var script = document.createElement("script");
                         script.src = loaderUrl;
-
-                        button.onclick = () => {
+                        script.onload = () => {
                           createUnityInstance(canvas, config, (progress) => {
                             progressBarFull.style.width = 100 * progress + "%";
                           }).then((unityInstance) => {
-                            if (!playingGame) {
-                                loadingBar.style.display = "none";
-                                playingGame = true;
-                                fullscreenButton.onclick = () => {
-                                unityInstance.SetFullscreen(1);
-                            }
-                            } else {
-                                unityInstance.Quit(function() {
-                                    console.log("done!");
-                                });
-                                unityInstance = null;
-                                playingGame = false;
-                                document.getElementById("unity-container").remove();
-                                
+                            loadingBar.style.display = "none";
+                            fullscreenButton.onclick = () => {
+                              unityInstance.SetFullscreen(1);
                             };
                           }).catch((message) => {
                             alert(message);
@@ -401,6 +402,18 @@
                         document.body.appendChild(script);
                       </script>
                 </div>
+                <script>
+                    var recaptureInputAndFocus = function() {
+                      var canvas = document.getElementById("unity-canvas");
+                      if(canvas) {
+                        canvas.setAttribute("tabindex", "1");
+                        canvas.focus(); 
+                      } else
+                        setTimeout(recaptureInputAndFocus, 100);
+                    }
+                 
+                    recaptureInputAndFocus();
+                </script>
             </div>
         </section>
         <!-- Stats -->
