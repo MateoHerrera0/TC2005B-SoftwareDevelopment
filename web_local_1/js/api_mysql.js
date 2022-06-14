@@ -106,12 +106,21 @@ try
                 options:
                 {
                     plugins: {
+                        title: {
+                            display: true,
+                            text: 'Builder Stats'
+                        },
+
                         legend: {
                             labels: {
                                 color: '#FFFFFF'
                             }
                         }
-                    }
+                    },
+
+                    maintainAspectRatio: false,
+
+                    responsive: false
                 }
                         
             })
@@ -151,7 +160,7 @@ try
             const gStatsChart = new Chart(ctx2, {
                 type: 'bar',
                 data: {
-                    labels: ['Game Stats'],
+                    labels: [' '],
                     datasets: [
                         {
                             label: 'High Score',
@@ -174,6 +183,11 @@ try
                 options:
                 {
                     plugins: {
+                        title: {
+                            display: true,
+                            text: 'Game Point Stats'
+                        },
+
                         legend: {
                             labels: {
                                 color: '#FFFFFF'
@@ -181,8 +195,16 @@ try
                             y: {
                                 color: '#FFFFFF'
                             }
+                        },
+
+                        tooltip: {
+                            titleColor: '#FFFFFF'
                         }
-                    }
+                    },
+
+                    maintainAspectRatio: false,
+                    
+                    responsive: false
                 }
             })
         }
@@ -249,7 +271,11 @@ try
                             //     color: '#FFFFFF'
                             // }
                         }
-                    }
+                    },
+
+                    maintainAspectRatio: false,
+                    
+                    responsive: false
                 }
                         
             });
