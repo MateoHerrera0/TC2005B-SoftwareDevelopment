@@ -32,7 +32,7 @@ public class ItemDeleteController : MonoBehaviour
     }
 
     private void OnMouseDown() {
-                DeleteObject();
+        DeleteObject();
         Debug.Log(gameObject.name);
 
     }
