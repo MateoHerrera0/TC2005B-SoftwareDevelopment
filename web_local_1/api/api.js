@@ -21,10 +21,10 @@ async function connectToDB()
 {
     return await mysql.createConnection({
         host:'localhost',
-        user:'web2',
-        // user:'AlleyCat',
-        password:'1234',
-        // password:'j2Qo6!fL949L',
+        // user:'web2',
+        user:'AlleyCat',
+        // password:'1234',
+        password:'j2Qo6!fL949L',
         database:'alley_cat_db'
 
     })
