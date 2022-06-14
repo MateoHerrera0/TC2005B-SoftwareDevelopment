@@ -327,6 +327,9 @@ public class GameBuilderController : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        LevelInformation.levelEnemies = "";
+        LevelInformation.levelRooms = "";
+        LevelInformation.levelObstacles = "";
         SceneManager.LoadScene("MainMenu");
         Destroy(this.gameObject);
     }

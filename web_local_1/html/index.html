@@ -291,6 +291,7 @@
                 <div class="text-center">
                     <h2 class="section-heading1 text-uppercase">SOUL LINK</h2>
                     <h3 class="section-subheading text-muted">Enjoy the journey</h3>
+                    <button class="btn btn-primary" id="playButton">PLAY</button>
                     <div id="unity-container" class="unity-desktop">
                         <canvas id="unity-canvas" width=960 height=600></canvas>
                         <div id="unity-loading-bar">
@@ -312,6 +313,8 @@
                         var progressBarFull = document.querySelector("#unity-progress-bar-full");
                         var fullscreenButton = document.querySelector("#unity-fullscreen-button");
                         var warningBanner = document.querySelector("#unity-warning");
+                        var button = document.getElementById("playButton");
+                        var playingGame = false;
                   
                         // Shows a temporary message banner/ribbon for a few seconds, or
                         // a permanent error message on top of the canvas if type=='error'.
@@ -371,13 +374,25 @@
                   
                         var script = document.createElement("script");
                         script.src = loaderUrl;
-                        script.onload = () => {
+
+                        button.onclick = () => {
                           createUnityInstance(canvas, config, (progress) => {
                             progressBarFull.style.width = 100 * progress + "%";
                           }).then((unityInstance) => {
-                            loadingBar.style.display = "none";
-                            fullscreenButton.onclick = () => {
-                              unityInstance.SetFullscreen(1);
+                            if (!playingGame) {
+                                loadingBar.style.display = "none";
+                                playingGame = true;
+                                fullscreenButton.onclick = () => {
+                                unityInstance.SetFullscreen(1);
+                            }
+                            } else {
+                                unityInstance.Quit(function() {
+                                    console.log("done!");
+                                });
+                                unityInstance = null;
+                                playingGame = false;
+                                document.getElementById("unity-container").remove();
+                                
                             };
                           }).catch((message) => {
                             alert(message);
