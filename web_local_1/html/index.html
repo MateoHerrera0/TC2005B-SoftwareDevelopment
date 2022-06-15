@@ -305,7 +305,7 @@
                             <div id="unity-progress-bar-full"></div>
                           </div>
                         </div>
-                        <div id="unity-warning"> </div>
+                        <div id="unity-warning"></div>
                         <div id="unity-footer">
                           <div id="unity-webgl-logo"></div>
                           <div id="unity-fullscreen-button"></div>
@@ -422,18 +422,22 @@
             </div>
         </section>
         <!-- Stats -->
-        <section class="page-section" id="stats">
+        <section class="page-section text-center" id="stats">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Statistics</h2>
-                    <h3 class="section-subheading text-muted">Player Stats </h3>
-                </div>
-                <div class="formInput">
-                    <h2 class="section-heading text-uppercase">Enter your username</h2>
-                    <form id="formSelectUser">
-                        <input type="text" name="username" placeholder="Type your username">
-                        <input type="submit" value="Show user stats">
-                    </form>
+                <div class="row align-items-center justify-content-center">
+                    <div class="text-center px-5 pb-sm-0">
+                        <h2 class="section-heading text-uppercase">Statistics</h2>
+                        <h3 class="section-subheading text-muted">Player Stats </h3>
+                    </div>
+                    <div class="formInput col-md-4 p-5 bg bg-secondary rounded text-center">
+                        <h4 class="section-heading text-uppercase">Enter your username</h4>
+                        <form>
+                            <div class="form-group p-3" id="formSelectUser">
+                                <input type="text" name="username" class="form-control input-lg" aria-describedby="emailHelp" placeholder="Type your username">
+                            </div>
+                            <button type="submit" value="Show User Stats" class="btn btn-primary">Show Me My Stats!</button>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="resultDisplay">
