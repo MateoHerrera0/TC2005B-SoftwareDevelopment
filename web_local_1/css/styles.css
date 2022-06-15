@@ -11817,7 +11817,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
   justify-content: center;
   align-items: center;
-
+  margin: 0 auto;
 }
 
 .chart2{
@@ -11826,6 +11826,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   grid-row: 1; */
 
   justify-content: center;
+  margin: 0 auto;
 
 }
 .chart3{
@@ -11834,5 +11835,9 @@ section#contact form#contactForm :-ms-input-placeholder {
   grid-row: 1; */
 
   justify-content: center;
-
+  margin: 0 auto;
+}
+#credits
+{
+  background-color: #022752 !important;
 }

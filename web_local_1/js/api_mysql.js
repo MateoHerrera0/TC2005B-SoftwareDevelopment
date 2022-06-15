@@ -263,6 +263,10 @@ try
                 options:
                 {
                     plugins: {
+                        title: {
+                            display: true,
+                            text: 'Time Stats'
+                        },
                         legend: {
                             labels: {
                                 color: '#FFFFFF'
