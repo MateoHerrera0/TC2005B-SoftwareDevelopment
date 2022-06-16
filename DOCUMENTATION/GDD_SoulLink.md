@@ -10,7 +10,6 @@
 ##### Mateo Herrera, A01751912
 ##### Ana Paula Katsuda, A01025303
 
-##
 ## _Index_
 
 ---
@@ -51,7 +50,7 @@ Given the difficulty in teaching video game design, Soul Link is an intuitive an
 
 ### **Gameplay**
 
-Being a video game focused on design, the gameplay consists of the use of tools (obstacles and enemies) to create a level. The user is free to add the elements as they wish (considering limits such as not adding two elements in the same place) and, at the end, then test their level. Specifically, the user will be able to add rooms to the general map, and subsequently choose a room to edit and insert elements in it. 
+Being a video game focused on design, the gameplay consists of the use of tools (obstacles and enemies) to create a level. The user is free to add the elements as they wish (considering limits such as space inside a room) and, at the end, then test their level. Specifically, the user will be able to add rooms to the general map, and subsequently choose a room to edit and insert elements in it. 
 
 Regarding the built level itself, the gameplay is based around classic dungeon crawler mechanics. The character has the ability to shoot at enemies with an arrow that the player will need to recall before being able to shoot again. This shoot/recall action is the way in which the player will deal damage to enemies, and it is the main mechanic the game designers will have to keep in mind in order to create interesting levels. Furthermore, the player will also be able to explore the dungeon using the WASD keys, as well as dodge incoming damage with the spacebar key.
 
@@ -112,21 +111,16 @@ On the other hand, controls for playing the game will include moving by using th
     * Play test: The user will have to play test their level and complete it before being able to upload the level.
     * Game upload: Once completed, the player will be able to upload the level into the server by clicking the green checkmark.
 2. Rooms
-    * Room Selection: The user will be able to select a room using their mouse and drop it into a 3x3 grid to deploy it inside the dungeon. This room will be an empty canvas in which the designer will be able to drag and drop different enemies and obstacles of their choosing. To make an acceptable level, the designers will have to put one starting room and one final room. These rooms will be identifiable inside the game builder.
+    * Room Selection: The user will be able to select a room using their mouse and drop it into a grid to deploy it inside the dungeon. This room will be an empty canvas in which the designer will be able to drag and drop different enemies and obstacles of their choosing. To make an acceptable level, the designers will have to put one starting room and one final room. These rooms will be identifiable inside the game builder.
     * Room Placement: When placing a room, the room will snap into the nearest available spot inside the grid when dropped.
-    * Re-place Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to move the room.
-    * Delete Room: When already placed, clicking the room once will bring up a little menu where the user will be able to select an option to delete the room.
+    * Delete Room: When already placed, clicking the room once again will delete the room.
     * Starting Room: The starting room will be an empty room that will have the special characteristic of being the place where the player spawns.
     * Final Room: The final room will be the room in which a boss will spawn. This room also signals the final area of the game, and reaching it plus beating the boss will serve as the main objective of the game.
-    * Entering individual rooms: the user will be able to double-click a specific room in order to access room editing. 
-    * Room Link: The user will have the option to link two adjacent rooms with a door while inside the room.
+    * Entering individual rooms: the user will be able to right-click a specific room in order to access room editing. 
+    * Room Link: Rooms that are connected will be linked automatically
 3. Enemies/Obstacles
-    * Enemy/Obstacle Placement: The user will be able to select and place enemies and obstacles inside a normal room (excludes staring and final room). This will be achieved using a drag and drop mechanic, where the user can click an object/obstacle and place it inside the room by clicking inside it again. The object/obstacle will snap into the nearest available spot inside a grid.
-    * Enemy Customization: The user will be able to double click an already placed enemy and edit their hit points and abilities. The abilities include splitting into two after killing the enemy the first time, phasing through walls, increased velocity and shooting projectiles. The user will also be able to select what object drops from the enemy.
-    * Re-place Enemy/Obstacle: When already placed, clicking the enemy/obstacle will bring up a little menu menu where the user will be able to select an option to move the room. 
+    * Enemy/Obstacle Placement: The user will be able to select and place enemies and obstacles inside a normal room (excludes staring room). This will be achieved using a click and drop mechanic, where the user can click an object/obstacle and place it inside the room by clicking inside it again.
     * Delete Enemy/Obstacle: When already placed, clicking the enemy/obstacle once will bring up a little menu where the user will be able to select an option to delete the room.
-4. Boss
-    * Boss Customization: The boss is a unique mob that can only be placed inside a final room. This enemy can be customized with multiple abilities.
 
 **Game**
 1. General Mechanics
@@ -140,18 +134,18 @@ On the other hand, controls for playing the game will include moving by using th
     * Arrow shooting: Once the mouse is placed in the wanted direction, the player will only need to left-click in order to shoot it. Once the arrow touches an object, it will fall (it will not bounce).
     * Arrow retrieval: If the player doesn’t have the arrow in the main character’s hand, they can left-click (anywhere in the screen except in the buttons), so it returns to the character. The arrow will be able to return in the middle of the trajectory, or after colliding with an object (or the walls). 
     * Damage: When touched by enemies/projectile/trap, the player will lose a hit point. 
-    * Death: The main character has a total of 4 hit points and will die when losing the last one, meaning that the player has lost the game. 
+    * Death: The main character has a full health bar and dies when it's depleted, meaning that the player has lost the game. 
 3. Rooms
     * Room Lock: When entering a room the doors will lock, they will open until the enemies inside the room are defeated.
 4. Enemy/Boss
-    * Movement: The enemies will move according to the ability set by the game designer. Most of them will try to get close to the player, unless the shooting ability is selected, since those enemies will try to get away.
-    * Attack: The enemies will attack according to the ability set by the game designer. Most of them will try to get close to the player to hurt them, unless the shooting ability is selected, since those enemies will attack from a distance.
+    * Movement: The enemies will move according to their programmed behaviour. Most of them will try to get close to the player, unless the shooting ability is selected, since those enemies will try to get away.
+    * Attack: The enemies will attack according to to their programmed behaviour. Most of them will try to get close to the player to hurt them, unless the shooting ability is selected, since those enemies will attack from a distance.
     * Damage: The enemies will take damage when hit by the arrow, they will have a graphic response when hurt.
     * Death: When damage depletes hitpoints, they will die and disappear.
 5. Obstacles
     * Traps: The traps will damage the player when contact is made.
-    * Dirt: Dirt will slow down player speed when in contact.
-    * Rocks: the rocks will limit the player’s movement by interfering with it. They will act as a collider that doesn’t allow the player to go through them (they will have to surround them).
+    * Holes: Holes will slow down player speed when in contact.
+    * Boxes: Boxes will limit the player’s movement by interfering with it. They will act as a collider that doesn’t allow the player to go through them (they will have to surround them).
 
 ## _Level Design_
 
@@ -168,17 +162,18 @@ On the other hand, controls for playing the game will include moving by using th
             2. Bright rocks
             3. Dirt 
         2. Interactive
-            1. Bats
-            2. Ant
-            3. Dividing Slime
-            4. Ghost
-            5. Venom spitting spider
-            6. Boss
-            7. Rocks
-            8. Arrows
-            9. HealthBoost powerUp
-            10. Health heart
-            11. SpeedBoost powerUp
+            1. Demon Enemy
+            2. Dragon Enemy
+            3. Goblin Enemy
+            4. SpiderEnemy
+            5. Zombie Enemy
+            6. Ghost Enemy
+            7. Boss
+            8. Rocks
+            9. Arrows
+            10. HealthBoost powerUp
+            11. Health heart
+            12. SpeedBoost powerUp
 
 ### **Game Flow**
 
@@ -188,13 +183,10 @@ On the other hand, controls for playing the game will include moving by using th
 3. Player drags and drops rooms into maze grid 
 4. Player double clicks rooms
 5. Player drags and drops enemies/obstacles inside rooms
-6. Player double clicks enemies to assign abilities
-7. Player double clicks final room
-8. Player drags and drops boss
-9. Player double clicks boss
-10. Player assigns boss abilities
-11. Player play tests level
-12. Player publishes level to database
+6. Player double clicks final room
+7. Player drags and drops boss
+8. Player play tests level
+9. Player publishes level to database
 
 **Game**
 1. Player starts in Cave
@@ -219,9 +211,9 @@ On the other hand, controls for playing the game will include moving by using th
     4. CheckElementPosition
     5. PlayTest
 2. Enemy
-    1. EnemyCustomization
+    1. EnemyPlacement
 3. Boss
-    1. BossCustomization
+    1. BossPlacement
 4. Room
     1. DoorCreation
 
@@ -241,18 +233,17 @@ On the other hand, controls for playing the game will include moving by using th
     5. PlayerPowerUps
     6. PlayerAnimation
 3. Enemy
-    1. EnemyFlying
-    2. EnemySplitting
-    3. EnemyPhasing
-    4. EnemyShooting
-    5. EnemyMovement
-    6. EnemyLife
-    7. EnemyDropItem
-    8. EnemyAnimation
-        1. Spider
-        2. Slime
-        3. Ghost
-        4. Ant
+    1. EnemyShooting
+    2. EnemyMovement
+    3. EnemyLife
+    4. EnemyDropItem
+    5. EnemyAnimation
+        1. Demon Enemy
+        2. Dragon Enemy
+        3. Goblin Enemy
+        4. SpiderEnemy
+        5. Zombie Enemy
+        6. Ghost Enemy
 4. Boss
     1. BossMovement
     2. BossAnimation
@@ -262,95 +253,12 @@ On the other hand, controls for playing the game will include moving by using th
     2. RoomClearOpen
 6. Arrow
     1. ArrowMechanics
-    2. ArrowPowerUp
 7. Pick Up Objects
     1. HealPlayer
-    2. SpeedBoost
-    3. HealthBoost
 8. Obstacles
-    1. ObstacleRock 
-    2. ObstacleDirt
+    1. ObstacleBox
+    2. ObstacleHole
     3. ObstacleSpikes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## _Graphics_
 
@@ -383,7 +291,7 @@ Interactions with different elements will look as follows:
         7. death
         ![Main Character](Images/MainCharacter.png)
 
-2. Enemies
+2. Originally Planned Enemies
     1. Bat
         1. idle
         2. flying
@@ -422,6 +330,7 @@ Interactions with different elements will look as follows:
 3. Room
     1. Walls
     2. Door (matching Stone Bricks)
+    3. 
 4. Ambient
     1. Dirt surface
         ![Dirt](Images/Dirt.png)
@@ -458,20 +367,13 @@ Instrumental vibes, nothing too exciting. Slow to medium tempo on normal gamepla
 1. Effects
     1. Soft Footsteps (Payer movement on dirt floor)
     2. Whistling arrow through the air
-    3. Flapping bat wings
-    4. Gooey sound (slime enemy movement)
-    5. Soft tickling (ant movement)
-    6. Pitched tickling (spider movement)
     7. Thumping footsteps (boss movement)
 2. Feedback
     1. Heal up sound (health power up)
     2. Heart pumping sound (heart health object)
     3. Enemy shriek (when attacking)
-    4. Shocked "Huuuuhhh!" (attacked by enemy/boss)
-    5. Normal Chime (when normal arrow is thrown)
-    6. Hard-ice chime (when ice arrow is thrown)
-    7. Pitched chime (when speed arrow is thrown)
-    8. Grand chime (when ultimate arrow is thrown)
+    4. Damage Sound (attacked by enemy/boss)
+    5. Normal Chime (when arrow is thrown)
     9. Sad chime (Player died)
     10. Puff sound (Enemy died)
     11. Victory sound (Boss died)
@@ -514,3 +416,11 @@ Instrumental vibes, nothing too exciting. Slow to medium tempo on normal gamepla
 11. Final Video  - June 17th 
     1. Final presentation to AMEXVID
 
+##
+
+<p align="center">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0"       src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org   /licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License
+    </a>.
+</p>
+
+##
