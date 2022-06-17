@@ -152,8 +152,8 @@ try
             const gStats_gamesPlayed = values2.map(e => e['GamesPlayed'])
             const gamesPlayed_colors = values2.map(e => random_color(0.2))
             
-            const gStats_totalPoints = values2.map(e => e['TotalPoints'])
-            const totalPoints_colors = values2.map(e => random_color(0.3))
+            const gStats_averageTime = values2.map(e => e['AverageTime'])
+            const averageTime_colors = values2.map(e => random_color(0.3))
             
             const ctx2 = document.getElementById('chart2').getContext('2d')
             
@@ -173,9 +173,9 @@ try
                             backgroundColor: averagePoints_colors,
                         },
                         {
-                            label: 'Total Points',
-                            data: gStats_totalPoints,
-                            backgroundColor: totalPoints_colors,
+                            label: 'Average Time',
+                            data: gStats_averageTime,
+                            backgroundColor: averageTime_colors,
                         }
                     ]
                 },
@@ -226,29 +226,29 @@ try
             
             const values3 = Object.values(results3)
             
-            const tStats_averageTime = values3.map(e => e['AverageTime'])
-            const averageTime_colors = values3.map(e => random_color(0.8))
+            const tStats_totalPoints = values3.map(e => e['TotalPoints'])
+            const totalPoints_colors = values3.map(e => random_color(0.8))
             
             const tStats_totalTimePlayed = values3.map(e => e['TotalTimePlayed'])
             const totalTimePlayed_colors = values3.map(e => random_color(0.5))
             
             const ctx3 = document.getElementById('chart3').getContext('2d')
-            const data3data = [tStats_averageTime, tStats_totalTimePlayed]
+            // const data3data = [tStats_averageTime, tStats_totalTimePlayed]
             
             const tStatsChart = new Chart(ctx3, {
                 type: 'pie',
                 data: {
-                    labels: ['TotalTimePLayed', 'AverageTime'],
+                    labels: ['TotalTimePLayed', 'TotalPoints'],
                     datasets: [
                         {
                             // label: 'TotalTimePlayed',
-                            label: 'Time',
+                            label: 'Total Points and Time',
                             // label: ['Time', 'time2'],
-                            data: [tStats_totalTimePlayed, tStats_averageTime],
+                            data: [tStats_totalTimePlayed, tStats_totalPoints],
                             // data: data3data,
                             // borderColor: '#FFFFFF',
                             // backgroundColor: totalTimePlayed_colors,
-                            backgroundColor: [totalTimePlayed_colors, averageTime_colors]
+                            backgroundColor: [totalTimePlayed_colors, totalPoints_colors]
                         }
                     //     {
                     //         label: 'AverageTime',
