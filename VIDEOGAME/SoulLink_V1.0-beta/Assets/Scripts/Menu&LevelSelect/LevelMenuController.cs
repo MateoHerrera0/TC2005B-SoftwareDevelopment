@@ -11,12 +11,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+// Prefab of buttons that will be displayed on level select menu
 public enum PrefabType { Text, Button }
 
 public class LevelMenuController : MonoBehaviour
 {
+    // Variable that stores panel where levels will appear
     public GameObject levelHolder;
+    // Variable that stores button
     public Button levelIcon;
+    // Gam object that stores canvas of menu
     public GameObject thisCanvas;
     public int numberOfLevels;
     public Vector2 iconSpacing;

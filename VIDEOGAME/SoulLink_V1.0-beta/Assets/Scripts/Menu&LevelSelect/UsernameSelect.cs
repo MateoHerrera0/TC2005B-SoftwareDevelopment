@@ -1,5 +1,5 @@
 /*
-Code that handles get and post requests for created levels.
+Code that handles get and post requests for users
 
 Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
 */
@@ -45,38 +45,39 @@ public class UserList
 
 public class UsernameSelect : MonoBehaviour
 {
+    // String of loalhost url
     [SerializeField] string url;
+    // Users endpoint
     [SerializeField] string getUsersEP;
+    // Input field of username of login panel
     [SerializeField] InputField loginUsername;
+    // Input field of password of login panel
     [SerializeField] InputField loginPassword;
+    // Text where error can appear in login panel
     [SerializeField] Text loginError;
+    // Input field of username of sign up panel
     [SerializeField] InputField signUpUsername;
+    // Input field of password of sign up panel
     [SerializeField] InputField signUpPassword;
+    // Input field of email of sign up panel
     [SerializeField] InputField signUpEmail;
+    // Text where error can appear in sign up panel
     [SerializeField] Text signUpError;
+    // Variable that stores sign up panel
     [SerializeField] GameObject signUpPanel;
+    // Variable that stores login panel
     [SerializeField] GameObject loginPanel;
+    // Variable that stores menu controller
     [SerializeField] MenuController menu;
+    // Variable that stores Player Statistics
     [SerializeField] PlayerStatistics playerStatistics;
+    // Bool that checks if sign up panel is active
     bool signUpState = false;
-    
 
     // This is where the information from the api will be extracted
     public UserList allUsers;
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Space)) {
-        //     QueryLevel();
-        // }
-        // if (Input.GetKeyDown(KeyCode.N)) {
-        //     InsertNewUser();
-        // }
-    }
-
     // These are the functions that must be called to interact with the API
-
     public void QueryUser()
     {
         StartCoroutine(GetUser());
@@ -92,6 +93,7 @@ public class UsernameSelect : MonoBehaviour
         StartCoroutine(StartDeleteProcedure());
     }
 
+    // Function that toggles sign up panel
     public void ToggleSignUp()
     {
         if (signUpState)
@@ -108,7 +110,6 @@ public class UsernameSelect : MonoBehaviour
     }
 
     // These functions make the connection to the API
-
     IEnumerator GetUser()
     {
         using (UnityWebRequest www = UnityWebRequest.Get(url + getUsersEP + loginUsername.text + "/" + loginPassword.text))
@@ -193,6 +194,8 @@ public class UsernameSelect : MonoBehaviour
         }
     }
 
+    // Function that stores player id in player prefs and changes scene to 
+    // Main Menu
     void login(User userID)
     {
             PlayerPrefs.SetInt("userID", userID.usernameID);
@@ -200,6 +203,7 @@ public class UsernameSelect : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
     }
 
+    // Function that prints error
     void notLogin(string whyNot)
     {
         if (signUpState)
