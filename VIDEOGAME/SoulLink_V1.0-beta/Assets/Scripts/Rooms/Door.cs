@@ -10,15 +10,19 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    // Enum that stores all types of doors in a room
     public enum DoorType
     {
         left, right, top, bottom
     }
-
+    
+    // Class that uses enum
     public DoorType doorType;
     
+    // Object that stores the collider assigned to each door
     public GameObject doorCollider;
 
+    // Variable that stores the player object
     private GameObject player;
     //private float widthOffset = 4f;
 
