@@ -21,10 +21,10 @@ async function connectToDB()
 {
     return await mysql.createConnection({
         host:'localhost',
-         user:'web2',
-        //user:'AlleyCat',
-         password:'1234',
-        //password:'j2Qo6!fL949L',
+        //  user:'web2',
+        user:'AlleyCat',
+        //  password:'1234',
+        password:'j2Qo6!fL949L',
         database:'alley_cat_db'
 
     })
@@ -384,7 +384,7 @@ app.get('/api/chart2/:username', async (request, response)=>{
         connection = await connectToDB()
 
         // const [results, fields] = await 
-        const [results, fields] = await connection.query('select HighScore, AveragePoints, TotalPoints from user_point_stats where username=?',
+        const [results, fields] = await connection.query('select HighScore, AveragePoints, AverageTime from user_point_stats where username=?',
         request.params.username, (error, results, fields)=>{
             if(error) console.log(error)
             console.log("Sending data2 correctly.")
@@ -427,7 +427,7 @@ app.get('/api/chart3/:username', async (request, response)=>{
         connection = await connectToDB()
 
         // const [results, fields] = await 
-        const [results, fields] = await connection.query('select AverageTime, TotalTimePlayed from user_time_played  where username=?',
+        const [results, fields] = await connection.query('select TotalPoints, TotalTimePlayed from user_time_played  where username=?',
         request.params.username, (error, results, fields)=>{
             if(error) console.log(error)
             console.log("Sending data3 correctly.")

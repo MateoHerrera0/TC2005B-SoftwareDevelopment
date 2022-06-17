@@ -109,7 +109,7 @@ SELECT username, activity, lastActive
 --
 -- user points view
 CREATE VIEW user_point_stats AS SELECT username, usernameID, highScore AS `HighScore`, 
-averagePoints AS `AveragePoints`, gamesPlayed AS `GamesPlayed`, totalPoints AS `TotalPoints`
+averagePoints AS `AveragePoints`, gamesPlayed AS `GamesPlayed`, totalPoints AS `TotalPoints`, averageTime AS `AverageTime`
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (usernameID);
 
 --
@@ -122,7 +122,7 @@ ogreBoss AS `OgreBoss`, zombieBoss AS `ZombieBoss`
     
 --
 -- user time played view
-CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`
+CREATE VIEW user_time_played AS SELECT username, usernameID, averageTime AS `AverageTime`, totalTimePlayed AS `TotalTimePlayed`, totalPoints AS `TotalPoints`
 	FROM alley_cat_db.users LEFT JOIN alley_cat_db.gameStatistics USING (usernameID);
 
 
