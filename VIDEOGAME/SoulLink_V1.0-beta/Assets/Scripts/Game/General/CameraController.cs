@@ -11,18 +11,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    
+    // Instance of Camera Controller so methods can be called easier
     public static CameraController instance;
+    // Current room the player is in
     public Room currRoom;
+    // Speed in which camera follows player from room to room
     public float moveSpeedChangeRoom;
 
     private void Awake() {
         instance = this;
-    }
-    
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -31,6 +28,7 @@ public class CameraController : MonoBehaviour
         UpdatePosition();
     }
 
+    // Updates camera position to match player in room
     void UpdatePosition()
     {
         if (currRoom == null)
@@ -38,12 +36,16 @@ public class CameraController : MonoBehaviour
             return;
         }
 
+        // Calls function to get position
         Vector3 targetPos = GetCameraTargetPosition();
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * moveSpeedChangeRoom);
+        // Changes camera position to target position
+        transform.position = Vector3.MoveTowards(transform.position,
+        targetPos, Time.deltaTime * moveSpeedChangeRoom);
 
     }
 
+    // Function that return the new camera position
     Vector3 GetCameraTargetPosition()
     {
         if (currRoom == null)
@@ -51,12 +53,14 @@ public class CameraController : MonoBehaviour
             return Vector3.zero;
         }
 
+        // Changes camera position to center of current room
         Vector3 targetPos = currRoom.GetRoomCentre();
         targetPos.z = transform.position.z;
         
         return targetPos;
     }
 
+    // Checks if camera is still switching between scenes
     public bool IsSwitchingScene()
     {
         return transform.position.Equals(GetCameraTargetPosition()) == false;

@@ -62,7 +62,6 @@ public class LevelSelectController : MonoBehaviour
     }
 
     // These are the functions that must be called to interact with the API
-
     public void QueryLevel()
     {
         

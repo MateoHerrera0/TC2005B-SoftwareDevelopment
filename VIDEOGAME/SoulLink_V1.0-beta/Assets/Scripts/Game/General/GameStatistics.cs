@@ -1,5 +1,5 @@
 /*
-Code that handles get and post requests for created levels.
+Code that handles get and post requests for game statistics.
 
 Ana Paula Katsuda, Mateo Herrera & Gerardo Gutiérrez
 */

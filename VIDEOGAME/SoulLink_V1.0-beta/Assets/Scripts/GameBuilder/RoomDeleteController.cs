@@ -12,12 +12,8 @@ public class RoomDeleteController : MonoBehaviour
         Vector2 pos = editor.SnapToGrid(new Vector2(this.transform.position.x, this.transform.position.y));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // When room is clicked again it gets deleted, and when room is right clicked
+    // it is opened for enemy placement
     private void OnMouseOver() {
         if(!editor.enemyPlaceState)
         {

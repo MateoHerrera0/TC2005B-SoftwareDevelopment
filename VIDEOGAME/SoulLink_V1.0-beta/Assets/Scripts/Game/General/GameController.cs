@@ -13,20 +13,29 @@ using System;
 
 public class GameController : MonoBehaviour
 {
-
+    // Game controller instance so that methods can be called easier
     public static GameController instance;
+    // Bool that checks if final room has been reached
     public bool endRoomReached = false;
+    // Bool that checks if game is test game
     public bool isTest;
+    // Variable that stores panel displayed when game test is won.
     public GameObject gameTestWinUi;
+    // Variabe that stores player game object
     public GameObject player;
+    // Variable that stores game builder controller game object
     public GameBuilderController editor;
+    // Variable that stores statistics game object
     public GameStatistics statistics;
+    // Variable that stores level select controller game object
     LevelSelectController publisher;
+    // Variable that stores builder statistics game object
     GameBuilderStatistics builderStatistics;
-
     // Determine if game is paused
     public static bool isPaused = false;
+    // Bool that checks id boss has been placed
     bool bossPlaced = true;
+    // Bool used so that something is only called once
     bool justOnce;
     // Pause menu object
     public GameObject pauseMenu; 
@@ -52,6 +61,7 @@ public class GameController : MonoBehaviour
     public GameObject BuilderOverMenu; 
     private void Awake()
     {
+        // Creates instance of class
         if(instance == null)
         {
             instance = this;
@@ -60,6 +70,7 @@ public class GameController : MonoBehaviour
 
     // Start is called before the first frame update
     private void Start() {
+        // Only gets certain variabples if test
         if (isTest)
         {
             editor = GameObject.FindGameObjectWithTag("GameBuilderController").GetComponent<GameBuilderController>();
@@ -76,10 +87,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Checks if game completion conditions have been met
         if (endRoomReached && bossPlaced && GameObject.FindGameObjectWithTag("Boss") == null)
         {
             endGame();
         }
+        // If the game is not a test game the following occurs.
         if(!isTest)
         {
             // When escape key is pressed
@@ -177,11 +190,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Returns to builder
     public void CancelPublish()
     {
         editor.ToggleGameBuilder();
     }
 
+    // Built ñevel is published
     public void Publish()
     {
         publisher.InsertNewLevel();

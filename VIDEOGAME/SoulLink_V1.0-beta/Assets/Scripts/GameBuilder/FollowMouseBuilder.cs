@@ -9,7 +9,9 @@ using UnityEngine;
 
 public class FollowMouseBuilder : MonoBehaviour
 {
+    // Variable that stores game builder controller game object
     private GameBuilderController editor;
+    // Variable that stores the image position
     public Vector2 imagePos;
 
     void Start() {
@@ -19,9 +21,12 @@ public class FollowMouseBuilder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Screen to world position of mouse
         Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
         
+        // Depending on state of builder (inside or outside room), snap to place
+        // is implemented
         if (!editor.enemyPlaceState)
         {
             transform.position = editor.SnapToGrid(worldPos);
@@ -29,6 +34,7 @@ public class FollowMouseBuilder : MonoBehaviour
         {
             transform.position = worldPos;
         }
+        // Image position is updated.
         imagePos = transform.position;
     }
 
